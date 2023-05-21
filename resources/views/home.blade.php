@@ -1,146 +1,132 @@
 <x-front_header :category="$category"/>
-	
 	<?php error_reporting(1);?>
-	
-	
 	<!-- navbar end -->
-<div class="container-fluid px-5">
-	<section class="grid-style-1 bg-light">
-		<div class="row mt-5">
-			<!-- first colume -->
-			<div class="col-md-3">
-				<div class="card border-0">
-<?php
-
-
-
-
-
-$section_one_left = DB::table('home_templates')->where('page_name','home')->where('position','left')->where('section','1')->first();
-$news_section1_left=DB::table('news')->whereIn('category',[$section_one_left->category])->orderBy('news_date','DESC')->limit(1)->first();
-
-
-
-?>
-					<div class="card-body">
-						<h5 class="card-title">{{$news_section1_left->title}}</h5>
-						<a href="news-details?news_id=<?php echo $news_section1_left->id;?>"><img src="uploads/news/{{$news_section1_left->image}}" class="img-fluid" alt="Post-Image">
-						<p class="card-text">{{$news_section1_left->sub_title}} </p></a>
-					</div>
-				</div>
-				
-				<div class="card mb-3 border-0">
-  				<div class="row ">
-					<?php
-				  $news_section1_left_category=DB::table('news')->whereIn('category',[$section_one_left->category])->orderBy('news_date','DESC')->skip(1)->take(7)->get();
-			     	foreach($news_section1_left_category as $leftct1){?>
-				 
-				 
-				      <div class="mt-4 img-fluid col-md-4 border-0">
-			      	<img src="uploads/news/{{$leftct1->image}}" class="" alt="..." style="width: 100%;">
-			    	</div>
-                
-				    <div class="col-md-8" style="padding-left: 0px !important">
-				      <div class="card-body">
-				        <a href="news-details?news_id=<?php echo $leftct1->id;?>"><h5 class="card-title pt-2">'{{$leftct1->title}}.</h5></a>
-				      </div>
-				    </div>
-				    
- <?php }?>
-				    
-
-				    
-
-  				</div>
-				</div>
-			</div>
-			<!-- second colume -->
-			<div class="col-md-6">
-				<div class="row">
-<?php
-				$section_one_middle = DB::table('home_templates')->where('page_name','home')->where('position','middle')->where('section','1')->first();
-$news_section1_middle=DB::table('news')->whereIn('category',[$section_one_middle->category])->orderBy('news_date','DESC')->limit(1)->first();
-
-
-?>
-
-					<div class="col-md-8">
-						<div class="card text-bg-dark">
-				  		<a href="news-details?news_id=<?php echo $news_section1_middle->id;?>">
-				  		    <img src="uploads/news/<?php echo @$news_section1_middle->image;?>" class="card-img" alt="...">
-				  		    </a>
-						</div>
-
-
-						<div class="card mb-3 border-0">
-  						<div class="row ">
-	<?php 
- $news_section1_middle_category=DB::table('news')->whereIn('category',[$news_section1_middle->category])->orderBy('news_date','DESC')->skip(1)->take(7)->get();
-			     	foreach($news_section1_middle_category as $midct1){?>
-						    <div class="mt-4 img-fluid col-md-4 border-0">
-						      <img src="uploads/news/{{@$midct1->image}}" class="" alt="..." style="width: 100%;">
-						    </div>
-
-						    <div class="col-md-8" style="padding-left: 0px !important">
-						      <div class="card-body">
-						       <a href="news-details?news_id=<?php echo $midct1->id;?>">
-						            <h5 class="card-title pt-2">{{@$midct1->title}}</h5>
-						            </a>
-						      </div>
-						    </div>
-                       <?php } ?>
-						    
-
-						    
-
-						  
-
-						   
-
-						   
-
-						   
-  						</div>
-						</div>
-					</div>
-					<div class="p-0 col-md-4">
+	<div class="container-fluid px-5">
+		<section class="grid-style-1 bg-light">
+			<div class="row mt-5">
+				<!-- first colume -->
+				<div class="col-md-3">
+					<div class="card border-0">
 						<?php
-					$section_one_right = DB::table('home_templates')->where('page_name','home')->where('position','right')->where('section','1')->first();
-$news_section1_right=DB::table('news')->whereIn('category',[$section_one_right->category])->orderBy('news_date','DESC')->limit(7)->get();	
-	
-foreach($news_section1_right as $sec_right1){?>	
-  <a href="news-details?news_id=<?php echo $sec_right1->id?>">
-  <p> <?php echo $sec_right1->title?></p><hr> </a>
-     
-		<?php }?>	
-						
-						
+							$section_one_left = DB::table('home_templates')
+							->where('page_name','home')
+							->where('position','left')
+							->where('section','1')->first();
+							$news_section1_left=DB::table('news')
+							->whereIn('category',[$section_one_left->category])
+							->orderBy('news_date','DESC')
+							->limit(1)->first();
+						?>
+						<div class="card-body">
+							<h5 class="card-title">{{$news_section1_left->title}}</h5>
+							<a href="news-details?news_id=<?php echo $news_section1_left->id;?>"><img src="uploads/news/{{$news_section1_left->image}}" class="img-fluid" alt="Post-Image">
+							<p class="card-text">{{$news_section1_left->sub_title}} </p></a>
+						</div>
+					</div>
+					<div class="card mb-3 border-0">
+  						<div class="row ">
+							<?php
+				  				$news_section1_left_category=DB::table('news')
+								->whereIn('category',[$section_one_left->category])
+								->orderBy('news_date','DESC')
+								->skip(1)->take(7)->get();
+			     				foreach($news_section1_left_category as $leftct1){?>
+				      				<div class="mt-4 img-fluid col-md-4 border-0">
+			      						<img src="uploads/news/{{$leftct1->image}}" class="" alt="..." style="width: 100%;">
+			    					</div>
+									<div class="col-md-8" style="padding-left: 0px !important">
+										<div class="card-body">
+											<a href="news-details?news_id=<?php echo $leftct1->id;?>"><h5 class="card-title pt-2">'{{$leftct1->title}}.</h5></a>
+										</div>
+									</div><?php 
+								}
+							?>
+						</div>
 					</div>
 				</div>
+				<!-- second colume -->
+				<div class="col-md-6">
+					<div class="row">
+						<?php
+							$section_one_middle = DB::table('home_templates')
+							->where('page_name','home')
+							->where('position','middle')
+							->where('section','1')->first();
+							$news_section1_middle=DB::table('news')
+							->whereIn('category',[$section_one_middle->category])
+							->orderBy('news_date','DESC')
+							->limit(1)->first();
+						?>
+						<div class="col-md-8">
+							<div class="card text-bg-dark">
+								<a href="news-details?news_id=<?php echo $news_section1_middle->id;?>">
+									<img src="uploads/news/<?php echo @$news_section1_middle->image;?>" class="card-img" alt="...">
+								</a>
+							</div>
+							<div class="card mb-3 border-0">
+  								<div class="row ">
+									<?php 
+ 										$news_section1_middle_category=DB::table('news')
+										->whereIn('category',[$news_section1_middle->category])
+										->orderBy('news_date','DESC')
+										->skip(1)->take(7)->get();
+			     						foreach($news_section1_middle_category as $midct1){?>
+											<div class="mt-4 img-fluid col-md-4 border-0">
+												<img src="uploads/news/{{@$midct1->image}}" class="" alt="..." style="width: 100%;">
+											</div>
+											<div class="col-md-8" style="padding-left: 0px !important">
+												<div class="card-body">
+													<a href="news-details?news_id=<?php echo $midct1->id;?>">
+														<h5 class="card-title pt-2">{{@$midct1->title}}</h5>
+													</a>
+												</div>
+											</div> <?php 
+										} 
+									?>
+								</div>
+							</div>
+						</div>
+						<div class="p-0 col-md-4">
+							<?php
+								$section_one_right = DB::table('home_templates')
+								->where('page_name','home')
+								->where('position','right')
+								->where('section','1')->first();
+								$news_section1_right=DB::table('news')
+								->whereIn('category',[$section_one_right->category])
+								->orderBy('news_date','DESC')
+								->limit(7)->get();
+								foreach($news_section1_right as $sec_right1){?>	
+  									<a href="news-details?news_id=<?php echo $sec_right1->id?>">
+										<p> <?php echo $sec_right1->title?></p><hr> 
+									</a><?php 
+								}
+							?>
+						</div>
+					</div>
+				</div>
+				<!-- third colume -->
+				<div class="col-md-3">
+					<?php
+						$advertisedata = DB::table('advertisements')
+						->inRandomOrder()
+						->limit(2)->get();
+						foreach($advertisedata as $ads){
+                   			if($ads->ads_type=='google'){?>
+								<p><?php echo $ads->google_script;?></p><?php 	
+							}else{?>
+								<img src="uploads/ads/<?php echo $ads->image;?>" class="img-fluid" alt="..."><?php 
+							} 
+						}
+					?>
+				</div>
 			</div>
-			<!-- third colume -->
-			<div class="col-md-3">
-			<?php
-			$advertisedata = DB::table('advertisements')->inRandomOrder()->limit(2)->get();
-				foreach($advertisedata as $ads){
-
-                   if($ads->ads_type=='google'){?>
-				  
-					<p><?php echo $ads->google_script;?></p>
-					<?php }else{?>
-			<img src="uploads/ads/<?php echo $ads->image;?>" class="img-fluid" alt="...">
-					
-			<?php } }?>
-
-			</div>
-			
-		</div>
-	</section>
-</div>
-<section>
-	<div class="mt-5">
-		<div class="container-fluid px-5 mb-5">
-			<div class="row">
+		</section>
+	</div>
+	<section>
+		<div class="mt-5">
+			<div class="container-fluid px-5 mb-5">
+				<div class="row">
 <?php
 			$section_two_left = DB::table('home_templates')->where('page_name','home')->where('position','left')->where('section','2')->first();
 $news_section2_left=DB::table('news')->whereIn('category',[$section_two_left->category])->orderBy('news_date','DESC')->limit(7)->get();	
@@ -1351,7 +1337,7 @@ $news_section16_left2=DB::table('news')->whereIn('category',[$section_sixteen_le
 						<div class="row">
 						 <div class="img-fluid col-md-4 border-0">
 						     <a href="news-details?news_id=<?php echo $sec16_left2->id?>">
-						  <img src="<?php echo $sec16_left2->image;?>?size=100:58" class="" alt="..." style="width: 100%;">
+						  <img src="uploads/news/<?php echo $sec16_left2->image;?>?size=100:58" class="" alt="..." style="width: 100%;">
 						  </a>
 						    </div>
 

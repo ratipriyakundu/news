@@ -5041,6 +5041,21 @@
 	text-align: center;
 	list-style: none;
 }
+#newsSection p {
+    margin: 10px auto;
+    font-size: 16px;
+}
+#newsSection img {
+    margin: 30px auto;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.img-fluid {
+    border-radius: 12px;
+    object-fit: cover;
+}
     </style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -5067,7 +5082,7 @@ $logo= DB::table('logo')->where('id',1)->first();
             <div style="width:1244px;position:relative;margin:0 auto;display:flex;justify-content:space-between"
                 class="jsx-2167635379 headerContainer">
                 <div style="display:flex;align-self:center;height:58px;max-width:200px"
-                    class="jsx-2167635379 topLogoWrap"><a href="index.html" class="jsx-2167635379 logo"><img
+                    class="jsx-2167635379 topLogoWrap"><a href="/" class="jsx-2167635379 logo"><img
                             src="uploads/logo/<?php echo $logo->logo;?>"
                             alt="News18 Logo" style="width:89px;min-height:47px;max-height:80px;margin-top: -10px;"
                             class="jsx-2167635379" /></a></div>
@@ -5076,7 +5091,7 @@ $logo= DB::table('logo')->where('id',1)->first();
                         <div style="background:#e1261d;display:flex;justify-content:space-between;color:#fff;align-items:center;padding-right:0;padding-bottom:0;padding-top:1px;height:26px"
                             class="jsx-2167635379 languagebox"><span class="jsx-2167635379">CHANGE LANGUAGE</span>
                             <div style="background:#fff;padding-left:10px;min-width:130px;color:#6c6c6c;font-size:12px;position:relative;border-radius:0 0 7px 7px;display:flex;align-items:center;height:100%"
-                                class="jsx-2167635379 linner"><a href="index.html"
+                                class="jsx-2167635379 linner"><a href="/"
                                     class="jsx-2167635379">English<!-- --> <span
                                         class="jsx-2167635379 nhlanguate-arrow hsocial-sprite"></span></a>
                                 <div class="jsx-2167635379 lddnav"><a href="https://hindi.news18.com/"
@@ -5103,11 +5118,11 @@ $logo= DB::table('logo')->where('id',1)->first();
                                         class="jsx-2167635379">ଓଡ଼ିଆ<!-- --> </a></div>
                             </div>
                         </div>
-                        <div class="jsx-2167635379 nhlivetv"><a href="livetv/index.html"
+                        <div class="jsx-2167635379 nhlivetv"><a href="/"
                                 class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhlivetv-icon hsocial-sprite"></span><strong
                                     class="jsx-2167635379">WATCH LIVE TV</strong></a></div>
-                        <div class="jsx-2167635379 lnlapp"><a href="app-download/index.html" target="_blank"
+                        <div class="jsx-2167635379 lnlapp"><a href="/" target="_blank"
                                 rel="nofollow" class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhapp-icon hsocial-sprite"></span><strong
                                     class="jsx-2167635379">DOWNLOAD News18 APP</strong></a></div>
@@ -5144,7 +5159,7 @@ $logo= DB::table('logo')->where('id',1)->first();
 	</div>
 	<ul class="navbar-nav">
 	<li class="nav-item">
-	<a class="nav-link active" aria-current="page" href="https://marutitea.in/news/public/">Home</a>
+	<a class="nav-link active" aria-current="page" href="/">होम</a>
 	</li>
     @foreach($category as $cat)
 
@@ -5258,7 +5273,7 @@ $logo= DB::table('logo')->where('id',1)->first();
 
   <!-- mobile menu  -->
   <div class="scrollmenu">
-    <a href="https://marutitea.in/news/public/">Home</a>
+    <a href="/">होम</a>
 	 @foreach($category as $cat)
 <a href="{{route('news-categories')}}?category_id={{$cat->id}}">{{$cat->title}}</a>
     
@@ -5277,7 +5292,7 @@ $logo= DB::table('logo')->where('id',1)->first();
     <span onclick="closemenu()" class="close">&times;</span>
     <h2>Logo</h2>
     <ul>
-      <li><a href="">Home</a></li>
+      <li><a href="/">होम</a></li>
 	   @foreach($category as $cat)
 	   <li><a href="{{route('news-categories')}}?category_id={{$cat->id}}">{{$cat->title}}</a></li>
 	  @endforeach

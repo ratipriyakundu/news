@@ -18,9 +18,9 @@
 			    </div>	
 				</div>
 				<!-- breadcrumb end -->
-                <h2 style="font-size: 25px;">{{$news->title}}</h2>
-                <img src="uploads/news/{{$news->image}}" class="img-fluid" alt="..." style="width:100%;">
-                <div class="p-3">{!! html_entity_decode($news->description) !!}</div>
+                <h2 style="font-size: 25px; margin: 20px auto;">{{$news->title}}</h2>
+                <img src="uploads/news/{{$news->image}}" class="img-fluid" alt="..." style="width:100%; height:400px; object-fit:cover; border-radius:12px;">
+                <div id="newsSection">{!! html_entity_decode($news->description) !!}</div>
 				@php
 					$timeDiff = ((\Carbon\Carbon::now('Asia/Kolkata')->diffInMinutes(\Carbon\Carbon::parse($news->added_at))) - ($news->breaking_news));
 				@endphp
