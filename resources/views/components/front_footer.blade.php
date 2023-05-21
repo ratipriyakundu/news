@@ -43,7 +43,7 @@
 					<div class="row">
 						<div class="col-md-6"></div>
 						<div class="col-md-6">
-							<h5 style="margin-left:54%;">Follow us onnnnnnn</h5>
+							<h5 style="margin-left:54%;">Follow us on</h5>
 		   					<ul>
 								<?php
 									$social_links = DB::table('socials')->orderBy('id','ASC')->get();
