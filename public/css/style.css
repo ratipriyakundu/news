@@ -506,6 +506,7 @@ div.scrollmenu {
 .mob-menu {
   background-color: white;
   padding: 0px;
+  overflow-y: scroll;
 }
 .mob-menu .close {
   color: #f70404;
