@@ -5152,7 +5152,7 @@ $logo= DB::table('logo')->where('id',1)->first();
         </div>
     </header>
 	<!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary" id="computermn">
+<nav class="navbar navbar-expand-lg bg-body-tertiary d-none" id="computermn">
 	<div class="container-fluid">
 	<div class="collapse navbar-collapse" id="navbarNavDropdown">
 	<div class="nav-icon"><i class="fa-solid fa-bars"></i>
@@ -5162,13 +5162,26 @@ $logo= DB::table('logo')->where('id',1)->first();
 	<a class="nav-link active" aria-current="page" href="/">होम</a>
 	</li>
     @foreach($category as $cat)
-
-    <li class="nav-item">
-	<a class="nav-link" href="{{route('news-categories')}}?category_id={{$cat->id}}"> {{$cat->title}}</a>
-	</li>
-   
-
-@endforeach
+        @php
+            $sub_categories = \App\Models\Subcategory::where('category_id',$cat->id)->get();
+        @endphp
+        @if($sub_categories->count() > 0)
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink{{$cat->id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{$cat->title}}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink{{$cat->id}}">
+                    @foreach($sub_categories as $sub_category)
+                        <li><a class="dropdown-item" href="{{route('news-categories')}}?category_id={{$cat->id}}&subcategory_id={{$sub_category->id}}">{{$sub_category->title}}</a></li>
+                    @endforeach
+                </ul>
+            </li>
+        @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('news-categories')}}?category_id={{$cat->id}}"> {{$cat->title}}</a>
+            </li>
+        @endif
+    @endforeach
 	
 	
 	</ul>
@@ -5177,6 +5190,47 @@ $logo= DB::table('logo')->where('id',1)->first();
 	</div>
 	</div>
 	</nav>
+
+    {{-- nav bar --}}
+    <nav class="menu-wrapper desktop-menu">
+        <ul>
+            <li class="menu-list">
+                <a href="/">होम</a>
+            </li>
+            @foreach($category as $cat)
+                @php
+                    $sub_categories = \App\Models\Subcategory::where('category_id',$cat->id)->get();
+                @endphp
+                @if($sub_categories->count() > 0)
+                    <div class="menu-dropdown">
+                        <li class="menu-list">
+                            <a href="{{route('news-categories')}}?category_id={{$cat->id}}">
+                                {{$cat->title}}
+                            </a>
+                        </li>
+                        <div class="sub-menu">
+                            <ul>
+                                @foreach($sub_categories as $sub_category)
+                                    <li>
+                                        <a href="{{route('news-categories')}}?category_id={{$cat->id}}&subcategory_id={{$sub_category->id}}">
+                                            {{$sub_category->title}}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                @else
+                    <li class="menu-list">
+                        <a href="{{route('news-categories')}}?category_id={{$cat->id}}">
+                            {{$cat->title}}
+                        </a>
+                    </li>
+                @endif
+            @endforeach
+        </ul>
+    </nav>
+    {{-- end nav bar --}}
 
     
     <nav class="navbar navbar-expand-lg bg-body-tertiary" id="computermn1">
@@ -5272,34 +5326,60 @@ $logo= DB::table('logo')->where('id',1)->first();
   </div>
 
   <!-- mobile menu  -->
-  <div class="scrollmenu">
-    <a href="/">होम</a>
-	 @foreach($category as $cat)
-<a href="{{route('news-categories')}}?category_id={{$cat->id}}">{{$cat->title}}</a>
-    
-   
-
-@endforeach
-	
-	
-   
-  </div>
+    <div class="scrollmenu">
+        <a href="/">होम</a>
+	    @foreach($category as $cat)
+            <a href="{{route('news-categories')}}?category_id={{$cat->id}}">{{$cat->title}}</a>
+        @endforeach
+    </div>
 
 
   <!-- off canvas menu  -->
 
   <div class="mob-menu">
-    <span onclick="closemenu()" class="close">&times;</span>
-    <h2>Logo</h2>
-    <ul>
-      <li><a href="/">होम</a></li>
-	   @foreach($category as $cat)
-	   <li><a href="{{route('news-categories')}}?category_id={{$cat->id}}">{{$cat->title}}</a></li>
-	  @endforeach
-      <li><a href="">About Us</a></li>
-      <li><a href="">Gallery</a></li>
-      <li><a href="">Contact Us</a></li>
-    </ul>
+    <div>
+        <span onclick="closemenu()" class="close">&times;</span>
+    </div>
+    <div class="text-center">
+        <img  src="img/mob-logo.png" class="mt-5" width="80px" height="auto" />
+    </div>
+    <div class="mobile-menu mt-3">
+        <div class="mobile-menu-item d-flex">
+            <a href="/" class="mobile-sub-menu-text flex-grow-1">होम</a>
+        </div>
+        @foreach($category as $cat)
+            @php
+                $sub_categories = \App\Models\Subcategory::where('category_id',$cat->id)->get();
+            @endphp
+            @if($sub_categories->count() > 0)
+                <div class="mobile-menu-item d-flex">
+                    <a href="{{route('news-categories')}}?category_id={{$cat->id}}" 
+                        class="mobile-sub-menu-text flex-grow-1">{{$cat->title}}
+                    </a>
+                    <div class="mobile-sub-menu-arrow" onclick="showSubMenu('mobile-sub-menu-content-{{$cat->id}}','sub-menu-control-{{$cat->id}}')">
+                        <i class="fa fa-angle-right" id="sub-menu-control-{{$cat->id}}"></i>
+                    </div>
+                    <br>
+                </div>
+                <div class="d-none" id="mobile-sub-menu-content-{{$cat->id}}">
+                    @foreach($sub_categories as $sub_category)
+                        <div class="mobile-menu-item d-flex">
+                            <a href="{{route('news-categories')}}?category_id={{$cat->id}}&subcategory_id={{$sub_category->id}}" 
+                                class="mobile-sub-menu-text flex-grow-1">
+                                {{$sub_category->title}}
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            @else
+                <div class="mobile-menu-item d-flex">
+                    <a href="{{route('news-categories')}}?category_id={{$cat->id}}" class="mobile-sub-menu-text flex-grow-1">
+                        {{$cat->title}}
+                    </a>
+                </div>
+            @endif
+        @endforeach
+    </div>
   </div>
   <form class="search-form" action="" method="POST">
     <input type="search" id="search-box" name="search" placeholder="Search Here......." />
@@ -5322,7 +5402,4 @@ $logo= DB::table('logo')->where('id',1)->first();
      var searchForm = document.querySelector('.search-form');
      searchForm.classList.toggle('active');
     }
-    
-    
-    
   </script>

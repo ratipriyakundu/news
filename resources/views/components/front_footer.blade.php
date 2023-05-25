@@ -85,4 +85,18 @@
 	if ($("#promo-notifications li").length > 0) {
 		promoticker();
 	}
+	function showSubMenu(mobile_sub_menu_content_id,sub_menu_control_id) {
+		if($('#'+mobile_sub_menu_content_id+'').hasClass('d-none')) {
+			$('#'+mobile_sub_menu_content_id+'').removeClass('d-none');
+		}else {
+			$('#'+mobile_sub_menu_content_id+'').addClass('d-none');
+		}
+		if($('#'+sub_menu_control_id+'').hasClass('fa-angle-right')) {
+			$('#'+sub_menu_control_id+'').removeClass('fa-angle-right');
+			$('#'+sub_menu_control_id+'').addClass('fa-angle-down');
+		}else {
+			$('#'+sub_menu_control_id+'').removeClass('fa-angle-down');			
+			$('#'+sub_menu_control_id+'').addClass('fa-angle-right');
+		}
+	}
 </script>

@@ -432,3 +432,115 @@ div.scrollmenu {
      display: none;
 }
 }
+#computermn1 {
+  padding-top: 0px !important;
+}
+.menu-wrapper {
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  font-size: 17px;
+}
+.menu-wrapper ul {
+  list-style-type: none;
+  margin: 0px 50px;
+}
+.menu-wrapper ul li {
+  display: inline-block;
+  padding: 15px 20px;
+}
+.menu-wrapper ul li a {
+  text-decoration: none;
+  color: black;
+}
+.menu-wrapper ul li:hover {
+  background-color: #e1261d;
+  color: white;
+  transition: 0.5s;
+}
+.menu-dropdown {
+  display: inline-block;
+  position: relative;
+}
+.menu-dropdown:hover .sub-menu{
+  display: block;
+  transition: 0.5s;
+}
+.menu-dropdown:hover .menu-list{
+  background-color: #e1261d;
+  color: white;
+  transition: 0.5s;
+}
+.menu-dropdown:hover .menu-list a{
+  color: white;
+  transition: 0.5s;
+}
+.menu-wrapper ul li:hover a{
+  color: white;
+}
+.sub-menu {
+  position: absolute;
+  left: -50px;
+  float: left;
+  z-index: 100;
+  display: none;
+}
+.sub-menu ul li {
+  display: block;
+}
+.sub-menu ul li a {
+  color: white;
+}
+.sub-menu ul {
+  background-color: #f70404;
+  min-width: 150px;
+}
+.sub-menu:hover .menu-list {
+  background-color: #f70404;
+}
+@media only screen and (max-width:800px) {
+  .desktop-menu {
+    display: none;
+  }
+}
+.mob-menu {
+  background-color: white;
+  padding: 0px;
+}
+.mob-menu .close {
+  color: #f70404;
+}
+.mobile-menu-item {
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+}
+.mobile-menu-item:hover {
+  background-color: #e1261d;
+  color: white;
+  transition: 0.5s;
+}
+.mob-menu .mobile-menu-item:first-child {
+  border-top: 1px dotted #e1261d;
+  border-bottom: 1px dotted #e1261d;
+}
+.mob-menu .mobile-menu-item:not(:first-child) {
+  border-bottom: 1px dotted #e1261d;
+}
+.mobile-sub-menu-arrow {
+  position: relative;
+  float: right;
+}
+.mobile-menu-item:hover .mobile-sub-menu-arrow {
+  border-left: 1px dotted white;
+}
+.mobile-menu-item:hover a {
+  color: white;
+  transition: 0.5s;
+}
+.mobile-sub-menu-arrow {
+  border-left: 1px dotted #e1261d;
+}
+.mobile-sub-menu-text, .mobile-sub-menu-arrow {
+  padding: 15px 20px;
+}

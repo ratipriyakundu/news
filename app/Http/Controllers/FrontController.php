@@ -8,6 +8,7 @@ use App\Models\News;
 use App\Models\Menu;
 use App\Models\MenuCategories;
 use App\Models\Pages;
+use App\Models\Subcategory;
 date_default_timezone_set("Asia/Kolkata");
 
 class FrontController extends Controller
@@ -23,12 +24,23 @@ class FrontController extends Controller
 
     public function news_categories(Request $data){
         $category_id=$data->category_id;
+        if($data->has('subcategory_id')) {
+          $subcategory_id = $data->subcategory_id;
+          $news=News::whereRaw('FIND_IN_SET('.$subcategory_id.',subcategory)')
+          ->orderBy('id','DESC')->get();
+          $category_name = Subcategory::where('id',$subcategory_id)->first();
+        }else {
+          $news=News::whereRaw('FIND_IN_SET('.$category_id.',category)')
+          ->orderBy('id','DESC')->get();
+          $category_name = Category::where('id',$category_id)->first();
+        }
         
         $category=Category::get();
-        $news=News::whereRaw('FIND_IN_SET('.$category_id.',category)')->orderBy('id','DESC')->get();
         $menucategory=Menu::get();
+        $sub_categories = Subcategory::where('id',$category_name->category_id)->get();
        
-        return view('news_categories')->with(compact(['news','category','menucategory']));
+        return view('news_categories')
+        ->with(compact(['news','category','menucategory','category_name']));
        
       }
 

@@ -53,11 +53,13 @@
           $subcategories=$nws->subcategory;
           $subcats=explode(',',$subcategories);
          $subcategory=\App\Models\Subcategory::whereIn('id',$subcats)->get();
+         if($subcategory == '') {
+            echo '---';
+         }else {
           foreach($subcategory as $sct){
                echo $sct->title.'<br>';
           }
-          
-
+         }
          @endphp
 
 

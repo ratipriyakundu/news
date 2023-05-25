@@ -5,7 +5,7 @@
   <div class="col-md-9">
 				<div class="mt-5 row">
 					<div class="col-md-6">
-						<h3>পশ্চিমবঙ্গ</h3>
+						<h3>{{$category_name->title}}</h3>
 					</div>
 					<div class="col-md-6">
 						<div id="category-icon">
