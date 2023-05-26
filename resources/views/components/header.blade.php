@@ -36,6 +36,8 @@
   <link rel="stylesheet" href="backend/bs-stepper/css/bs-stepper.min.css">
   <!-- dropzonejs -->
   <link rel="stylesheet" href="backend/dropzone/min/dropzone.min.css">
+  {{-- Custom CSS --}}
+  <link rel="stylesheet" href="backend/css/admin-css.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">

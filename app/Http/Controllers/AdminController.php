@@ -792,6 +792,15 @@ public function delete_menu_category(Request $data){
     
 }
 
+public function homePageBuilder(){
+    if(session()->has('user_id')) {
+        return view('admin.homePageBuilder');
+    }else {
+        return redirect('admin')
+        ->with('error','Please login first');
+    }
+}
+
     }
 
 

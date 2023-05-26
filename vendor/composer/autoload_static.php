@@ -520,6 +520,7 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\BreakingNews' => __DIR__ . '/../..' . '/app/Console/Commands/BreakingNews.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
@@ -544,6 +545,7 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'App\\Models\\Menu' => __DIR__ . '/../..' . '/app/Models/Menu.php',
         'App\\Models\\MenuCategories' => __DIR__ . '/../..' . '/app/Models/MenuCategories.php',
         'App\\Models\\News' => __DIR__ . '/../..' . '/app/Models/News.php',
+        'App\\Models\\Page' => __DIR__ . '/../..' . '/app/Models/Page.php',
         'App\\Models\\Pages' => __DIR__ . '/../..' . '/app/Models/Pages.php',
         'App\\Models\\Social' => __DIR__ . '/../..' . '/app/Models/Social.php',
         'App\\Models\\Subcategory' => __DIR__ . '/../..' . '/app/Models/Subcategory.php',

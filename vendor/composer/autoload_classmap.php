@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\BreakingNews' => $baseDir . '/app/Console/Commands/BreakingNews.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
@@ -30,6 +31,7 @@ return array(
     'App\\Models\\Menu' => $baseDir . '/app/Models/Menu.php',
     'App\\Models\\MenuCategories' => $baseDir . '/app/Models/MenuCategories.php',
     'App\\Models\\News' => $baseDir . '/app/Models/News.php',
+    'App\\Models\\Page' => $baseDir . '/app/Models/Page.php',
     'App\\Models\\Pages' => $baseDir . '/app/Models/Pages.php',
     'App\\Models\\Social' => $baseDir . '/app/Models/Social.php',
     'App\\Models\\Subcategory' => $baseDir . '/app/Models/Subcategory.php',

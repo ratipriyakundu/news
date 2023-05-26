@@ -545,3 +545,17 @@ div.scrollmenu {
 .mobile-sub-menu-text, .mobile-sub-menu-arrow {
   padding: 15px 20px;
 }
+.custom-button {
+  padding: 15px 20px;
+  border: none;
+  outline: none;
+}
+.button-red {
+  color: white;
+  background-color: #e1261d;
+}
+.button-red:hover {
+  color: white;
+  background-color: black;
+  transition: 0.5s;
+}

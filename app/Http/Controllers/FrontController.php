@@ -8,6 +8,8 @@ use App\Models\News;
 use App\Models\Menu;
 use App\Models\MenuCategories;
 use App\Models\Pages;
+use App\Models\Page;
+use App\Models\Admin;
 use App\Models\Subcategory;
 date_default_timezone_set("Asia/Kolkata");
 
@@ -18,7 +20,19 @@ class FrontController extends Controller
         $menucategory=Menu::get();
       //var_dump($Menucategory);
         $news=News::get();
-        return view('home')->with(compact(['category','news','menucategory']));
+        $page = Page::get();
+        if(session()->has('user_id')) {
+          $admin = Admin::where('id',session('user_id'))->first();
+          if(in_array('Manage Home Page',explode(',',$admin->permission))) {
+            $hasPermission= true;
+          }else {
+            $hasPermission= false;
+          }
+        }else {
+          $hasPermission= false;
+        }
+        return view('home')
+        ->with(compact(['category','news','menucategory','page','hasPermission']));
     }
 
 

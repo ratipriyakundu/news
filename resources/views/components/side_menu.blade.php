@@ -202,6 +202,18 @@ if(in_array('Manage Subadmin',$user_prmission)){?>
             
           </li>
           <?php }?>
+
+          @if(in_array('Manage Home Page',$user_prmission))
+            <li class="nav-item">
+              <a href="{{route('home-page-builder')}}" class="nav-link">
+                <i class="nav-icon fas fa-home"></i>
+                <p>
+                  Home Page Builder
+                </p>
+              </a>
+            </li>
+          @endif
+          
           <li>
 
           <a href="{{route('logout')}}" class="nav-link bg-danger">

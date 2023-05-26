@@ -86,3 +86,4 @@ Route::post('add-ads',[AdminController::class,'add_ads'])->name('add-ads');
 Route::post('update-ads',[AdminController::class,'update_ads'])->name('update-ads');
 Route::get('manage-header-banner',[AdminController::class,'manage_header_banner'])->name('manage-header-banner');
 Route::post('update-header-banner',[AdminController::class,'update_header_banner'])->name('update-header-banner');
+Route::get('/home-page-builder',[AdminController::class,'homePageBuilder'])->name('home-page-builder');
