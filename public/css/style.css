@@ -609,3 +609,11 @@ marquee {
   height: 40px;
   padding: 10px;
 }
+.template-wrapper {
+  position: relative;
+}
+.template-control-area {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+}

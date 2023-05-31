@@ -94,3 +94,6 @@ Route::get('/home-page-builder',[AdminController::class,'homePageBuilder'])->nam
 Route::get('/templates',[TemplateController::class,'templates'])->name('templates');
 Route::post('/add-templaate',[TemplateController::class,'addTemplaate'])->name('add-templaate');
 Route::post('/insert-template',[PageController::class,'insertTemplate'])->name('insert-template');
+Route::post('/delete-template',[PageController::class,'deleteTemplate'])->name('delete-template');
+Route::get('/move-up-template',[PageController::class,'moveUpTemplate'])->name('move-up-template');
+Route::get('/move-down-template',[PageController::class,'moveDownTemplate'])->name('move-down-template');

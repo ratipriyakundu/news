@@ -72,7 +72,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/owl.carousel.js"></script>
+<script src="js/owl.animate.js"></script>
+<script src="js/owl.autoplay.js"></script>
+<script src="js/owl.autoheight.js"></script>
+<script src="js/owl.hash.js"></script>
+<script src="js/owl.lazyload.js"></script>
+<script src="js/owl.navigation.js"></script>
 <script>
   	var promoticker = function() {
 		var window_width = window.innerWidth;
@@ -102,4 +109,53 @@
 	function closeBreakingNews() {
 		$('.breaking-news-wrap').addClass('d-none');
 	}
+</script>
+<script>
+	var owl = $('.owl-carousel-6');
+	owl.owlCarousel({
+	  margin: 10,
+	  loop: true,
+	  autoplay:true,
+      autoplayTimeout:1000,
+      autoplayHoverPause:true,
+	  nav:true,
+	  responsive: {
+		0: {
+		  items: 2
+		},
+		600: {
+		  items: 4
+		},
+		1000: {
+		  items: 5
+		},
+		1500: {
+			items: 6
+		}
+	  }
+	})
+</script>
+<script>
+	var owll = $('.owl-carousel-3');
+	owll.owlCarousel({
+	  margin: 10,
+	  loop: true,
+	  autoplay:true,
+      autoplayTimeout:1000,
+      autoplayHoverPause:true,
+	  responsive: {
+		0: {
+		  items: 1
+		},
+		600: {
+		  items: 2
+		},
+		1000: {
+		  items: 2
+		},
+		1500: {
+			items: 3
+		}
+	  }
+	})
 </script>

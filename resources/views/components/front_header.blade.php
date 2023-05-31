@@ -9,6 +9,7 @@
 	<!-- bootstap css -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
 	<title></title>
 	<style id="__jsx-2091191842">
         .msn_pani.jsx-2167635379 {
@@ -5059,6 +5060,11 @@
 }
     </style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @if($hasPermission)
+        <link rel="stylesheet" href="css/template-style.css">
+    @endif
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 </head>
 <body onload="ShowBanners()">
 <?php
@@ -5248,26 +5254,28 @@ $logo= DB::table('logo')->where('id',1)->first();
             </ul>
         </div>
     </nav>
-    @if($breakingNewsList->count() > 0)
-        <div class="container mt-5">
-            <div class="breaking-news-wrap d-flex">
-                <div class="breaking-news-heading align-self-center">
-                    आज की ताजा खबर |
-                </div>
-                <div class="breaking-news-section flex-grow-1 align-self-center">
-                    <marquee behavior="" direction="left" loop>
-                        @foreach($breakingNewsList as $breakingNews)
-                            <span class="me-4">{{$breakingNews->title}} ||</span>
-                        @endforeach
-                    </marquee>
-                </div>
-                <div class="breaking-news-close align-self-center">
-                    <button class="btn btn-transparent" onclick="closeBreakingNews()">
-                        <i class="bi bi-x-lg text-light"></i>
-                    </button>
+    @if(request()->path() == '/')
+        @if($breakingNewsList->count() > 0)
+            <div class="container mt-5">
+                <div class="breaking-news-wrap d-flex">
+                    <div class="breaking-news-heading align-self-center">
+                        <p style="width:175px;">आज की ताजा खबर |</p>
+                    </div>
+                    <div class="breaking-news-section flex-grow-1 align-self-center">
+                        <marquee behavior="" direction="left" loop>
+                            @foreach($breakingNewsList as $breakingNews)
+                                <a href="{{route('news-details')}}?news_id={{$breakingNews->id}}" class="me-4 text-decoraation-none text-light">{{$breakingNews->title}} ||</a>
+                            @endforeach
+                        </marquee>
+                    </div>
+                    <div class="breaking-news-close align-self-center">
+                        <button class="btn btn-transparent" onclick="closeBreakingNews()">
+                            <i class="bi bi-x-lg text-light"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
     @endif
 	
 	
