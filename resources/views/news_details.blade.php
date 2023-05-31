@@ -1,4 +1,4 @@
-<x-front_header :category="$category"/>
+<x-front_header :category="$category" :hasPermission="$hasPermission"/>
 <div class="px-5 container-fluid">
 	<section>
 		<div class="mt-5 row">

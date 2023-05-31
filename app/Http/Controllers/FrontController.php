@@ -44,6 +44,16 @@ class FrontController extends Controller
 
     public function news_categories(Request $data){
         $category_id=$data->category_id;
+        if(session()->has('user_id')) {
+          $admin = Admin::where('id',session('user_id'))->first();
+          if(in_array('Manage Home Page',explode(',',$admin->permission))) {
+            $hasPermission= true;
+          }else {
+            $hasPermission= false;
+          }
+        }else {
+          $hasPermission= false;
+        }
         if($data->has('subcategory_id')) {
           $subcategory_id = $data->subcategory_id;
           $news=News::whereRaw('FIND_IN_SET('.$subcategory_id.',subcategory)')
@@ -60,7 +70,7 @@ class FrontController extends Controller
         $sub_categories = Subcategory::where('id',$category_name->category_id)->get();
        
         return view('news_categories')
-        ->with(compact(['news','category','menucategory','category_name']));
+        ->with(compact(['news','category','menucategory','category_name','hasPermission']));
        
       }
 
@@ -68,7 +78,16 @@ class FrontController extends Controller
    
   public function news_details(Request $data){
     $news_id=$data->news_id;
-    
+    if(session()->has('user_id')) {
+      $admin = Admin::where('id',session('user_id'))->first();
+      if(in_array('Manage Home Page',explode(',',$admin->permission))) {
+        $hasPermission= true;
+      }else {
+        $hasPermission= false;
+      }
+    }else {
+      $hasPermission= false;
+    }
     $category=Category::get();
     $news=News::where('id',$news_id)->first();
     if(strpos($news->category,',')) {
@@ -80,7 +99,8 @@ class FrontController extends Controller
 
     $category_info=Category::where('id',$news_category)->first();
     $menucategory=Menu::get();
-    return view('news_details')->with(compact(['news','category','category_info','menucategory']));
+    return view('news_details')
+    ->with(compact(['news','category','category_info','menucategory','hasPermission']));
    
   }
 
