@@ -191,7 +191,7 @@ if(in_array('Manage Subadmin',$user_prmission)){?>
             
           </li>
 <?php } if(in_array('Manage Home Page',$user_prmission)){?>
-          <li class="nav-item">
+          <li class="nav-item d-none">
             <a href="{{route('manage-home')}}" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
@@ -204,7 +204,7 @@ if(in_array('Manage Subadmin',$user_prmission)){?>
           <?php }?>
 
           @if(in_array('Manage Home Page',$user_prmission))
-            <li class="nav-item">
+            <li class="nav-item d-none">
               <a href="{{route('home-page-builder')}}" class="nav-link">
                 <i class="nav-icon fas fa-home"></i>
                 <p>
@@ -215,7 +215,7 @@ if(in_array('Manage Subadmin',$user_prmission)){?>
           @endif
 
           @if(in_array('Manage Home Page',$user_prmission))
-            <li class="nav-item">
+            <li class="nav-item d-none">
               <a href="{{route('templates')}}" class="nav-link">
                 <i class="nav-icon fas fa-image"></i>
                 <p>
