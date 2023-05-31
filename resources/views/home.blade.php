@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <x-front_header :category="$category" :hasPermission="$hasPermission" :breakingNewsList="$breakingNewsList"/>
     <div class="container-fluid my-4">
         @foreach($homeTemplates as $homeTemplate)
@@ -180,5 +181,12 @@
             </div>
           </div>
         {{-- Section Modal End --}}
+=======
+<x-front_header :category="$category"/>
+    @if($hasPermission)
+        <div class="text-center m-5 p-5">
+            <button class="custom-button button-red">Add Section</button>
+        </div>
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
     @endif
 <x-front_footer :menucategory="$menucategory"/>

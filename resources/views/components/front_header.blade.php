@@ -8,8 +8,11 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<!-- bootstap css -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     
+=======
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
 	<title></title>
 	<style id="__jsx-2091191842">
         .msn_pani.jsx-2167635379 {
@@ -5060,11 +5063,14 @@
 }
     </style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<<<<<<< HEAD
     @if($hasPermission)
         <link rel="stylesheet" href="css/template-style.css">
     @endif
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+=======
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
 </head>
 <body onload="ShowBanners()">
 <?php
@@ -5240,6 +5246,7 @@ $logo= DB::table('logo')->where('id',1)->first();
     {{-- end nav bar --}}
 
     
+<<<<<<< HEAD
     <nav class="d-none navbar navbar-expand-lg bg-body-tertiary" id="computermn1">
         <div id="promo-notifications" class="col-md-12">
             <ul> 
@@ -5277,6 +5284,22 @@ $logo= DB::table('logo')->where('id',1)->first();
             </div>
         @endif
     @endif
+=======
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="computermn1">
+    <div id="promo-notifications" class="col-md-12">
+	<ul> 
+        <?php
+        $counter=1;
+    $braking_news= DB::table('news')->where('breaking_news','!=', NULL)->get(); 
+    foreach($braking_news as $bns){?>
+    <a style="color:white;" href="{{route('news-details')}}?news_id={{$bns->id}}"><li><?php echo $counter;?>. <?php echo $bns->title;?></li></a>
+   
+    <?php $counter++;}?>
+  
+  </ul>
+</div>
+</nav>
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
 	
 	
 	

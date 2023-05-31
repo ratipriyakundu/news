@@ -436,8 +436,13 @@ div.scrollmenu {
   padding-top: 0px !important;
 }
 .menu-wrapper {
+<<<<<<< HEAD
   background-color: #1b67e9;
   color: white;
+=======
+  background-color: white;
+  color: black;
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
   font-weight: 600;
   font-size: 17px;
 }
@@ -451,7 +456,11 @@ div.scrollmenu {
 }
 .menu-wrapper ul li a {
   text-decoration: none;
+<<<<<<< HEAD
   color: white;
+=======
+  color: black;
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
 }
 .menu-wrapper ul li:hover {
   background-color: #e1261d;
@@ -558,6 +567,7 @@ div.scrollmenu {
   color: white;
   background-color: black;
   transition: 0.5s;
+<<<<<<< HEAD
 }
 .breaking-news-wrap {
   background-color:#e1261d;
@@ -616,4 +626,6 @@ marquee {
   position: absolute;
   top: 40%;
   left: 45%;
+=======
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
 }

@@ -213,6 +213,7 @@ if(in_array('Manage Subadmin',$user_prmission)){?>
               </a>
             </li>
           @endif
+<<<<<<< HEAD
 
           @if(in_array('Manage Home Page',$user_prmission))
             <li class="nav-item">
@@ -224,6 +225,8 @@ if(in_array('Manage Subadmin',$user_prmission)){?>
               </a>
             </li>
           @endif
+=======
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
           
           <li>
 

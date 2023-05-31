@@ -11,7 +11,10 @@ use App\Models\Pages;
 use App\Models\Page;
 use App\Models\Admin;
 use App\Models\Subcategory;
+<<<<<<< HEAD
 use App\Models\Template;
+=======
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
 date_default_timezone_set("Asia/Kolkata");
 
 class FrontController extends Controller
@@ -22,11 +25,14 @@ class FrontController extends Controller
       //var_dump($Menucategory);
         $news=News::get();
         $page = Page::get();
+<<<<<<< HEAD
         $templates = Template::get();
         $homeTemplates = Page::where('page_name','home')
         ->orderBy('section_order','ASC')
         ->get();
         $breakingNewsList = News::where('breaking_news','!=',NULL)->get();
+=======
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
         if(session()->has('user_id')) {
           $admin = Admin::where('id',session('user_id'))->first();
           if(in_array('Manage Home Page',explode(',',$admin->permission))) {
@@ -38,7 +44,11 @@ class FrontController extends Controller
           $hasPermission= false;
         }
         return view('home')
+<<<<<<< HEAD
         ->with(compact(['category','news','menucategory','page','hasPermission','breakingNewsList','templates','homeTemplates']));
+=======
+        ->with(compact(['category','news','menucategory','page','hasPermission']));
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
     }
 
 

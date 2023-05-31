@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use App\Models\Page;
 
 class PageController extends Controller
@@ -89,4 +90,10 @@ class PageController extends Controller
         return redirect()->back()
         ->with('success','Template moved');
     }
+=======
+
+class PageController extends Controller
+{
+    //
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
 }

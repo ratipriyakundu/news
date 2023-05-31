@@ -72,6 +72,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
+<<<<<<< HEAD
 <script src="js/jquery.min.js"></script>
 <script src="js/owl.carousel.js"></script>
 <script src="js/owl.animate.js"></script>
@@ -80,6 +81,9 @@
 <script src="js/owl.hash.js"></script>
 <script src="js/owl.lazyload.js"></script>
 <script src="js/owl.navigation.js"></script>
+=======
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
 <script>
   	var promoticker = function() {
 		var window_width = window.innerWidth;
@@ -106,6 +110,7 @@
 			$('#'+sub_menu_control_id+'').addClass('fa-angle-right');
 		}
 	}
+<<<<<<< HEAD
 	function closeBreakingNews() {
 		$('.breaking-news-wrap').addClass('d-none');
 	}
@@ -159,3 +164,6 @@
 	  }
 	})
 </script>
+=======
+</script>
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db

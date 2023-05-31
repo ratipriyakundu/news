@@ -527,7 +527,10 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'App\\Http\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoryController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\FrontController' => __DIR__ . '/../..' . '/app/Http/Controllers/FrontController.php',
+<<<<<<< HEAD
         'App\\Http\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/PageController.php',
+=======
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -550,7 +553,10 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'App\\Models\\Pages' => __DIR__ . '/../..' . '/app/Models/Pages.php',
         'App\\Models\\Social' => __DIR__ . '/../..' . '/app/Models/Social.php',
         'App\\Models\\Subcategory' => __DIR__ . '/../..' . '/app/Models/Subcategory.php',
+<<<<<<< HEAD
         'App\\Models\\Template' => __DIR__ . '/../..' . '/app/Models/Template.php',
+=======
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

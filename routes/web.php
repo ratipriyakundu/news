@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontController;
+<<<<<<< HEAD
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\PageController;
+=======
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,6 +91,7 @@ Route::post('add-ads',[AdminController::class,'add_ads'])->name('add-ads');
 Route::post('update-ads',[AdminController::class,'update_ads'])->name('update-ads');
 Route::get('manage-header-banner',[AdminController::class,'manage_header_banner'])->name('manage-header-banner');
 Route::post('update-header-banner',[AdminController::class,'update_header_banner'])->name('update-header-banner');
+<<<<<<< HEAD
 Route::get('/home-page-builder',[AdminController::class,'homePageBuilder'])->name('home-page-builder');
 
 //Template Routes
@@ -97,3 +101,6 @@ Route::post('/insert-template',[PageController::class,'insertTemplate'])->name('
 Route::post('/delete-template',[PageController::class,'deleteTemplate'])->name('delete-template');
 Route::get('/move-up-template',[PageController::class,'moveUpTemplate'])->name('move-up-template');
 Route::get('/move-down-template',[PageController::class,'moveDownTemplate'])->name('move-down-template');
+=======
+Route::get('/home-page-builder',[AdminController::class,'homePageBuilder'])->name('home-page-builder');
+>>>>>>> 2a4fc60453b403165973040213c2c634ec5ad5db
