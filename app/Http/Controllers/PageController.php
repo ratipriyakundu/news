@@ -89,4 +89,5 @@ class PageController extends Controller
         return redirect()->back()
         ->with('success','Template moved');
     }
+    
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\AttributeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ use App\Http\Controllers\PageController;
 */
 
 
-Route::get('/',[FrontController::class,'home']);
+Route::get('/',[FrontController::class,'home'])->name('home');
 //Route::get('/',[CategoryController::class,'home']);
 Route::get('news-details',[FrontController::class,'news_details'])->name('news-details');
 
@@ -97,3 +98,4 @@ Route::post('/insert-template',[PageController::class,'insertTemplate'])->name('
 Route::post('/delete-template',[PageController::class,'deleteTemplate'])->name('delete-template');
 Route::get('/move-up-template',[PageController::class,'moveUpTemplate'])->name('move-up-template');
 Route::get('/move-down-template',[PageController::class,'moveDownTemplate'])->name('move-down-template');
+Route::post('/edit-template',[AttributeController::class,'editTemplate'])->name('edit-template');

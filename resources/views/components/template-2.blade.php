@@ -39,3 +39,14 @@
         </div>
     </div>
 </div>
+{{-- Edit Modal --}}
+<div class="modal fade" id="editModal{{$id}}" tabindex="-1" aria-labelledby="editModal{{$id}}Label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center p-5">
+        <form action=""></form>
+      </div>
+    </div>
+  </div>
+</div>
+{{-- End Edit Modal --}}

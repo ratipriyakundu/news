@@ -3,9 +3,11 @@
         @foreach($homeTemplates as $homeTemplate)
           <div class="template-wrapper">
             @php
-                $template = 'template-'.$homeTemplate->section_code;
+              $id = $homeTemplate->id;
+              $templateId = $homeTemplate->section_code;
+              $template = 'template-'.$templateId;
             @endphp
-            <x-dynamic-component :component="$template"/>
+            <x-dynamic-component :component="$template" :templateId="$templateId" :id="$id"/>
             @if($hasPermission)
               <div class="template-control-area">
                 <button class="custom-button button-red button-rounded" title="Move Up">
@@ -25,18 +27,6 @@
                   <i class="bi bi-trash"></i>
                 </button>
               </div>
-              {{-- Edit Modal --}}
-              <div class="modal fade" id="editModal{{$homeTemplate->id}}" tabindex="-1" aria-labelledby="editModal{{$homeTemplate->id}}Label" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body text-center p-5">
-                      @if($homeTemplate->type = '')
-                      @endif
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {{-- End Edit Modal --}}
               {{-- Delete Modal --}}
               <div class="modal fade" id="deleteModal{{$homeTemplate->id}}" tabindex="-1" aria-labelledby="deleteModal{{$homeTemplate->id}}Label" aria-hidden="true">
                 <div class="modal-dialog">
@@ -64,26 +54,19 @@
                 Add Section
             </button>
         </div>
-        {{-- Template Testing Area --}}
-        <div class="container d-none">
-            <div class="banner-ad-wrapper">
-                <img src="img/ad/image-banner.webp" width="100%" height="auto">
-            </div>
-        </div>
-        {{-- End Template Testing Area --}}
         {{-- Section Modal --}}
         <div class="modal fade" id="sectionModal" tabindex="-1" aria-labelledby="sectionModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
               <div class="modal-content">
-                <div class="modal-header d-flex">
-                  <input class="form-control" placeholder="Search template" type="text">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
                 <div class="modal-body overflow-auto">
                   <div class="row p-3 row-cols-3">
                     <div class="col">
                       <div class="template-col my-2 pt-4">
-                        <img class="align-middle" src="img/template/template1.png" width="100%">
+                        <div class="text-center">
+                          <p class="text-secondary">Template 1</p>
+                          <p class="text-muted small">Image Banner Ad</p>
+                          <img class="align-middle" src="img/template/template1.png" width="100%">
+                        </div>
                         <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
                           @csrf 
                           <input type="hidden" name="page_name" value="home">
@@ -98,7 +81,11 @@
                     </div>
                     <div class="col">
                       <div class="template-col my-2 pt-4">
-                        <img class="align-middle" src="img/template/template2.png" width="100%">
+                        <div class="text-center">
+                          <p class="text-secondary">Template 2</p>
+                          <img class="align-middle" src="img/template/template2.png" width="100%">
+                          <p class="text-muted small">Code Banner Ad</p>
+                        </div>
                         <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
                           @csrf 
                           <input type="hidden" name="page_name" value="home">
@@ -113,13 +100,18 @@
                     </div>
                     <div class="col">
                       <div class="template-col my-2 pt-4">
-                        <img class="align-middle" src="img/template/template3.png" width="100%">
+                        <div class="text-center">
+                          <p class="text-secondary">Template 3</p>
+                          <p class="text-muted small">Latest + Popular</p>
+                          <p class="small text-danger">{{($news->count() > 8)? "" : "*Add More Than 8 News To Activate this Template"}}</p>
+                          <img class="align-middle" src="img/template/template3.png" width="100%">
+                        </div>
                         <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
                           @csrf 
                           <input type="hidden" name="page_name" value="home">
                           <input type="hidden" name="section_code" value="3">
                           <div class="text-center">
-                            <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
+                            <button {{($news->count() > 8)? "" : "disabled"}} type="submit" class="custom-button button-red button-rounded" title="Insert Template">
                               <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
                             </button>
                           </div>
@@ -128,8 +120,11 @@
                     </div>
                     <div class="col">
                       <div class="template-col my-2 pt-4">
-                        <img class="align-middle" src="img/template/template4.png" width="100%">
-                        <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
+                        <div class="text-center mb-3">
+                          <p class="text-secondary">Template 4</p>
+                          <p class="text-muted small">Breaking News + Live Update</p>
+                          <img class="align-middle" src="img/template/template4.png" width="100%">
+                        </div>                        <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
                           @csrf 
                           <input type="hidden" name="page_name" value="home">
                           <input type="hidden" name="section_code" value="4">
@@ -143,7 +138,11 @@
                     </div>
                     <div class="col">
                       <div class="template-col my-2 pt-4">
-                        <img class="align-middle" src="img/template/template5.png" width="100%">
+                        <div class="text-center mb-3">
+                          <p class="text-secondary">Template 5</p>
+                          <p class="text-muted small">Category wise News</p>
+                          <img class="align-middle" src="img/template/template5.png" width="100%">
+                        </div>  
                         <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
                           @csrf 
                           <input type="hidden" name="page_name" value="home">
@@ -158,11 +157,129 @@
                     </div>
                     <div class="col">
                       <div class="template-col my-2 pt-4">
-                        <img class="align-middle" src="img/template/template6.png" width="100%">
+                        <div class="text-center mb-3">
+                          <p class="text-secondary">Template 6</p>
+                          <p class="text-muted small">Category wise News + Ad</p>
+                          <img class="align-middle" src="img/template/template6.png" width="100%">
+                        </div>
                         <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
                           @csrf 
                           <input type="hidden" name="page_name" value="home">
                           <input type="hidden" name="section_code" value="6">
+                          <div class="text-center">
+                            <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
+                              <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="template-col my-2 pt-4">
+                        <div class="text-center mb-3">
+                          <p class="text-secondary">Template 7</p>
+                          <p class="text-muted small">2 Category wise News</p>
+                          <img class="align-middle" src="img/template/template7.png" width="100%">
+                        </div>
+                        <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
+                          @csrf 
+                          <input type="hidden" name="page_name" value="home">
+                          <input type="hidden" name="section_code" value="7">
+                          <div class="text-center">
+                            <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
+                              <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="template-col my-2 pt-4">
+                        <div class="text-center mb-3">
+                          <p class="text-secondary">Template 8</p>
+                          <p class="text-muted small">2 Category wise News</p>
+                          <img class="align-middle" src="img/template/template8.png" width="100%">
+                        </div>
+                        <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
+                          @csrf 
+                          <input type="hidden" name="page_name" value="home">
+                          <input type="hidden" name="section_code" value="8">
+                          <div class="text-center">
+                            <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
+                              <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="template-col my-2 pt-4">
+                        <div class="text-center mb-3">
+                          <p class="text-secondary">Template 9</p>
+                          <p class="text-muted small">Category wise News + Ad</p>
+                          <img class="align-middle" src="img/template/template9.png" width="100%">
+                        </div>
+                        <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
+                          @csrf 
+                          <input type="hidden" name="page_name" value="home">
+                          <input type="hidden" name="section_code" value="9">
+                          <div class="text-center">
+                            <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
+                              <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="template-col my-2 pt-4">
+                        <div class="text-center mb-3">
+                          <p class="text-secondary">Template 10</p>
+                          <p class="text-muted small">2 Category wise News</p>
+                          <img class="align-middle" src="img/template/template10.png" width="100%">
+                        </div>
+                        <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
+                          @csrf 
+                          <input type="hidden" name="page_name" value="home">
+                          <input type="hidden" name="section_code" value="10">
+                          <div class="text-center">
+                            <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
+                              <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="template-col my-2 pt-4">
+                        <div class="text-center mb-3">
+                          <p class="text-secondary">Template 11</p>
+                          <p class="text-muted small">Category wise News + Ad</p>
+                          <img class="align-middle" src="img/template/template11.png" width="100%">
+                        </div>
+                        <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
+                          @csrf 
+                          <input type="hidden" name="page_name" value="home">
+                          <input type="hidden" name="section_code" value="11">
+                          <div class="text-center">
+                            <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
+                              <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="template-col my-2 pt-4">
+                        <div class="text-center mb-3">
+                          <p class="text-secondary">Template 12</p>
+                          <p class="text-muted small">Category wise News</p>
+                          <img class="align-middle" src="img/template/template12.png" width="100%">
+                        </div>
+                        <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
+                          @csrf 
+                          <input type="hidden" name="page_name" value="home">
+                          <input type="hidden" name="section_code" value="12">
                           <div class="text-center">
                             <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
                               <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
