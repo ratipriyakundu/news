@@ -83,8 +83,8 @@
                       <div class="template-col my-2 pt-4">
                         <div class="text-center">
                           <p class="text-secondary">Template 2</p>
-                          <img class="align-middle" src="img/template/template2.png" width="100%">
                           <p class="text-muted small">Code Banner Ad</p>
+                          <img class="align-middle" src="img/template/template2.png" width="100%">
                         </div>
                         <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
                           @csrf 

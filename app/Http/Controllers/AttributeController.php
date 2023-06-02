@@ -40,6 +40,35 @@ class AttributeController extends Controller
                 );
             }
         }
+        if($request->has('template-2-edit-btn')) {
+            if($request->has('ad_code') && $request->ad_code != '') {
+                $name = 'custom_ad_code';
+                $value = $request->ad_code;
+                Attribute::updateOrCreate(
+                    [
+                        'template_id' => $template_id
+                    ],
+                    [
+                        'template_id' => $template_id,
+                        'name' => $name,
+                        'value' => $value
+                    ]
+                );
+            }else {
+                $name = 'default_ad_code';
+                $value = '1';
+                Attribute::updateOrCreate(
+                    [
+                        'template_id' => $template_id
+                    ],
+                    [
+                        'template_id' => $template_id,
+                        'name' => $name,
+                        'value' => $value
+                    ]
+                );
+            }
+        }
         return redirect()->route('home')
         ->with('success','Template Updated');
     }
