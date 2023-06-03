@@ -123,13 +123,14 @@
                         <div class="text-center mb-3">
                           <p class="text-secondary">Template 4</p>
                           <p class="text-muted small">Breaking News + Live Update</p>
+                          <p class="small text-danger">{{($news->count() > 1 && $category->count() > 1)? "" : "*Add at least 1 News and 1 Category To Activate this Template"}}</p>
                           <img class="align-middle" src="img/template/template4.png" width="100%">
                         </div>                        <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
                           @csrf 
                           <input type="hidden" name="page_name" value="home">
                           <input type="hidden" name="section_code" value="4">
                           <div class="text-center">
-                            <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
+                            <button {{($news->count() > 1 && $category->count() > 1)? "" : "disabled"}} type="submit" class="custom-button button-red button-rounded" title="Insert Template">
                               <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
                             </button>
                           </div>
@@ -141,6 +142,7 @@
                         <div class="text-center mb-3">
                           <p class="text-secondary">Template 5</p>
                           <p class="text-muted small">Category wise News</p>
+                          <p class="small text-danger">{{($news->count() > 1 && $category->count() > 1)? "" : "*Add at least 1 News and 1 Category To Activate this Template"}}</p>
                           <img class="align-middle" src="img/template/template5.png" width="100%">
                         </div>  
                         <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
@@ -148,7 +150,7 @@
                           <input type="hidden" name="page_name" value="home">
                           <input type="hidden" name="section_code" value="5">
                           <div class="text-center">
-                            <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
+                            <button {{($news->count() > 1 && $category->count() > 1)? "" : "disabled"}} type="submit" class="custom-button button-red button-rounded" title="Insert Template">
                               <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
                             </button>
                           </div>
@@ -160,6 +162,7 @@
                         <div class="text-center mb-3">
                           <p class="text-secondary">Template 6</p>
                           <p class="text-muted small">Category wise News + Ad</p>
+                          <p class="small text-danger">{{($news->count() > 1 && $category->count() > 1)? "" : "*Add at least 1 News and 1 Category To Activate this Template"}}</p>
                           <img class="align-middle" src="img/template/template6.png" width="100%">
                         </div>
                         <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
@@ -167,7 +170,7 @@
                           <input type="hidden" name="page_name" value="home">
                           <input type="hidden" name="section_code" value="6">
                           <div class="text-center">
-                            <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
+                            <button {{($news->count() > 1 && $category->count() > 1)? "" : "disabled"}} type="submit" class="custom-button button-red button-rounded" title="Insert Template">
                               <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
                             </button>
                           </div>
@@ -179,6 +182,7 @@
                         <div class="text-center mb-3">
                           <p class="text-secondary">Template 7</p>
                           <p class="text-muted small">2 Category wise News</p>
+                          <p class="small text-danger">{{($news->count() > 1 && $category->count() > 1)? "" : "*Add at least 1 News and 1 Category To Activate this Template"}}</p>
                           <img class="align-middle" src="img/template/template7.png" width="100%">
                         </div>
                         <form class="template-insert-form" action="{{route('insert-template')}}" method="POST">
@@ -186,7 +190,7 @@
                           <input type="hidden" name="page_name" value="home">
                           <input type="hidden" name="section_code" value="7">
                           <div class="text-center">
-                            <button type="submit" class="custom-button button-red button-rounded" title="Insert Template">
+                            <button {{($news->count() > 1 && $category->count() > 1)? "" : "disabled"}} type="submit" class="custom-button button-red button-rounded" title="Insert Template">
                               <i class="bi bi-plus" style="font-size:20px; font-weight:700;"></i>
                             </button>
                           </div>

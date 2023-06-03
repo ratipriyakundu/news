@@ -69,6 +69,188 @@ class AttributeController extends Controller
                 );
             }
         }
+        if($request->has('template-3-edit-btn')) {
+            if($request->has('template_3_left_category') && $request->template_3_left_category != '') {
+                $left_name = 'template_3_left_category';
+                $left_value = $request->template_3_left_category;
+                if($left_value != 0) {
+                    Attribute::updateOrCreate(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $left_name
+                        ],
+                        [
+                            'template_id' => $template_id,
+                            'name' => $left_name,
+                            'value' => $left_value
+                        ]
+                    );
+                }
+                if($left_value == 0) {
+                    Attribute::where(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $left_name,
+                        ]
+                    )->delete();
+                }
+            }
+            if($request->has('template_3_right_category') && $request->template_3_right_category != '') {
+                $right_name = 'template_3_right_category';
+                $right_value = $request->template_3_right_category;
+                if($right_value != 0) {
+                    Attribute::updateOrCreate(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $right_name
+                        ],
+                        [
+                            'template_id' => $template_id,
+                            'name' => $right_name,
+                            'value' => $right_value
+                        ]
+                    );
+                }
+                if($right_value == 0) {
+                    Attribute::where(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $right_name,
+                        ]
+                    )->delete();
+                }
+            }
+        }
+        if($request->has('template-4-edit-btn')) {
+            if($request->has('template_4_left_category') && $request->template_4_left_category != '') {
+                $left_name = 'template_4_left_category';
+                $left_value = $request->template_4_left_category;
+                if($left_value != 0) {
+                    Attribute::updateOrCreate(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $left_name
+                        ],
+                        [
+                            'template_id' => $template_id,
+                            'name' => $left_name,
+                            'value' => $left_value
+                        ]
+                    );
+                }
+                if($left_value == 0) {
+                    Attribute::where(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $left_name,
+                        ]
+                    )->delete();
+                }
+            }
+            if($request->has('template_4_right_category') && $request->template_4_right_category != '') {
+                $right_name = 'template_4_right_category';
+                $right_value = $request->template_4_right_category;
+                if($right_value != 0) {
+                    Attribute::updateOrCreate(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $right_name
+                        ],
+                        [
+                            'template_id' => $template_id,
+                            'name' => $right_name,
+                            'value' => $right_value
+                        ]
+                    );
+                }
+                if($right_value == 0) {
+                    Attribute::where(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $right_name,
+                        ]
+                    )->delete();
+                }
+            }
+        }
+        if($request->has('template-5-edit-btn')) {
+            if($request->has('template_5_category') && $request->template_5_category != '') {
+                $name = 'template_5_category';
+                $value = $request->template_5_category;
+                if($value != 0) {
+                    Attribute::updateOrCreate(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $name
+                        ],
+                        [
+                            'template_id' => $template_id,
+                            'name' => $name,
+                            'value' => $value
+                        ]
+                    );
+                }
+                if($value == 0) {
+                    Attribute::where(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $name,
+                        ]
+                    )->delete();
+                }
+            }
+        }
+        if($request->has('template-6-edit-btn')) {
+            if($request->has('template_6_category') && $request->template_6_category != '') {
+                $category_name = 'template_6_category';
+                $category_value = $request->template_6_category;
+                if($category_value != 0) {
+                    Attribute::updateOrCreate(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $category_name
+                        ],
+                        [
+                            'template_id' => $template_id,
+                            'name' => $category_name,
+                            'value' => $category_value
+                        ]
+                    );
+                }
+                if($category_value == 0) {
+                    Attribute::where(
+                        [
+                            'template_id' => $template_id,
+                            'name' => $category_name,
+                        ]
+                    )->delete();
+                }
+            }
+            if($request->has('template_6_ad_code') && $request->template_6_ad_code != '') {
+                $code_name = 'template_6_ad_code';
+                $code_value = $request->template_6_ad_code;
+                Attribute::updateOrCreate(
+                    [
+                        'template_id' => $template_id,
+                        'name' => $code_value,
+                    ],
+                    [
+                        'template_id' => $template_id,
+                        'name' => $code_name,
+                        'value' => $code_value
+                    ]
+                );
+            }else {
+                $code_name = 'template_6_ad_code';
+                $code_value = '1';
+                Attribute::where(
+                    [
+                        'template_id' => $template_id,
+                        'name' => $code_name,
+                    ]
+                )->delete();
+            }
+        }
         return redirect()->route('home')
         ->with('success','Template Updated');
     }

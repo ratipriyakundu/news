@@ -1,3 +1,56 @@
+@php
+    $categories = \App\Models\Category::get();
+@endphp
+@php
+    $template_7_left_category_exists = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_7_left_category'
+        ]
+    )->exists();
+    if($template_7_left_category_exists) {
+        $template_7_left_category = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_7_left_category'
+        ]
+    )->first();
+        $template_7_left_category_id = $template_7_left_category->value;
+        $template_7_left_category_data = \App\Models\Category::where('id',$template_7_left_category_id)->first();
+        $template_7_left_category_name = $template_7_left_category_data->title;
+        $template_7_left_category_query = \App\Models\News::whereRaw('FIND_IN_SET("'.$template_7_left_category->value.'",category)');
+    }else {
+        $template_7_left_category_data = \App\Models\Category::first();
+        $template_7_left_category_name = $template_7_left_category_data->title;
+        $template_7_left_category_id = $template_7_left_category_data->id;
+        $template_7_left_category_query = \App\Models\News::whereRaw('FIND_IN_SET("'.$template_7_left_category_id.'",category)');
+    }
+@endphp
+@php
+    $template_7_right_category_exists = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_7_right_category'
+        ]
+    )->exists();
+    if($template_7_right_category_exists) {
+        $template_7_right_category = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_7_right_category'
+        ]
+    )->first();
+        $template_7_right_category_id = $template_7_right_category->value;
+        $template_7_right_category_data = \App\Models\Category::where('id',$template_7_right_category_id)->first();
+        $template_7_right_category_name = $template_7_right_category_data->title;
+        $template_7_right_category_query = \App\Models\News::whereRaw('FIND_IN_SET("'.$template_7_right_category->value.'",category)');
+    }else {
+        $template_7_right_category_data = \App\Models\Category::first();
+        $template_7_right_category_name = $template_7_right_category_data->title;
+        $template_7_right_category_id = $template_7_right_category_data->id;
+        $template_7_right_category_query = \App\Models\News::whereRaw('FIND_IN_SET("'.$template_7_right_category_id.'",category)');
+    }
+@endphp
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-md-9">
@@ -5,16 +58,16 @@
                 <div>
                     <p class="h5 fw-bold mb-4">
                         <span class="red-bullet"></span>
-                        <span class="d-inline">मनोरंजन</span>
+                        <span class="d-inline">{{$template_7_left_category_name}}</span>
                     </p>
                 </div>
                 <div>
-                    <p class="h5 fw-bold mb-4 text-danger">
+                    <a href="{{route('news-categories')}}?category_id={{$template_7_left_category_id}}" class="h5 fw-bold mb-4 text-danger">
                         <span class="d-inline">
                             और पढ़ें
                             <i class="bi bi-caret-right-fill"></i>
                         </span>
-                    </p>
+                    </a>
                 </div>
             </div>
             <div class="row">
@@ -78,16 +131,16 @@
                 <div>
                     <p class="h5 fw-bold mb-4">
                         <span class="red-bullet"></span>
-                        <span class="d-inline">मनोरंजन</span>
+                        <span class="d-inline">{{$template_7_right_category_name}}</span>
                     </p>
                 </div>
                 <div>
-                    <p class="h5 fw-bold mb-4 text-danger">
+                    <a href="{{route('news-categories')}}?category_id={{$template_7_right_category_id}}" class="h5 fw-bold mb-4 text-danger text-decoration-none">
                         <span class="d-inline">
                             और पढ़ें
                             <i class="bi bi-caret-right-fill"></i>
                         </span>
-                    </p>
+                    </a>
                 </div>
             </div>
             <div style="position:relative;">

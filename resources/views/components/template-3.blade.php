@@ -1,3 +1,48 @@
+@php
+    $categories = \App\Models\Category::get();
+@endphp
+@php
+    $template_3_left_category_exists = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_3_left_category'
+        ]
+    )->exists();
+    if($template_3_left_category_exists) {
+        $template_3_left_category = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_3_left_category'
+        ]
+    )->first();
+        $template_3_left_category_id = $template_3_left_category->value;
+        $template_3_left_category_query = \App\Models\News::whereRaw('FIND_IN_SET("'.$template_3_left_category->value.'",category)');
+    }else {
+        $template_3_left_category_id = 0;
+        $template_3_left_category_query = \App\Models\News::where('latest_news','1');
+    }
+@endphp
+@php
+    $template_3_right_category_exists = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_3_right_category'
+        ]
+    )->exists();
+    if($template_3_right_category_exists) {
+        $template_3_right_category = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_3_right_category'
+        ]
+    )->first();
+        $template_3_right_category_id = $template_3_right_category->value;
+        $template_3_right_category_query = \App\Models\News::whereRaw('FIND_IN_SET("'.$template_3_right_category->value.'",category)');
+    }else {
+        $template_3_right_category_id = 0;
+        $template_3_right_category_query = \App\Models\News::where('popular','1');
+    }
+@endphp
 <style>
     .section-3-carousal {
         padding: 10px;
@@ -23,8 +68,9 @@
     <div class="row">
         <div class="col-md-4 p-2">
             @php
-                $latestLargest = \App\Models\News::where('latest_news','1')
-                ->orderBy('id','DESC')->first();
+                $latestLargest = $template_3_left_category_query
+                ->orderBy('id','DESC')
+                ->first();
             @endphp
             <a class="text-decoration-none" href="news-details?news_id={{$latestLargest->id}}">
                 <p class="h3 fw-bold">
@@ -36,7 +82,7 @@
                 </p>
             </a>
             @php
-                $latestLarger = \App\Models\News::where('latest_news','1')
+                $latestLarger = $template_3_left_category_query
                 ->orderBy('id','DESC')->skip(1)->first();
             @endphp
             <a class="text-decoration-none" href="news-details?news_id={{$latestLarger->id}}">
@@ -55,7 +101,7 @@
         </div>
         <div class="col-md-4 py-4">
             @php
-                $latests = \App\Models\News::where('latest_news','1')
+                $latests = $template_3_left_category_query
                 ->orderBy('id','DESC')->skip(2)->take(6)->get();
             @endphp
             @foreach($latests as $latest)
@@ -74,7 +120,7 @@
         <div class="col-md-4 py-4">
             <p class="fw-bold h4">लोकप्रिय</p>
             @php
-                $popularSlide = \App\Models\News::where('popular','1')
+                $popularSlide = $template_3_right_category_query
                 ->orderBy('id','DESC')->take(6)->get();
             @endphp
             <div class="owl-carousel-3 owl-carousel owl-theme section-3-carousal">
@@ -89,7 +135,7 @@
                 @endforeach
             </div>
             @php
-                $populars = \App\Models\News::where('popular','1')
+                $populars = $template_3_right_category_query
                 ->orderBy('id','DESC')->skip(6)->take(3)->get();
             @endphp
             @foreach($populars as $popular)
@@ -108,3 +154,34 @@
         </div>
     </div>
 </div>
+{{-- Edit Modal --}}
+<div class="modal fade" id="editModal{{$id}}" tabindex="-1" aria-labelledby="editModal{{$id}}Label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center p-5">
+            <form action="{{route('edit-template')}}" method="POST">
+                @csrf
+                <input type="hidden" value="{{$id}}" name="id">
+                <label for="">Left Section Category</label>
+                <select name="template_3_left_category" class="form-control my-3">
+                    <option value="">-- Select Preference --</option>
+                    <option value="0">Latest News(Recommended)</option>
+                    @foreach($categories as $category)
+                        <option {{($template_3_left_category_id == $category->id) ? 'selected' : ''}} value="{{$category->id}}">{{$category->title}}</option>
+                    @endforeach
+                </select>
+                <label for="">Right Section Category</label>
+                <select name="template_3_right_category" class="form-control my-3">
+                    <option value="">-- Select Preference --</option>
+                    <option value="0">Popular News(Recommended)</option>
+                    @foreach($categories as $category)
+                        <option {{($template_3_right_category_id == $category->id) ? 'selected' : ''}} value="{{$category->id}}">{{$category->title}}</option>
+                    @endforeach
+                </select>
+                <button type="submit" name="template-3-edit-btn" class="custom-button button-red">Save</button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+{{-- End Edit Modal --}}

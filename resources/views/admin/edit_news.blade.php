@@ -75,6 +75,11 @@
   for($a=2;$a<=30;$a++){?>
   <option value="<?php echo $a;?>" <?php if($news['breaking_news']==$a){?> selected <?php } ?>><?php echo $a;?> Minutes</option>
   <?php }?>
+  <option value="60" <?php if($news['breaking_news']==60){?> selected <?php } ?>>1 Hours</option>
+  <option value="180" <?php if($news['breaking_news']==180){?> selected <?php } ?>>3 Hours</option>
+  <option value="360" <?php if($news['breaking_news']==360){?> selected <?php } ?>>6 Hours</option>
+  <option value="720" <?php if($news['breaking_news']==720){?> selected <?php } ?>>12 Hours</option>
+  <option value="1440" <?php if($news['breaking_news']==1440){?> selected <?php } ?>>24 Hours</option>
 </select>
 </div>
 
