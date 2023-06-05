@@ -126,9 +126,9 @@
                         <span class="red-bullet" style="width: 10px; height:10px;"></span>
                         <span class="d-inline">{{\Carbon\Carbon::parse($template_4_right_news_list->added_at)->format('g:i A')}}</span>
                     </p>
-                    <div class="p-3" style="border-left:1px solid red;margin-left:5px;">
+                    <a href="news-details?news_id={{$template_4_right_news_list->id}}" class="p-3 d-block text-decoration-none" style="border-left:1px solid red;margin-left:5px;">
                         {{\Str::limit($template_4_right_news_list->title,68)}}
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>

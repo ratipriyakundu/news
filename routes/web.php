@@ -7,6 +7,8 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AttributeController;
+use App\Http\Controllers\StoryController;
+use App\Http\Controllers\ReelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -99,3 +101,10 @@ Route::post('/delete-template',[PageController::class,'deleteTemplate'])->name('
 Route::get('/move-up-template',[PageController::class,'moveUpTemplate'])->name('move-up-template');
 Route::get('/move-down-template',[PageController::class,'moveDownTemplate'])->name('move-down-template');
 Route::post('/edit-template',[AttributeController::class,'editTemplate'])->name('edit-template');
+
+//Stories Route
+Route::get('/stories',[StoryController::class,'stories'])->name('stories');
+Route::get('/story',[StoryController::class,'story'])->name('story');
+
+//Reels Route
+Route::get('/reels',[ReelController::class,'reels'])->name('reels');

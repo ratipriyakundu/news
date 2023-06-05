@@ -72,57 +72,57 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div style="position:relative;">
-                        <img src="img/placeholder.webp" style="width:100%;height:270px;object-fit:cover;opacity:0.5;">
+                    @php
+                        $template_7_left_large_news = $template_7_left_category_query
+                        ->orderBy('id','DESC')
+                        ->take(1)
+                        ->first();
+                    @endphp
+                    <a href="news-details?news_id={{$template_7_left_large_news->id}}" style="position:relative;">
+                        <img src="uploads/news/{{$template_7_left_large_news->image}}" style="width:100%;height:270px;object-fit:cover;opacity:0.5;">
                         <p class="fw-bold h5 text-light" style="position:absolute;bottom:0px;padding:10px;">
-                            लोरेम इप्सम प्रिंटिंग और टाइपसेटिंग उद्योग का केवल डमी टेक्स्ट है...
+                            {{\Str::limit($template_7_left_large_news->title,68)}}
                         </p>
-                    </div>
-                    <div class="row mt-3">
+                    </a>
+                    @php
+                        $template_7_left_small_news = $template_7_left_category_query
+                        ->orderBy('id','DESC')
+                        ->skip(1)
+                        ->take(1)
+                        ->first();
+                    @endphp
+                    <a class="row mt-3" href="news-details?news_id={{$template_7_left_small_news->id}}">
                         <div class="col-md-5">
-                            <img src="img/placeholder.webp" style="width:100%;height:100px;object-fit:cover;">
+                            <img src="uploads/news/{{$template_7_left_small_news->image}}" style="width:100%;height:100px;object-fit:cover;">
                         </div>
                         <div class="col-md-7">
                             <p class="fw-bold h5">
-                                लोरेम इप्सम प्रिंटिंग और टाइपसेटिंग उद्योग का केवल डमी टेक्स्ट है...
+                                {{\Str::limit($template_7_left_small_news->title,68)}}
                             </p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-md-6">
-                    <div class="row mt-3">
+                    @php
+                        $template_7_center_news_lists = $template_7_left_category_query
+                        ->orderBy('id','DESC')
+                        ->skip(2)
+                        ->take(3)
+                        ->get();
+                    @endphp
+                    @foreach($template_7_center_news_lists as $template_7_center_news_list)
+                    <a href="news-details?news_id={{$template_7_center_news_list->id}}" class="row mt-3">
                         <div class="col-md-5">
-                            <img src="img/placeholder.webp" style="width:100%;height:100px;object-fit:cover;">
+                            <img src="uploads/news/{{$template_7_center_news_list->image}}" style="width:100%;height:100px;object-fit:cover;">
                         </div>
                         <div class="col-md-7">
                             <p class="fw-bold h5">
-                                लोरेम इप्सम प्रिंटिंग और टाइपसेटिंग उद्योग का केवल डमी टेक्स्ट है...
+                                {{\Str::limit($template_7_center_news_list->title,68)}}
                             </p>
                         </div>
-                    </div>
+                    </a>
                     <hr>
-                    <div class="row mt-3">
-                        <div class="col-md-5">
-                            <img src="img/placeholder.webp" style="width:100%;height:100px;object-fit:cover;">
-                        </div>
-                        <div class="col-md-7">
-                            <p class="fw-bold h5">
-                                लोरेम इप्सम प्रिंटिंग और टाइपसेटिंग उद्योग का केवल डमी टेक्स्ट है...
-                            </p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row mt-3">
-                        <div class="col-md-5">
-                            <img src="img/placeholder.webp" style="width:100%;height:100px;object-fit:cover;">
-                        </div>
-                        <div class="col-md-7">
-                            <p class="fw-bold h5">
-                                लोरेम इप्सम प्रिंटिंग और टाइपसेटिंग उद्योग का केवल डमी टेक्स्ट है...
-                            </p>
-                        </div>
-                    </div>
-                    <hr>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -143,35 +143,39 @@
                     </a>
                 </div>
             </div>
-            <div style="position:relative;">
-                <img src="img/placeholder.webp" style="width:100%;height:200px;object-fit:cover;opacity:0.5;">
+            @php
+                $template_7_right_large_news = $template_7_right_category_query
+                ->orderBy('id','DESC')
+                ->take(1)
+                ->first();
+            @endphp
+            <a href="news-details?news_id={{$template_7_right_large_news->id}}" style="position:relative;">
+                <img src="uploads/news/{{$template_7_right_large_news->image}}" style="width:100%;height:200px;object-fit:cover;opacity:0.5;">
                 <p class="fw-bold h5 text-light" style="position:absolute;bottom:0px;padding:10px;">
-                    लोरेम इप्सम प्रिंटिंग और टाइपसेटिंग उद्योग का केवल डमी टेक्स्ट है...
+                    {{\Str::limit($template_7_right_large_news->title,60)}}
                 </p>
-            </div>
+            </a>
             <hr>
-            <div class="row mt-3">
-                <div class="col-md-5">
-                    <img src="img/placeholder.webp" style="width:100%;height:70px;object-fit:cover;">
-                </div>
-                <div class="col-md-7">
-                    <p>
-                        लोरेम इप्सम प्रिंटिंग और टाइपसेटिंग उद्योग का केवल डमी टेक्स्ट है...
-                    </p>
-                </div>
-            </div>
-            <hr>
-            <div class="row mt-3">
-                <div class="col-md-5">
-                    <img src="img/placeholder.webp" style="width:100%;height:70px;object-fit:cover;">
-                </div>
-                <div class="col-md-7">
-                    <p>
-                        लोरेम इप्सम प्रिंटिंग और टाइपसेटिंग उद्योग का केवल डमी टेक्स्ट है...
-                    </p>
-                </div>
-            </div>
-            <hr>
+            @php
+                $template_7_right_small_news_lists = $template_7_right_category_query
+                ->orderBy('id','DESC')
+                ->skip(1)
+                ->take(2)
+                ->get();
+            @endphp
+            @foreach($template_7_right_small_news_lists as $template_7_right_small_news_list)
+                <a href="news-details?news_id={{$template_7_right_small_news_list->id}}" class="row mt-3">
+                    <div class="col-md-5">
+                        <img src="uploads/news/{{$template_7_right_small_news_list->image}}" style="width:100%;height:70px;object-fit:cover;">
+                    </div>
+                    <div class="col-md-7">
+                        <p>
+                            {{\Str::limit($template_7_right_small_news_list->title,68)}}
+                        </p>
+                    </div>
+                </a>
+                <hr>
+            @endforeach
         </div>
     </div>
 </div>
