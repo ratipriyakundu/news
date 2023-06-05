@@ -224,6 +224,32 @@ if(in_array('Manage Subadmin',$user_prmission)){?>
               </a>
             </li>
           @endif
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-th-list"></i>
+              <p>
+                Manage Reels
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('all-reel')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Reels List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('add-reel')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Reel</p>
+                </a>
+              </li>
+              
+              
+            </ul>
+          </li>
           
           <li>
 

@@ -54,8 +54,8 @@
 
         .video__player {
         object-fit: cover;
-        width: 100%;
-        height: 100%;
+        max-width: 700px;
+        height: 100vh;
         }
 
         @media (max-width: 425px) {
@@ -170,55 +170,54 @@
   </head>
   <body>
     <div class="app__videos">
-      <div class="video">
-        <video class="video__player" src="reel/small.mp4" autoplay loop></video>
+      @foreach($reels as $reel)
+        <div class="video">
+          <video autoplay class="video__player" src="{{$reel->video}}" loop></video>
 
-        <!-- footer starts -->
-        <div class="videoFooter">
-            <div class="videoFooter__text">
-              <h3><button>Follow</button></h3>
+          <!-- footer starts -->
+          <div class="videoFooter">
+              <div class="videoFooter__text">
+                <h3><button>Follow</button></h3>
+              </div>
             </div>
-          </div>
-          <!-- footer ends -->
-      </div>
-      <div class="video">
-        <video class="video__player" src="reel/small.mp4" autoplay loop></video>
-
-        <!-- footer starts -->
-        <div class="videoFooter">
-            <div class="videoFooter__text">
-              <h3><button>Follow</button></h3>
-            </div>
-          </div>
-          <!-- footer ends -->
-      </div>
+            <!-- footer ends -->
+        </div>
+      @endforeach
     </div>
 
     <script>
-      const videos = document.querySelectorAll('video');
-      videos.forEach(function (video) {
-        document.addEventListener('scroll', function() {
-          video.play();
-            if(isInViewport(video)) {
-                video.play();
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            }
-        });
-      });
-      function isInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        console.log(rect);
-        return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-      }
+      function playPauseVideo() {
+        let videos = document.querySelectorAll("video");
+        videos.forEach((video) => {
+          video.muted = true;
+          let playPromise = video.play();
+          if (playPromise !== undefined) {
+              playPromise.then((_) => {
+                  let observer = new IntersectionObserver(
+                      (entries) => {
+                          entries.forEach((entry) => {
+                              if (
+                                  entry.intersectionRatio !== 1 &&
+                                  !video.paused
+                              ) {
+                                  video.pause();
+                                  //video.muted = true;
+                              } else if (video.paused) {
+                                  video.play();
+                                  video.muted = false;
+                              }
+                          });
+                      },
+                      { threshold: 0.2 }
+                  );
+                  observer.observe(video);
+              });
+          }
+    });
+}
+
+// And you would kick this off where appropriate with:
+playPauseVideo();
     </script>
   </body>
 </html>

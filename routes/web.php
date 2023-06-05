@@ -108,3 +108,7 @@ Route::get('/story',[StoryController::class,'story'])->name('story');
 
 //Reels Route
 Route::get('/reels',[ReelController::class,'reels'])->name('reels');
+Route::get('/all-reel',[ReelController::class,'allReel'])->name('all-reel');
+Route::get('/add-reel',[ReelController::class,'addReel'])->name('add-reel');
+Route::post('/add-reel-store',[ReelController::class,'addReelStore'])->name('add-reel-store');
+Route::get('/delete-reel',[ReelController::class,'deleteReel'])->name('delete-reel');
