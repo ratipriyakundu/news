@@ -195,20 +195,10 @@
     </div>
 
     <script>
-        function isInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-
-            );
-        }
       const videos = document.querySelectorAll('video');
-
-      for (const video of videos) {
+      videos.forEach(function (video) {
         document.addEventListener('scroll', function() {
+          video.play();
             if(isInViewport(video)) {
                 video.play();
                 if (video.paused) {
@@ -218,6 +208,16 @@
                 }
             }
         });
+      });
+      function isInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        console.log(rect);
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
       }
     </script>
   </body>

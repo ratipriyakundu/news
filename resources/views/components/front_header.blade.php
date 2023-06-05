@@ -5259,7 +5259,7 @@ $logo= DB::table('logo')->where('id',1)->first();
             <div class="container mt-5">
                 <div class="breaking-news-wrap d-flex">
                     <div class="breaking-news-heading align-self-center">
-                        <p style="width:175px;">आज की ताजा खबर |</p>
+                        <p style="width:210px;">आज की ताजा खबर |</p>
                     </div>
                     <div class="breaking-news-section flex-grow-1 align-self-center">
                         <marquee behavior="" direction="left" loop>
