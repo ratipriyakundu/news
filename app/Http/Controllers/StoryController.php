@@ -41,7 +41,7 @@ class StoryController extends Controller
     }
 
     public function story(Request $request) {
-        $slides = Slide::where('story_id',2)
+        $slides = Slide::where('story_id',\Crypt::decrypt($request->id))
         ->orderBy('id','DESC')
         ->get();
         return view('story')

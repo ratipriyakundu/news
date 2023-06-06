@@ -173,14 +173,6 @@
       @foreach($reels as $reel)
         <div class="video">
           <video autoplay class="video__player" src="{{$reel->video}}" loop></video>
-
-          <!-- footer starts -->
-          <div class="videoFooter">
-              <div class="videoFooter__text">
-                <h3><button>Follow</button></h3>
-              </div>
-            </div>
-            <!-- footer ends -->
         </div>
       @endforeach
     </div>
