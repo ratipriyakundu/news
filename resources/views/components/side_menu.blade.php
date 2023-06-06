@@ -246,21 +246,42 @@ if(in_array('Manage Subadmin',$user_prmission)){?>
                   <p>Add Reel</p>
                 </a>
               </li>
-              
-              
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-image"></i>
+              <p>
+                Manage Web Stories
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('all-story')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Web Stories List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('add-story')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Web Stories</p>
+                </a>
+              </li>
             </ul>
           </li>
           
           <li>
-
-          <a href="{{route('logout')}}" class="nav-link bg-danger">
-              <i class="nav-icon fas fa-power-off"></i>
-              <p>
-                Logout
-                
-              </p>
+            <a href="{{route('logout')}}" class="nav-link bg-danger">
+                <i class="nav-icon fas fa-power-off"></i>
+                <p>
+                  Logout
+                  
+                </p>
             </a>
-</li>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

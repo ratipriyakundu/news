@@ -617,3 +617,15 @@ marquee {
   top: 40%;
   left: 45%;
 }
+.slide-wrapper {
+  position: relative;
+}
+.slide-wrapper .slide-title {
+  position: absolute;
+  bottom: 0px;
+  padding: 10px;
+  color: white;
+  font-weight: 700;
+  background-color: #222222;
+  opacity: 0.8;
+}

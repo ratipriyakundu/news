@@ -102,6 +102,18 @@
       font-size: 24px;
       line-height: 1.5;
     }
+    .bottom {
+      position: relative;
+    }
+    .slide-title {
+      position: absolute;
+      bottom: 0px;
+      padding: 10px;
+      color: white;
+      font-weight: 700;
+      background-color: #222222;
+      opacity: 0.8;
+    }
   </style>
 </head>
   <body>
@@ -122,110 +134,30 @@
       </script>
     </amp-story-auto-ads>
  -->
+    
       
-      <amp-story-page id="page-1">
-        <amp-story-grid-layer template="fill">
-          <amp-video autoplay loop
-            width="400"
-            height="750"
-            poster="https://ampbyexample.com/img/poster0.png"
-            layout="fill">
-            <source src="https://ampbyexample.com/video/p1.mp4" type="video/mp4">
-          </amp-video>
-        </amp-story-grid-layer>
-      </amp-story-page>
-
-      <amp-story-page id="page-2">
-        <amp-story-grid-layer template="fill">
-          <amp-img width="400" height="750" layout="fill" src="https://ampbyexample.com/img/overview.jpg"></amp-img>
-        </amp-story-grid-layer>
-        <amp-story-grid-layer template="vertical" class="bottom">
-          <h2 class="bold">Overview</h2>
-          <p>We held the second AMP Conf to celebrate the breadth of the AMP
-            community and announce the latest AMP innovations. We engaged 400+
-            devs in-person over two days and thousands globally on live stream.</p>
-          <p class="last">Here are the key launches by the AMP team and others this year</p>
-        </amp-story-grid-layer>
-      </amp-story-page>
-
-      <amp-story-page id="page-3">
-        <amp-story-grid-layer template="fill">
-          <amp-video autoplay loop
-            width="400"
-            height="750"
-            poster="https://ampbyexample.com/img/poster.jpg"
-            layout="fill">
-            <source src="https://ampbyexample.com/video/stamp-animation.mp4" type="video/mp4">
-          </amp-video>
-        </amp-story-grid-layer>
-        <amp-story-grid-layer template="vertical" class="bottom">
-          <div class="introducing">
-            <p class="bold blue twenty-px center">Introducing</p>
-            <h2 class="bold blue center last">AMP Stories</h2>
-          </div>
-        </amp-story-grid-layer>
-      </amp-story-page>
-
-      <amp-story-page id="page-4">
-        <amp-story-grid-layer template="fill">
-          <amp-img width="400" height="750" layout="fill" src="https://ampbyexample.com/img/blue-stuff.jpg"></amp-img>
-        </amp-story-grid-layer>
-        <amp-story-grid-layer template="vertical" class="bottom">
-          <h1 class="bold">A visual storytelling format fot the open web</h1>
-          <p class="last">Providing content publishers with a mobile-focused
-            format for delivering news and information as visual, tap-through
-            stories on the open web.</p>
-        </amp-story-grid-layer>
-      </amp-story-page>
-
-      <amp-story-page id="page-5" auto-advance-after="stamp-vid">
-        <amp-story-grid-layer template="fill">
-          <amp-video autoplay
-            id="stamp-vid"
-            width="400"
-            height="750"
-            poster="https://ampbyexample.com/img/poster2.jpg"
-            layout="fill">
-            <source src="https://ampbyexample.com/video/stamp.mp4" type="video/mp4">
-            <track default src="https://ampbyexample.com/video/stamp.vtt" srclang="en">
-          </amp-video>
-        </amp-story-grid-layer>
-        <amp-story-grid-layer template="thirds">
-          <div grid-area="lower-third" class="subtitle-page">
-            <p class="bold twenty-px center">
-              Telling stories with AMP.
+     
+      @php
+          
+      @endphp
+      @php
+        $id = 0;
+      @endphp
+      @foreach($slides as $slide)
+        @php
+            $id = $id + 1;
+        @endphp
+        <amp-story-page id="page-{{$id}}">
+          <amp-story-grid-layer template="fill">
+            <amp-img width="400" height="750" layout="fill" src="{{$slide->image}}"></amp-img>
+          </amp-story-grid-layer>
+          <amp-story-grid-layer template="vertical" class="bottom">
+            <p class="slide-title">
+              {{$slide->title}}
             </p>
-          </div>
-        </amp-story-grid-layer>
-      </amp-story-page>
+          </amp-story-grid-layer>
+        </amp-story-page>
+      @endforeach
 
-      <amp-story-page id="page-6">
-        <amp-story-grid-layer template="fill">
-          <amp-video autoplay loop
-            width="400"
-            height="750"
-            poster="https://ampbyexample.com/img/poster3.jpg"
-            layout="fill">
-            <source src="https://ampbyexample.com/video/gmail-animation.mp4" type="video/mp4">
-          </amp-video>
-        </amp-story-grid-layer>
-        <amp-story-grid-layer template="vertical">
-          <div class="introducing">
-            <p class="bold twenty-px center first">Introducing</p>
-            <h2 class="bold center">AMP For Email</h2>
-          </div>
-        </amp-story-grid-layer>
-      </amp-story-page>
-
-      <amp-story-page id="page-7">
-        <amp-story-grid-layer template="fill">
-          <amp-img width="400" height="750" layout="fill" src="https://ampbyexample.com/img/blue-gmail.jpg"></amp-img>
-        </amp-story-grid-layer>
-        <amp-story-grid-layer template="vertical" class="bottom">
-          <h1 class="bold">Bringing the power of AMP to Gmail</h1>
-          <p class="last">New spec allows developers to create more engaging,
-            interactive, and actionable email experiences with AMP content.</p>
-        </amp-story-grid-layer>
-      </amp-story-page>
   </body>
 </html>

@@ -9,6 +9,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\ReelController;
+use App\Http\Controllers\SlideController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -105,6 +106,15 @@ Route::post('/edit-template',[AttributeController::class,'editTemplate'])->name(
 //Stories Route
 Route::get('/stories',[StoryController::class,'stories'])->name('stories');
 Route::get('/story',[StoryController::class,'story'])->name('story');
+Route::get('/all-story',[StoryController::class,'allStory'])->name('all-story');
+Route::get('/add-story',[StoryController::class,'addStory'])->name('add-story');
+Route::post('/add-story-store',[StoryController::class,'addStoryStore'])->name('add-story-store');
+Route::get('/delete-story',[StoryController::class,'deleteStory'])->name('delete-story');
+Route::post('/publish-story',[StoryController::class,'publishStory'])->name('publish-story');
+
+//Slides Route
+Route::get('/add-slide',[SlideController::class,'addSlide'])->name('add-slide');
+Route::post('/add-slide-store',[SlideController::class,'addSlideStore'])->name('add-slide-store');
 
 //Reels Route
 Route::get('/reels',[ReelController::class,'reels'])->name('reels');
