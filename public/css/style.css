@@ -3,6 +3,11 @@
 	margin: 0;
 	font-size: 14px;
 }
+
+body {
+  top: 0 !important;
+  position: static !important;
+}
 .img-section2{
 	
 	padding-top: 60px;
@@ -591,10 +596,7 @@ html {
 
 /* Фиксируем позицию body, которую меняет панель гугла */
 
-body {
-  top: 0 !important;
-  position: static !important;
-}
+
 
 /* Прячем панель гугла */
 

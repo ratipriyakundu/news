@@ -5110,7 +5110,7 @@
                             {{-- --}}
                             <div style="background:#fff;padding-left:10px;min-width:130px;color:#6c6c6c;font-size:12px;position:relative;border-radius:0 0 7px 7px;display:flex;align-items:center;height:100%"
                                 class="jsx-2167635379 linner">
-                                <a href="/" class="jsx-2167635379">
+                                <a href="#" data-google-lang="hi" class="jsx-2167635379">
                                     हिन्दी
                                     <span class="jsx-2167635379 nhlanguate-arrow hsocial-sprite"></span>
                                 </a>
@@ -5118,32 +5118,32 @@
                                     <a href="#" class="jsx-2167635379" data-google-lang="en">
                                         English
                                     </a>
-                                    <a class="jsx-2167635379">
-                                        বাংলা
+                                    <a href="#" data-google-lang="te" class="jsx-2167635379">
+                                        Telugu
                                     </a>
-                                    <a class="jsx-2167635379">
-                                        मराठी 
+                                    <a href="#" data-google-lang="gu" class="jsx-2167635379">
+                                        Gujarati 
                                     </a>
-                                    <a class="jsx-2167635379">
-                                        ગુજરાતી
+                                    <a href="#" data-google-lang="ta" class="jsx-2167635379">
+                                        Tamil
                                     </a>
-                                    <a class="jsx-2167635379">
-                                        தமிழ்
+                                    <a href="#" data-google-lang="mr" class="jsx-2167635379">
+                                        Marathi
                                     </a>
-                                    <a class="jsx-2167635379">
-                                        മലയാളം
+                                    <a href="#" data-google-lang="kn" class="jsx-2167635379">
+                                        Kannada
                                     </a>
-                                    <a class="jsx-2167635379">
-                                        ਪੰਜਾਬੀ
+                                    <a href="#" data-google-lang="bn" class="jsx-2167635379">
+                                        Bengali
                                     </a>
-                                    <a class="jsx-2167635379">اردو
-                                        
+                                    <a href="#" data-google-lang="ur" class="jsx-2167635379">
+                                        Urdu
                                     </a>
-                                    <a class="jsx-2167635379">
-                                        অসমীয়া
+                                    <a href="#" data-google-lang="ml" class="jsx-2167635379">
+                                        Malayalam
                                     </a>
-                                    <a class="jsx-2167635379">
-                                        ଓଡ଼ିଆ
+                                    <a href="#" data-google-lang="ar" class="jsx-2167635379">
+                                        Arabic
                                     </a>
                                 </div>
                             </div>
