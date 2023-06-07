@@ -5107,11 +5107,47 @@
                     <div style="display:flex;justify-content:space-between" class="jsx-2167635379 topLinksWrap">
                         <div style="background:#e1261d;display:flex;justify-content:space-between;color:#fff;align-items:center;padding-right:0;padding-bottom:0;padding-top:1px;height:26px"
                             class="jsx-2167635379 languagebox"><span class="jsx-2167635379">CHANGE LANGUAGE</span>
+                            {{-- --}}
                             <div style="background:#fff;padding-left:10px;min-width:130px;color:#6c6c6c;font-size:12px;position:relative;border-radius:0 0 7px 7px;display:flex;align-items:center;height:100%"
                                 class="jsx-2167635379 linner">
-                                {{-- Google Translate --}}
-                                {{-- End Google Translate --}}
+                                <a href="/" class="jsx-2167635379">
+                                    हिन्दी
+                                    <span class="jsx-2167635379 nhlanguate-arrow hsocial-sprite"></span>
+                                </a>
+                                <div class="jsx-2167635379 lddnav">
+                                    <a href="#" class="jsx-2167635379" data-google-lang="en">
+                                        English
+                                    </a>
+                                    <a class="jsx-2167635379">
+                                        বাংলা
+                                    </a>
+                                    <a class="jsx-2167635379">
+                                        मराठी 
+                                    </a>
+                                    <a class="jsx-2167635379">
+                                        ગુજરાતી
+                                    </a>
+                                    <a class="jsx-2167635379">
+                                        தமிழ்
+                                    </a>
+                                    <a class="jsx-2167635379">
+                                        മലയാളം
+                                    </a>
+                                    <a class="jsx-2167635379">
+                                        ਪੰਜਾਬੀ
+                                    </a>
+                                    <a class="jsx-2167635379">اردو
+                                        
+                                    </a>
+                                    <a class="jsx-2167635379">
+                                        অসমীয়া
+                                    </a>
+                                    <a class="jsx-2167635379">
+                                        ଓଡ଼ିଆ
+                                    </a>
+                                </div>
                             </div>
+                            {{-- --}}
                         </div>
                         <div class="jsx-2167635379 nhlivetv"><a href="/" class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhlivetv-icon hsocial-sprite"></span><strong

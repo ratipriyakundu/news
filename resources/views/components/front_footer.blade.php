@@ -63,6 +63,8 @@
 </body>
 </html>
 <script src="js/jquery.min.js"></script>
+<script src="js/jquery.cookie.min.js"></script>
+<script src="js/google-translate.js"></script>
 <script src="js/owl.carousel.js"></script>
 <script src="js/owl.animate.js"></script>
 <script src="js/owl.autoplay.js"></script>
