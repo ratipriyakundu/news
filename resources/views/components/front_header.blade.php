@@ -5133,18 +5133,18 @@
                                     <a href="#" data-google-lang="kn" class="jsx-2167635379">
                                         Kannada
                                     </a>
-                                    <p data-google-lang="bn" class="jsx-2167635379">
+                                    <a href="#" data-google-lang="bn" class="jsx-2167635379">
                                         Bengali
-                                    </p>
+                                    </a>
                                     <a href="#" data-google-lang="ur" class="jsx-2167635379">
                                         Urdu
                                     </a>
                                     <a href="#" data-google-lang="ml" class="jsx-2167635379">
                                         Malayalam
                                     </a>
-                                    <p data-google-lang="ar" class="jsx-2167635379">
+                                    <a href="#" data-google-lang="ar" class="jsx-2167635379">
                                         Arabic
-                                    </p>
+                                    </a>
                                 </div>
                             </div>
                             {{-- --}}
