@@ -10,7 +10,6 @@ use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\ReelController;
 use App\Http\Controllers\SlideController;
-use App\Http\Controllers\LangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,10 +20,6 @@ use App\Http\Controllers\LangController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Route::get('lang/home', [LangController::class, 'index']);
-Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
 Route::get('/',[FrontController::class,'home'])->name('home');
 //Route::get('/',[CategoryController::class,'home']);

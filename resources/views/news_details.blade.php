@@ -1,4 +1,16 @@
 <x-front_header :category="$category" :hasPermission="$hasPermission"/>
+<style> 
+	* {
+		font-family: 'Times New Roman', Times, serif;
+	}
+	strong {
+		font-weight: 600;
+		margin-bottom: 20px;
+	}
+	p {
+		line-height: 1.5;
+	}
+</style>
 <div class="px-5 container-fluid">
 	<section>
 		<div class="mt-5 row">
@@ -13,12 +25,9 @@
 				  </ol>
 				</nav>
 				</div>
-				<div class="col-md-6 d-flex flex-row-reverse">
-				<button type="button" class="btn btn-outline-danger text-align-left" disabled style="">FeedBack</button>
-			    </div>	
 				</div>
 				<!-- breadcrumb end -->
-                <h2 style="font-size: 25px; margin: 20px auto;">{{$news->title}}</h2>
+                <h2 style="font-size: 25px; margin: 20px auto; font-weight:700;">{{$news->title}}</h2>
 				@php
 					$specific_ad_exists = DB::table('advertisements')
 					->where(

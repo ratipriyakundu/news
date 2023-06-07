@@ -5109,16 +5109,20 @@
                             class="jsx-2167635379 languagebox"><span class="jsx-2167635379">CHANGE LANGUAGE</span>
                             <div style="background:#fff;padding-left:10px;min-width:130px;color:#6c6c6c;font-size:12px;position:relative;border-radius:0 0 7px 7px;display:flex;align-items:center;height:100%"
                                 class="jsx-2167635379 linner">
-                                {{-- --}}
+                                {{-- Google Translate --}}
+                                {{-- End Google Translate --}}
                             </div>
                         </div>
                         <div class="jsx-2167635379 nhlivetv"><a href="/" class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhlivetv-icon hsocial-sprite"></span><strong
                                     class="jsx-2167635379">WATCH LIVE TV</strong></a></div>
-                        <div class="jsx-2167635379 lnlapp"><a href="/" target="_blank" rel="nofollow"
+                        <div class="jsx-2167635379 lnlapp">
+                            <a href="https://play.google.com/store/apps/details?id=com.news.jangannews" target="_blank" rel="nofollow"
                                 class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhapp-icon hsocial-sprite"></span><strong
-                                    class="jsx-2167635379">DOWNLOAD News18 APP</strong></a></div>
+                                    class="jsx-2167635379">DOWNLOAD News18 APP</strong>
+                            </a>
+                        </div>
                         <div class="jsx-2167635379 nhsocial"><strong class="jsx-2167635379">Follow Us On</strong>
                             <?php
                             $social_headers = DB::table('socials')
@@ -5229,16 +5233,6 @@
                     </li>
                 @endif
             @endforeach
-            <li class="menu-list">
-                <a href="{{ route('stories') }}">
-                    वेब स्टोरीज
-                </a>
-            </li>
-            <li class="menu-list">
-                <a href="{{ route('reels') }}">
-                    रील्ज़
-                </a>
-            </li>
         </ul>
     </nav>
     {{-- end nav bar --}}
