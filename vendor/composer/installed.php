@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'cc8aa340dae264c4a379488d56c2e2ac95490782',
+        'reference' => 'd090e55758141ed08bc0af4289ce88fa3ac418d2',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -39,6 +39,15 @@
             'replaced' => array(
                 0 => '*',
             ),
+        ),
+        'devaslanphp/auto-translate' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => '57f0dd3e38036f88c5b25d115d726d32b46c90b8',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../devaslanphp/auto-translate',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'dflydev/dot-access-data' => array(
             'pretty_version' => 'v3.0.2',
@@ -379,6 +388,15 @@
                 0 => 'v8.83.27',
             ),
         ),
+        'kkomelin/laravel-translatable-string-exporter' => array(
+            'pretty_version' => '1.21.0',
+            'version' => '1.21.0.0',
+            'reference' => '51e6575223c345be359f5387ecaaf6bb7fc1de3d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../kkomelin/laravel-translatable-string-exporter',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -397,7 +415,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'cc8aa340dae264c4a379488d56c2e2ac95490782',
+            'reference' => 'd090e55758141ed08bc0af4289ce88fa3ac418d2',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -952,6 +970,15 @@
             'install_path' => __DIR__ . '/../sebastian/version',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'stichoza/google-translate-php' => array(
+            'pretty_version' => 'v4.1.7',
+            'version' => '4.1.7.0',
+            'reference' => '14f6a9c84cd860910706ee3a668fba8a0a1aac0f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../stichoza/google-translate-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'swiftmailer/swiftmailer' => array(
             'pretty_version' => 'v6.3.0',

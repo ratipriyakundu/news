@@ -7,8 +7,8 @@ namespace Composer\Autoload;
 class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
 {
     public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
@@ -18,8 +18,9 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
-        'da91a01b5badbe5394c83814ef5982ea' => __DIR__ . '/..' . '/php-flasher/flasher/helpers.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'da91a01b5badbe5394c83814ef5982ea' => __DIR__ . '/..' . '/php-flasher/flasher/helpers.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
@@ -29,7 +30,6 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -87,6 +87,7 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Stichoza\\GoogleTranslate\\' => 25,
         ),
         'R' => 
         array (
@@ -129,6 +130,10 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Sail\\' => 13,
         ),
+        'K' => 
+        array (
+            'KKomelin\\TranslatableStringExporter\\' => 36,
+        ),
         'I' => 
         array (
             'Illuminate\\Support\\' => 19,
@@ -162,6 +167,7 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
             'Doctrine\\Inflector\\' => 19,
             'Doctrine\\Common\\Lexer\\' => 22,
             'Dflydev\\DotAccessData\\' => 22,
+            'Devaslanphp\\AutoTranslate\\' => 26,
             'DeepCopy\\' => 9,
             'Database\\Seeders\\' => 17,
             'Database\\Factories\\' => 19,
@@ -311,6 +317,10 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Stichoza\\GoogleTranslate\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stichoza/google-translate-php/src',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -404,6 +414,10 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         array (
             0 => __DIR__ . '/..' . '/laravel/sail/src',
         ),
+        'KKomelin\\TranslatableStringExporter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
@@ -480,6 +494,10 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'Dflydev\\DotAccessData\\' => 
         array (
             0 => __DIR__ . '/..' . '/dflydev/dot-access-data/src',
+        ),
+        'Devaslanphp\\AutoTranslate\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/devaslanphp/auto-translate/src',
         ),
         'DeepCopy\\' => 
         array (
@@ -718,6 +736,9 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'Devaslanphp\\AutoTranslate\\AutoTranslateProvider' => __DIR__ . '/..' . '/devaslanphp/auto-translate/src/AutoTranslateProvider.php',
+        'Devaslanphp\\AutoTranslate\\Commands\\AutoTranslate' => __DIR__ . '/..' . '/devaslanphp/auto-translate/src/Commands/AutoTranslate.php',
+        'Devaslanphp\\AutoTranslate\\Commands\\TranslateMissing' => __DIR__ . '/..' . '/devaslanphp/auto-translate/src/Commands/TranslateMissing.php',
         'Dflydev\\DotAccessData\\Data' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Data.php',
         'Dflydev\\DotAccessData\\DataInterface' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/DataInterface.php',
         'Dflydev\\DotAccessData\\Exception\\DataException' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Exception/DataException.php',
@@ -2835,6 +2856,16 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
+        'KKomelin\\TranslatableStringExporter\\Console\\ExportCommand' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Console/ExportCommand.php',
+        'KKomelin\\TranslatableStringExporter\\Console\\InspectTranslationsCommand' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Console/InspectTranslationsCommand.php',
+        'KKomelin\\TranslatableStringExporter\\Core\\CodeParser' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Core/CodeParser.php',
+        'KKomelin\\TranslatableStringExporter\\Core\\Exporter' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Core/Exporter.php',
+        'KKomelin\\TranslatableStringExporter\\Core\\FileFinder' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Core/FileFinder.php',
+        'KKomelin\\TranslatableStringExporter\\Core\\StringExtractor' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Core/StringExtractor.php',
+        'KKomelin\\TranslatableStringExporter\\Core\\UntranslatedStringFinder' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Core/UntranslatedStringFinder.php',
+        'KKomelin\\TranslatableStringExporter\\Core\\Utils\\IO' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Core/Utils/IO.php',
+        'KKomelin\\TranslatableStringExporter\\Core\\Utils\\JSON' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Core/Utils/JSON.php',
+        'KKomelin\\TranslatableStringExporter\\Providers\\ExporterServiceProvider' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Providers/ExporterServiceProvider.php',
         'Laravel\\Sail\\Console\\AddCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/AddCommand.php',
         'Laravel\\Sail\\Console\\Concerns\\InteractsWithDockerComposeServices' => __DIR__ . '/..' . '/laravel/sail/src/Console/Concerns/InteractsWithDockerComposeServices.php',
         'Laravel\\Sail\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/InstallCommand.php',
@@ -4797,6 +4828,10 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'SebastianBergmann\\Type\\UnknownType' => __DIR__ . '/..' . '/sebastian/type/src/type/UnknownType.php',
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/type/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'Stichoza\\GoogleTranslate\\GoogleTranslate' => __DIR__ . '/..' . '/stichoza/google-translate-php/src/GoogleTranslate.php',
+        'Stichoza\\GoogleTranslate\\Tokens\\GoogleTokenGenerator' => __DIR__ . '/..' . '/stichoza/google-translate-php/src/Tokens/GoogleTokenGenerator.php',
+        'Stichoza\\GoogleTranslate\\Tokens\\SampleTokenGenerator' => __DIR__ . '/..' . '/stichoza/google-translate-php/src/Tokens/SampleTokenGenerator.php',
+        'Stichoza\\GoogleTranslate\\Tokens\\TokenProviderInterface' => __DIR__ . '/..' . '/stichoza/google-translate-php/src/Tokens/TokenProviderInterface.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\Attribute\\AsCommand' => __DIR__ . '/..' . '/symfony/console/Attribute/AsCommand.php',
