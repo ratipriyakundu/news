@@ -79,8 +79,8 @@
                         ->first();
                     @endphp
                     <a href="news-details?news_id={{$template_7_left_large_news->id}}" style="position:relative;">
-                        <img src="uploads/news/{{$template_7_left_large_news->image}}" style="width:100%;height:270px;object-fit:cover;opacity:0.5;">
-                        <p class="fw-bold h5 text-light" style="position:absolute;bottom:0px;padding:10px;">
+                        <img src="uploads/news/{{$template_7_left_large_news->image}}" style="width:100%;height:270px;object-fit:cover;">
+                        <p class="fw-bold h5 text-light" style="position:absolute;bottom:0px;padding:10px;background: rgba(0,0,0,0.5);">
                             {{\Str::limit($template_7_left_large_news->title,68)}}
                         </p>
                     </a>
@@ -150,8 +150,8 @@
                 ->first();
             @endphp
             <a href="news-details?news_id={{$template_7_right_large_news->id}}" style="position:relative;">
-                <img src="uploads/news/{{$template_7_right_large_news->image}}" style="width:100%;height:200px;object-fit:cover;opacity:0.5;">
-                <p class="fw-bold h5 text-light" style="position:absolute;bottom:0px;padding:10px;">
+                <img src="uploads/news/{{$template_7_right_large_news->image}}" style="width:100%;height:200px;object-fit:cover;">
+                <p class="fw-bold h5 text-light" style="position:absolute;bottom:0px;padding:10px;background: rgba(0,0,0,0.5);">
                     {{\Str::limit($template_7_right_large_news->title,60)}}
                 </p>
             </a>

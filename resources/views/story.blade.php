@@ -114,6 +114,9 @@
       background-color: #222222;
       opacity: 0.8;
     }
+    .i-amphtml-story-share-control {
+      display: none !important;
+    }
   </style>
 </head>
   <body>
@@ -123,7 +126,7 @@
       publisher-logo-src="https://ampbyexample.com/img/AMP-Brand-White-Icon.svg"
       poster-portrait-src="https://ampbyexample.com/img/overview.jpg">
       
-    <!-- <amp-story-auto-ads>
+     <amp-story-auto-ads>
       <script type="application/json">
         {
           "ad-attributes": {
@@ -133,7 +136,6 @@
         }
       </script>
     </amp-story-auto-ads>
- -->
     
       
      

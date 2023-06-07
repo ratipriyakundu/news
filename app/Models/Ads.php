@@ -15,7 +15,8 @@ class Ads extends Model
         'ads_type',
         'image',
         'google_script',
-        'url'
+        'url',
+        'position_id'
     ];
     public $timestamps=false;
 }

@@ -1,5 +1,5 @@
 <footer id="footer-1">
-	<div class="container-fluid">
+	<div class="container-fluid mt-5">
 		<div class="row">
 			@foreach($menucategory as $mcat)
 				<div class="col-md-3" style=" padding-left: 80px;">
@@ -39,30 +39,20 @@
 						@endforeach
 					</div>
 				</div>
-				<div class="col-md-12">
-					<div class="row">
-						<div class="col-md-6"></div>
-						<div class="col-md-6">
-							<h5 style="margin-left:54%;">Follow us on</h5>
-		   					<ul>
-								<?php
-									$social_links = DB::table('socials')->orderBy('id','ASC')->get();
-								?>
-               					@foreach($social_links as $links)
-									<?php
-										if($links->id!=4 && $links->id!=5) {
-									?>
-									<li><a href="{{$links->url}}" target="_blank"><i class="fa-brands fa-{{$links->social_name}}"></i></a></li>
-									<?php 
-										}
-									?>
-								@endforeach
-							</ul>
-						</div>
+				<div class="row">
+					<div class="col text-center mt-4">
+						<ul>
+							<?php
+								$social_links = DB::table('socials')->orderBy('id','ASC')->get();
+							?>
+							   @foreach($social_links as $links)
+							   <li><a href="{{$links->url}}" target="_blank"><i class="fa-brands fa-{{$links->social_name}}"></i></a></li>
+							@endforeach
+						</ul>
 					</div>
 				</div>
-				<div class="py-4 row" style=" background: black; border-top: 1px solid #ddd;">
-					<p class="" style="line-height: 20px;">CNN name, logo and all associated elements ® and © 2023 Cable News Network LP, LLLP. A Time Warner Company. All rights reserved. CNN and the CNN logo are registered marks of Cable News Network, LP LLLP, displayed with permission. Use of the CNN name and/or logo on or as part of NEWS18.com does not derogate from the intellectual property rights of Cable News Network in respect of them. © Copyright Network18 Media and Investments Ltd 2023. All rights reserved.</p>
+				<div class="py-4 row text-center" style=" background: black; border-top: 1px solid #ddd;">
+					<p class="" style="line-height: 20px;"> © Copyright JanGanNews {{\Carbon\Carbon::now()->format('Y')}}. All rights reserved.</p>
 				</div>
 			</div>
 		</div>

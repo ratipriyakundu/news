@@ -1,17 +1,18 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-    
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<!-- bootstap css -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- bootstap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    
-	<title></title>
-	<style id="__jsx-2091191842">
+
+    <title></title>
+    <style id="__jsx-2091191842">
         .msn_pani.jsx-2167635379 {
             text-align: center;
         }
@@ -5018,131 +5019,117 @@
             min-height: 70px;
         }
 
-        #promo-notifications{
-	background: #e1261d;
-    color:white;
-	font-size: 18px;
-  width: 100%;
-  font-family: 'Helvetica-Neue', Helvetica, Arial, sans-serif;
-}
+        #promo-notifications {
+            background: #e1261d;
+            color: white;
+            font-size: 18px;
+            width: 100%;
+            font-family: 'Helvetica-Neue', Helvetica, Arial, sans-serif;
+        }
 
-#promo-notifications ul{
-	width: 100%;
-	height: 35px;
-	position: relative;
-	overflow: hidden;
-}
+        #promo-notifications ul {
+            width: 100%;
+            height: 35px;
+            position: relative;
+            overflow: hidden;
+        }
 
-#promo-notifications li{
-	width: 100%;
-	line-height: 35px;
-  height: 35px;
-	position: absolute;
-	top: 0;
-	left: 100%;
-	text-align: center;
-	list-style: none;
-}
-#newsSection p {
-    margin: 10px auto;
-    font-size: 16px;
-}
-#newsSection img {
-    margin: 30px auto;
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-.img-fluid {
-    border-radius: 12px;
-    object-fit: cover;
-}
+        #promo-notifications li {
+            width: 100%;
+            line-height: 35px;
+            height: 35px;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            text-align: center;
+            list-style: none;
+        }
+
+        #newsSection p {
+            margin: 10px auto;
+            font-size: 16px;
+        }
+
+        #newsSection img {
+            margin: 30px auto;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .img-fluid {
+            border-radius: 12px;
+            object-fit: cover;
+        }
     </style>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    @if($hasPermission)
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @if ($hasPermission)
         <link rel="stylesheet" href="css/template-style.css">
     @endif
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
 </head>
+
 <body onload="ShowBanners()">
-<?php
-$header_banner= DB::table('header_banner')->where('id',1)->first();
-$logo= DB::table('logo')->where('id',1)->first();
-?>
-@php
-    $newses = \App\Models\News::where('breaking_news','!=',NULL)->get();
+    <?php
+    $header_banner = DB::table('header_banner')
+        ->where('id', 1)
+        ->first();
+    $logo = DB::table('logo')
+        ->where('id', 1)
+        ->first();
+    ?>
+    @php
+        $newses = \App\Models\News::where('breaking_news', '!=', null)->get();
         foreach ($newses as $news) {
-            $timeDiff = ((\Carbon\Carbon::now('Asia/Kolkata')->diffInMinutes(\Carbon\Carbon::parse($news->added_at))) - ($news->breaking_news));
-            if($timeDiff > 0) {
-                \App\Models\News::where('id',$news->id)->update(
-                    [
-                        'breaking_news' => NULL
-                    ]
-                );
+            $timeDiff = \Carbon\Carbon::now('Asia/Kolkata')->diffInMinutes(\Carbon\Carbon::parse($news->added_at)) - $news->breaking_news;
+            if ($timeDiff > 0) {
+                \App\Models\News::where('id', $news->id)->update([
+                    'breaking_news' => null,
+                ]);
             }
         }
-@endphp
-	<header style="text-align:center" class="jsx-2167635379 mainHeader defaultHeader" id="computermn">
-        <div class="jsx-2167635379 headerInner defaultHeader" style="background-image: url(uploads/header/<?php echo $header_banner->image;?>);border-top:2px solid #e1261d;">
+    @endphp
+    <header style="text-align:center" class="jsx-2167635379 mainHeader defaultHeader" id="computermn">
+        <div class="jsx-2167635379 headerInner defaultHeader"
+            style="background-image: url(uploads/header/<?php echo $header_banner->image; ?>);border-top:2px solid #e1261d;">
             <div style="width:1244px;position:relative;margin:0 auto;display:flex;justify-content:space-between"
                 class="jsx-2167635379 headerContainer">
                 <div style="display:flex;align-self:center;height:58px;max-width:200px"
                     class="jsx-2167635379 topLogoWrap"><a href="/" class="jsx-2167635379 logo"><img
-                            src="uploads/logo/<?php echo $logo->logo;?>"
-                            alt="News18 Logo" style="width:89px;min-height:47px;max-height:80px;margin-top: -10px;"
+                            src="uploads/logo/<?php echo $logo->logo; ?>" alt="News18 Logo"
+                            style="width:89px;min-height:47px;max-height:80px;margin-top: -10px;"
                             class="jsx-2167635379" /></a></div>
                 <div class="jsx-2167635379 topRighSection">
                     <div style="display:flex;justify-content:space-between" class="jsx-2167635379 topLinksWrap">
                         <div style="background:#e1261d;display:flex;justify-content:space-between;color:#fff;align-items:center;padding-right:0;padding-bottom:0;padding-top:1px;height:26px"
                             class="jsx-2167635379 languagebox"><span class="jsx-2167635379">CHANGE LANGUAGE</span>
                             <div style="background:#fff;padding-left:10px;min-width:130px;color:#6c6c6c;font-size:12px;position:relative;border-radius:0 0 7px 7px;display:flex;align-items:center;height:100%"
-                                class="jsx-2167635379 linner"><a href="/"
-                                    class="jsx-2167635379">English<!-- --> <span
-                                        class="jsx-2167635379 nhlanguate-arrow hsocial-sprite"></span></a>
-                                <div class="jsx-2167635379 lddnav"><a href="https://hindi.news18.com/"
-                                        target="_blank" rel="noreferrer" class="jsx-2167635379">हिन्दी<!-- -->
-                                    </a><a href="https://bengali.news18.com/" target="_blank" rel="noreferrer"
-                                        class="jsx-2167635379">বাংলা<!-- --> </a><a
-                                        href="https://lokmat.news18.com/" target="_blank" rel="noreferrer"
-                                        class="jsx-2167635379">मराठी<!-- --> </a><a
-                                        href="https://gujarati.news18.com/" target="_blank" rel="noreferrer"
-                                        class="jsx-2167635379">ગુજરાતી<!-- --> </a><a
-                                        href="https://kannada.news18.com/" target="_blank" rel="noreferrer"
-                                        class="jsx-2167635379">ಕನ್ನಡ<!-- --> </a><a href="https://tamil.news18.com/"
-                                        target="_blank" rel="noreferrer" class="jsx-2167635379">தமிழ்<!-- --> </a><a
-                                        href="https://malayalam.news18.com/" target="_blank" rel="noreferrer"
-                                        class="jsx-2167635379">മലയാളം<!-- --> </a><a
-                                        href="https://telugu.news18.com/" target="_blank" rel="noreferrer"
-                                        class="jsx-2167635379">తెలుగు<!-- --> </a><a
-                                        href="https://punjab.news18.com/" target="_blank" rel="noreferrer"
-                                        class="jsx-2167635379">ਪੰਜਾਬੀ<!-- --> </a><a href="https://urdu.news18.com/"
-                                        target="_blank" rel="noreferrer" class="jsx-2167635379">اردو<!-- --> </a><a
-                                        href="https://assam.news18.com/" target="_blank" rel="noreferrer"
-                                        class="jsx-2167635379">অসমীয়া<!-- --> </a><a
-                                        href="https://odia.news18.com/" target="_blank" rel="noreferrer"
-                                        class="jsx-2167635379">ଓଡ଼ିଆ<!-- --> </a></div>
+                                class="jsx-2167635379 linner">
+                                {{-- --}}
                             </div>
                         </div>
-                        <div class="jsx-2167635379 nhlivetv"><a href="/"
-                                class="jsx-2167635379"><span
+                        <div class="jsx-2167635379 nhlivetv"><a href="/" class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhlivetv-icon hsocial-sprite"></span><strong
                                     class="jsx-2167635379">WATCH LIVE TV</strong></a></div>
-                        <div class="jsx-2167635379 lnlapp"><a href="/" target="_blank"
-                                rel="nofollow" class="jsx-2167635379"><span
+                        <div class="jsx-2167635379 lnlapp"><a href="/" target="_blank" rel="nofollow"
+                                class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhapp-icon hsocial-sprite"></span><strong
                                     class="jsx-2167635379">DOWNLOAD News18 APP</strong></a></div>
                         <div class="jsx-2167635379 nhsocial"><strong class="jsx-2167635379">Follow Us On</strong>
-                        <?php
-			$social_headers = DB::table('socials')->orderBy('id','ASC')->get();
-			?>
+                            <?php
+                            $social_headers = DB::table('socials')
+                                ->orderBy('id', 'ASC')
+                                ->get();
+                            ?>
 
-               @foreach($social_headers as $hlinks)         
-    <a 
-    href="{{$hlinks->url}}" class="{{$hlinks->class}}" target="_blank">
-</a>
-            @endforeach
+                            @foreach ($social_headers as $hlinks)
+                                <a href="{{ $hlinks->url }}" class="{{ $hlinks->class }}" target="_blank">
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                     <div class="jsx-2167635379 trandingTopics"><span class="jsx-2167635379">Trending Topics
@@ -5158,45 +5145,51 @@ $logo= DB::table('logo')->where('id',1)->first();
             </div>
         </div>
     </header>
-	<!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary d-none" id="computermn">
-	<div class="container-fluid">
-	<div class="collapse navbar-collapse" id="navbarNavDropdown">
-	<div class="nav-icon"><i class="fa-solid fa-bars"></i>
-	</div>
-	<ul class="navbar-nav">
-	<li class="nav-item">
-	<a class="nav-link active" aria-current="page" href="/">होम</a>
-	</li>
-    @foreach($category as $cat)
-        @php
-            $sub_categories = \App\Models\Subcategory::where('category_id',$cat->id)->get();
-        @endphp
-        @if($sub_categories->count() > 0)
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink{{$cat->id}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{$cat->title}}
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink{{$cat->id}}">
-                    @foreach($sub_categories as $sub_category)
-                        <li><a class="dropdown-item" href="{{route('news-categories')}}?category_id={{$cat->id}}&subcategory_id={{$sub_category->id}}">{{$sub_category->title}}</a></li>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-none" id="computermn">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <div class="nav-icon"><i class="fa-solid fa-bars"></i>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">होम</a>
+                    </li>
+                    @foreach ($category as $cat)
+                        @php
+                            $sub_categories = \App\Models\Subcategory::where('category_id', $cat->id)->get();
+                        @endphp
+                        @if ($sub_categories->count() > 0)
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#"
+                                    id="navbarDropdownMenuLink{{ $cat->id }}" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ $cat->title }}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink{{ $cat->id }}">
+                                    @foreach ($sub_categories as $sub_category)
+                                        <li><a class="dropdown-item"
+                                                href="{{ route('news-categories') }}?category_id={{ $cat->id }}&subcategory_id={{ $sub_category->id }}">{{ $sub_category->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="{{ route('news-categories') }}?category_id={{ $cat->id }}">
+                                    {{ $cat->title }}</a>
+                            </li>
+                        @endif
                     @endforeach
+
+
                 </ul>
-            </li>
-        @else
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('news-categories')}}?category_id={{$cat->id}}"> {{$cat->title}}</a>
-            </li>
-        @endif
-    @endforeach
-	
-	
-	</ul>
-	<div class="col-search-icon"><i class="fa-solid fa-magnifying-glass"></i>
-	</div>
-	</div>
-	</div>
-	</nav>
+                <div class="col-search-icon"><i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     {{-- nav bar --}}
     <nav class="menu-wrapper desktop-menu">
@@ -5204,23 +5197,24 @@ $logo= DB::table('logo')->where('id',1)->first();
             <li class="menu-list">
                 <a href="/">होम</a>
             </li>
-            @foreach($category as $cat)
+            @foreach ($category as $cat)
                 @php
-                    $sub_categories = \App\Models\Subcategory::where('category_id',$cat->id)->get();
+                    $sub_categories = \App\Models\Subcategory::where('category_id', $cat->id)->get();
                 @endphp
-                @if($sub_categories->count() > 0)
+                @if ($sub_categories->count() > 0)
                     <div class="menu-dropdown">
                         <li class="menu-list">
-                            <a href="{{route('news-categories')}}?category_id={{$cat->id}}">
-                                {{$cat->title}}
+                            <a href="{{ route('news-categories') }}?category_id={{ $cat->id }}">
+                                {{ $cat->title }}
                             </a>
                         </li>
                         <div class="sub-menu">
                             <ul>
-                                @foreach($sub_categories as $sub_category)
+                                @foreach ($sub_categories as $sub_category)
                                     <li>
-                                        <a href="{{route('news-categories')}}?category_id={{$cat->id}}&subcategory_id={{$sub_category->id}}">
-                                            {{$sub_category->title}}
+                                        <a
+                                            href="{{ route('news-categories') }}?category_id={{ $cat->id }}&subcategory_id={{ $sub_category->id }}">
+                                            {{ $sub_category->title }}
                                         </a>
                                     </li>
                                 @endforeach
@@ -5229,8 +5223,8 @@ $logo= DB::table('logo')->where('id',1)->first();
                     </div>
                 @else
                     <li class="menu-list">
-                        <a href="{{route('news-categories')}}?category_id={{$cat->id}}">
-                            {{$cat->title}}
+                        <a href="{{ route('news-categories') }}?category_id={{ $cat->id }}">
+                            {{ $cat->title }}
                         </a>
                     </li>
                 @endif
@@ -5239,23 +5233,24 @@ $logo= DB::table('logo')->where('id',1)->first();
     </nav>
     {{-- end nav bar --}}
 
-    
+
     <nav class="d-none navbar navbar-expand-lg bg-body-tertiary" id="computermn1">
         <div id="promo-notifications" class="col-md-12">
-            <ul> 
+            <ul>
                 <?php
                 $counter=1;
                 $braking_news= DB::table('news')->where('breaking_news','!=', NULL)->get(); 
                 foreach($braking_news as $bns){?>
-                    <a style="color:white;" href="{{route('news-details')}}?news_id={{$bns->id}}"><li><?php echo $counter;?>. <?php echo $bns->title;?></li>
-                    </a>
-                    <?php $counter++;
+                <a style="color:white;" href="{{ route('news-details') }}?news_id={{ $bns->id }}">
+                    <li><?php echo $counter; ?>. <?php echo $bns->title; ?></li>
+                </a>
+                <?php $counter++;
                 }?>
             </ul>
         </div>
     </nav>
-    @if(request()->path() == '/')
-        @if($breakingNewsList->count() > 0)
+    @if (request()->path() == '/')
+        @if ($breakingNewsList->count() > 0)
             <div class="container mt-5">
                 <div class="breaking-news-wrap d-flex">
                     <div class="breaking-news-heading align-self-center">
@@ -5263,8 +5258,9 @@ $logo= DB::table('logo')->where('id',1)->first();
                     </div>
                     <div class="breaking-news-section flex-grow-1 align-self-center">
                         <marquee behavior="" direction="left" loop>
-                            @foreach($breakingNewsList as $breakingNews)
-                                <a href="{{route('news-details')}}?news_id={{$breakingNews->id}}" class="me-4 text-decoraation-none text-light">{{$breakingNews->title}} ||</a>
+                            @foreach ($breakingNewsList as $breakingNews)
+                                <a href="{{ route('news-details') }}?news_id={{ $breakingNews->id }}"
+                                    class="me-4 text-decoraation-none text-light">{{ $breakingNews->title }} ||</a>
                             @endforeach
                         </marquee>
                     </div>
@@ -5277,159 +5273,161 @@ $logo= DB::table('logo')->where('id',1)->first();
             </div>
         @endif
     @endif
-	
-	
-	
-	
-	<!-- navbar end -->
-	<!-- Navbar -->
-	<!--<nav class="navbar navbar-expand-lg bg-body-tertiary" id="computermn">
-	<div class="container-fluid">
-	<div class="collapse navbar-collapse" id="navbarNavDropdown">
-	
-	<div id="nav-section">
-	<ul class="navbar-nav">
-	<li class="nav-item">
-	<a class="nav-link active" aria-current="page" href="#">Latest</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">IPL 2023</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">Orange Cap</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">Purple Cap</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">IPL Points Table</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">Web Stories</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">Lifestyle</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">Sports</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">Explainers</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">Tech</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">Auto</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#">#SustainableIsAttainable</a>
-	</li>
-	<li class="nav-item">
-	<a class="nav-link" href="#"><img src="https://images.news18.com/ibnlive/uploads/2023/04/msp-s3-l2.jpg" class="rounded mx-auto d-block" alt="..."></a>
-	</li>
-	
-	</ul>
-	</div>
-	
-	</div>
-	</div>
-	</nav>-->
-	
-	
-	<header id="tab-mob">
-  <div class="container-fluid">
-    <div class="row p-2 bg-light">
-      <div class="col-1 d-flex justify-content-center align-items-center">
-        <i onclick="showmenu()" class="fa-solid  fa-bars-staggered"></i>
-      </div>
-      <div class="col-2 navbar-brand d-flex justify-content-center align-items-center">
-        <img  src="img/mob-logo.png" width="auto" height="60" />
-      </div>
-      <div class="col-7 float-end ">
-        <img class=" float-end " src="img/tv.png" width="auto" height="55" />
-      </div>
-      <div class="col-1 d-flex justify-content-center align-items-center">
-        <i onclick="search()" class="fa-solid fa-magnifying-glass"></i>
-      </div>
-    </div>
-  </div>
-
-  <!-- mobile menu  -->
-    <div class="scrollmenu">
-        <a href="/">होम</a>
-	    @foreach($category as $cat)
-            <a href="{{route('news-categories')}}?category_id={{$cat->id}}">{{$cat->title}}</a>
-        @endforeach
-    </div>
 
 
-  <!-- off canvas menu  -->
 
-  <div class="mob-menu">
-    <div>
-        <span onclick="closemenu()" class="close">&times;</span>
-    </div>
-    <div class="text-center">
-        <img  src="img/mob-logo.png" class="mt-5" width="80px" height="auto" />
-    </div>
-    <div class="mobile-menu mt-3">
-        <div class="mobile-menu-item d-flex">
-            <a href="/" class="mobile-sub-menu-text flex-grow-1">होम</a>
-        </div>
-        @foreach($category as $cat)
-            @php
-                $sub_categories = \App\Models\Subcategory::where('category_id',$cat->id)->get();
-            @endphp
-            @if($sub_categories->count() > 0)
-                <div class="mobile-menu-item d-flex">
-                    <a href="{{route('news-categories')}}?category_id={{$cat->id}}" 
-                        class="mobile-sub-menu-text flex-grow-1">{{$cat->title}}
-                    </a>
-                    <div class="mobile-sub-menu-arrow" onclick="showSubMenu('mobile-sub-menu-content-{{$cat->id}}','sub-menu-control-{{$cat->id}}')">
-                        <i class="fa fa-angle-right" id="sub-menu-control-{{$cat->id}}"></i>
-                    </div>
-                    <br>
+
+    <!-- navbar end -->
+    <!-- Navbar -->
+    <!--<nav class="navbar navbar-expand-lg bg-body-tertiary" id="computermn">
+ <div class="container-fluid">
+ <div class="collapse navbar-collapse" id="navbarNavDropdown">
+ 
+ <div id="nav-section">
+ <ul class="navbar-nav">
+ <li class="nav-item">
+ <a class="nav-link active" aria-current="page" href="#">Latest</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">IPL 2023</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">Orange Cap</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">Purple Cap</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">IPL Points Table</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">Web Stories</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">Lifestyle</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">Sports</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">Explainers</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">Tech</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">Auto</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">#SustainableIsAttainable</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#"><img src="https://images.news18.com/ibnlive/uploads/2023/04/msp-s3-l2.jpg" class="rounded mx-auto d-block" alt="..."></a>
+ </li>
+ 
+ </ul>
+ </div>
+ 
+ </div>
+ </div>
+ </nav>-->
+
+
+    <header id="tab-mob">
+        <div class="container-fluid">
+            <div class="row p-2 bg-light">
+                <div class="col-1 d-flex justify-content-center align-items-center">
+                    <i onclick="showmenu()" class="fa-solid  fa-bars-staggered"></i>
                 </div>
-                <div class="d-none" id="mobile-sub-menu-content-{{$cat->id}}">
-                    @foreach($sub_categories as $sub_category)
+                <div class="col-2 navbar-brand d-flex justify-content-center align-items-center">
+                    <img src="img/mob-logo.png" width="auto" height="60" />
+                </div>
+                <div class="col-7 float-end ">
+                    <img class=" float-end " src="img/tv.png" width="auto" height="55" />
+                </div>
+                <div class="col-1 d-flex justify-content-center align-items-center">
+                    <i onclick="search()" class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- mobile menu  -->
+        <div class="scrollmenu">
+            <a href="/">होम</a>
+            @foreach ($category as $cat)
+                <a href="{{ route('news-categories') }}?category_id={{ $cat->id }}">{{ $cat->title }}</a>
+            @endforeach
+        </div>
+
+
+        <!-- off canvas menu  -->
+
+        <div class="mob-menu">
+            <div>
+                <span onclick="closemenu()" class="close">&times;</span>
+            </div>
+            <div class="text-center">
+                <img src="img/mob-logo.png" class="mt-5" width="80px" height="auto" />
+            </div>
+            <div class="mobile-menu mt-3">
+                <div class="mobile-menu-item d-flex">
+                    <a href="/" class="mobile-sub-menu-text flex-grow-1">होम</a>
+                </div>
+                @foreach ($category as $cat)
+                    @php
+                        $sub_categories = \App\Models\Subcategory::where('category_id', $cat->id)->get();
+                    @endphp
+                    @if ($sub_categories->count() > 0)
                         <div class="mobile-menu-item d-flex">
-                            <a href="{{route('news-categories')}}?category_id={{$cat->id}}&subcategory_id={{$sub_category->id}}" 
+                            <a href="{{ route('news-categories') }}?category_id={{ $cat->id }}"
+                                class="mobile-sub-menu-text flex-grow-1">{{ $cat->title }}
+                            </a>
+                            <div class="mobile-sub-menu-arrow"
+                                onclick="showSubMenu('mobile-sub-menu-content-{{ $cat->id }}','sub-menu-control-{{ $cat->id }}')">
+                                <i class="fa fa-angle-right" id="sub-menu-control-{{ $cat->id }}"></i>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="d-none" id="mobile-sub-menu-content-{{ $cat->id }}">
+                            @foreach ($sub_categories as $sub_category)
+                                <div class="mobile-menu-item d-flex">
+                                    <a href="{{ route('news-categories') }}?category_id={{ $cat->id }}&subcategory_id={{ $sub_category->id }}"
+                                        class="mobile-sub-menu-text flex-grow-1">
+                                        {{ $sub_category->title }}
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="mobile-menu-item d-flex">
+                            <a href="{{ route('news-categories') }}?category_id={{ $cat->id }}"
                                 class="mobile-sub-menu-text flex-grow-1">
-                                {{$sub_category->title}}
+                                {{ $cat->title }}
                             </a>
                         </div>
-                    @endforeach
-                </div>
-            @else
-                <div class="mobile-menu-item d-flex">
-                    <a href="{{route('news-categories')}}?category_id={{$cat->id}}" class="mobile-sub-menu-text flex-grow-1">
-                        {{$cat->title}}
-                    </a>
-                </div>
-            @endif
-        @endforeach
-    </div>
-  </div>
-  <form class="search-form" action="" method="POST">
-    <input type="search" id="search-box" name="search" placeholder="Search Here......." />
-    <label for="search-box" class="fa fa-search"></label>
-  </form>
-</header>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+        <form class="search-form" action="" method="POST">
+            <input type="search" id="search-box" name="search" placeholder="Search Here......." />
+            <label for="search-box" class="fa fa-search"></label>
+        </form>
+    </header>
 
-  <script>
-    function showmenu(){
-     var m = document.querySelector('.mob-menu');
-     m.classList.add('smenu');
-    }
+    <script>
+        function showmenu() {
+            var m = document.querySelector('.mob-menu');
+            m.classList.add('smenu');
+        }
 
-    function closemenu(){
-     var m = document.querySelector('.mob-menu');
-     m.classList.remove('smenu');
-    }
+        function closemenu() {
+            var m = document.querySelector('.mob-menu');
+            m.classList.remove('smenu');
+        }
 
-    function search(){
-     var searchForm = document.querySelector('.search-form');
-     searchForm.classList.toggle('active');
-    }
-  </script>
+        function search() {
+            var searchForm = document.querySelector('.search-form');
+            searchForm.classList.toggle('active');
+        }
+    </script>

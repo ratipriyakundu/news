@@ -19,24 +19,159 @@
 				</div>
 				<!-- breadcrumb end -->
                 <h2 style="font-size: 25px; margin: 20px auto;">{{$news->title}}</h2>
-                <img src="uploads/news/{{$news->image}}" class="img-fluid" alt="..." style="width:100%; height:400px; object-fit:cover; border-radius:12px;">
+				@php
+					$specific_ad_exists = DB::table('advertisements')
+					->where(
+						[
+							'position' => 'category',
+							'position_id' => $news->category
+						]
+					)->exists();
+					if($specific_ad_exists) {
+						$advertisedata = DB::table('advertisements')
+						->where(
+							[
+								'position' => 'category',
+								'position_id' => $news->category
+							]
+						)->inRandomOrder()
+						->limit(1)->get();
+					}else {
+						$advertisedata = DB::table('advertisements')
+						->where(
+							[
+								'position' => 'all'
+							]
+						)->inRandomOrder()
+						->limit(1)->get();
+					}
+				@endphp
+				@foreach($advertisedata as $ads)
+					@if($ads->ads_type=='google')
+						{!! html_entity_decode($ads->google_script) !!}
+					@else 
+					<a href="{{$ads->url}}" target="_blank">
+						<img src="uploads/ads/{{$ads->image}}" class="img-fluid" width="100%">
+					</a>
+					@endif
+				@endforeach
+                <img src="uploads/news/{{$news->image}}" class="img-fluid my-3" alt="..." style="width:100%; height:400px; object-fit:cover; border-radius:12px;">
+				@php
+					$specific_ad_exists = DB::table('advertisements')
+					->where(
+						[
+							'position' => 'category',
+							'position_id' => $news->category
+						]
+					)->exists();
+					if($specific_ad_exists) {
+						$advertisedata = DB::table('advertisements')
+						->where(
+							[
+								'position' => 'category',
+								'position_id' => $news->category
+							]
+						)->inRandomOrder()
+						->limit(1)->get();
+					}else {
+						$advertisedata = DB::table('advertisements')
+						->where(
+							[
+								'position' => 'all'
+							]
+						)->inRandomOrder()
+						->limit(1)->get();
+					}
+				@endphp
+				@foreach($advertisedata as $ads)
+					@if($ads->ads_type=='google')
+						{!! html_entity_decode($ads->google_script) !!}
+					@else 
+						<a href="{{$ads->url}}" target="_blank">
+							<img src="uploads/ads/{{$ads->image}}" class="img-fluid" width="100%">
+						</a>
+					@endif
+				@endforeach
                 <div id="newsSection">{!! html_entity_decode($news->description) !!}</div>
+				@php
+					$specific_ad_exists = DB::table('advertisements')
+					->where(
+						[
+							'position' => 'category',
+							'position_id' => $news->category
+						]
+					)->exists();
+					if($specific_ad_exists) {
+						$advertisedata = DB::table('advertisements')
+						->where(
+							[
+								'position' => 'category',
+								'position_id' => $news->category
+							]
+						)->inRandomOrder()
+						->limit(1)->get();
+					}else {
+						$advertisedata = DB::table('advertisements')
+						->where(
+							[
+								'position' => 'all'
+							]
+						)->inRandomOrder()
+						->limit(1)->get();
+					}
+				@endphp
+				@foreach($advertisedata as $ads)
+					@if($ads->ads_type=='google')
+						{!! html_entity_decode($ads->google_script) !!}
+					@else 
+						<a href="{{$ads->url}}" target="_blank">
+							<img src="uploads/ads/{{$ads->image}}" class="img-fluid" width="100%">
+						</a>
+					@endif
+				@endforeach
 				@php
 					$timeDiff = ((\Carbon\Carbon::now('Asia/Kolkata')->diffInMinutes(\Carbon\Carbon::parse($news->added_at))) - ($news->breaking_news));
 				@endphp
 				
 			</div>
 			<div class="col-md-4">
-				<?php
-					$advertisedata = DB::table('advertisements')->inRandomOrder()->limit(1)->get();
-					foreach($advertisedata as $ads){
-                   		if($ads->ads_type=='google'){?>
-							<p><?php echo $ads->google_script;?></p><?php 
-						}else{?>
-							<img src="uploads/ads/<?php echo $ads->image;?>" class="img-fluid" alt="..."><?php 
-						} 
+				@php
+					$specific_ad_exists = DB::table('advertisements')
+					->where(
+						[
+							'position' => 'category',
+							'position_id' => $news->category
+						]
+					)->exists();
+					if($specific_ad_exists) {
+						$advertisedata = DB::table('advertisements')
+						->where(
+							[
+								'position' => 'category',
+								'position_id' => $news->category
+							]
+						)->inRandomOrder()
+						->limit(1)->get();
+					}else {
+						$advertisedata = DB::table('advertisements')
+						->where(
+							[
+								'position' => 'all'
+							]
+						)->inRandomOrder()
+						->limit(1)->get();
 					}
-				?>
+				@endphp
+				@foreach($advertisedata as $ads)
+					@if($ads->ads_type=='google')
+						{!! html_entity_decode($ads->google_script) !!}
+					@else 
+						<a href="{{$ads->url}}" target="_blank">
+							<img src="uploads/ads/{{$ads->image}}" class="img-fluid" width="100%">
+						</a>
+					@endif
+				@endforeach
+				
 				<h3 class="mt-3 mb-2">लेटेस्ट</h3>
 				<!-- 1 -->
 				<?php
@@ -69,16 +204,42 @@
 				<!-- 5 end -->
 				<!-- 6 -->
 				<!-- 6 end -->
-				<?php
-					$advertisedata = DB::table('advertisements')->inRandomOrder()->limit(1)->get();
-					foreach($advertisedata as $ads){
-                   		if($ads->ads_type=='google'){?>
-							<p><?php echo $ads->google_script;?></p><?php 
-						}else{?>
-							<img src="uploads/ads/<?php echo $ads->image;?>" class="img-fluid" alt="..."><?php 
-						} 
+				@php
+					$specific_ad_exists = DB::table('advertisements')
+					->where(
+						[
+							'position' => 'category',
+							'position_id' => $news->category
+						]
+					)->exists();
+					if($specific_ad_exists) {
+						$advertisedata = DB::table('advertisements')
+						->where(
+							[
+								'position' => 'category',
+								'position_id' => $news->category
+							]
+						)->inRandomOrder()
+						->limit(1)->get();
+					}else {
+						$advertisedata = DB::table('advertisements')
+						->where(
+							[
+								'position' => 'all'
+							]
+						)->inRandomOrder()
+						->limit(1)->get();
 					}
-				?>
+				@endphp
+				@foreach($advertisedata as $ads)
+					@if($ads->ads_type=='google')
+						{!! html_entity_decode($ads->google_script) !!}
+					@else 
+						<a href="{{$ads->url}}" target="_blank">
+							<img src="uploads/ads/{{$ads->image}}" class="img-fluid" width="100%">
+						</a>
+					@endif
+				@endforeach
 			</div>
 		</div>
 	</section>

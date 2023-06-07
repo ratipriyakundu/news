@@ -10,6 +10,7 @@ use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\ReelController;
 use App\Http\Controllers\SlideController;
+use App\Http\Controllers\LangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,9 @@ use App\Http\Controllers\SlideController;
 |
 */
 
+
+Route::get('lang/home', [LangController::class, 'index']);
+Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
 Route::get('/',[FrontController::class,'home'])->name('home');
 //Route::get('/',[CategoryController::class,'home']);
@@ -90,6 +94,7 @@ Route::post('update-logo',[AdminController::class,'update_logo'])->name('update-
 Route::get('manage-ads',[AdminController::class,'manage_ads'])->name('manage-ads');
 Route::post('add-ads',[AdminController::class,'add_ads'])->name('add-ads');
 Route::post('update-ads',[AdminController::class,'update_ads'])->name('update-ads');
+Route::get('/delete-ad',[AdminController::class,'deleteAd'])->name('delete-ad');
 Route::get('manage-header-banner',[AdminController::class,'manage_header_banner'])->name('manage-header-banner');
 Route::post('update-header-banner',[AdminController::class,'update_header_banner'])->name('update-header-banner');
 Route::get('/home-page-builder',[AdminController::class,'homePageBuilder'])->name('home-page-builder');

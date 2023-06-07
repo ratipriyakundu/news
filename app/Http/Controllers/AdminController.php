@@ -728,8 +728,8 @@ public function delete_subadmin(Request $data){
 
 public function manage_ads(){
      $ads=Ads::get();
-     
-     return view('admin.ads_list')->with(compact('ads'));
+     $categories = Category::get();
+     return view('admin.ads_list')->with(compact(['ads','categories']));
  }
 
 
@@ -738,6 +738,11 @@ public function manage_ads(){
       $url=$data->url;
       $google_script=$data->google_script;
       $position=$data->position;
+      if($data->has('category_id')) {
+        $category_id = $data->category_id;
+      }else {
+        $category_id = NULL;
+      }
 
       if(is_uploaded_file($_FILES['image']['tmp_name'])){
         $image=rand(0,9999).$_FILES['image']['name'];
@@ -751,7 +756,8 @@ public function manage_ads(){
               'url'=>$url,
               'google_script'=>$google_script,
               'position'=>$position,
-              'image'=>$image
+              'image'=>$image,
+              'position_id' => $category_id
           ]
       );
       return redirect()->route('manage-ads')->with('success','Advertisement added successfully.');
@@ -784,6 +790,13 @@ public function update_ads(Request $data){
                         ]
                     );
                     return redirect()->route('manage-ads')->with('success','Ads Details  Updated successfully.');
+}
+
+public function deleteAd(Request $request) {
+    $id = \Crypt::decrypt($request->id);
+    Ads::where('id',$id)->delete();
+    return redirect()->back()
+    ->with('success','Ad Deleted');
 }
 
 public function delete_menu_category(Request $data){
