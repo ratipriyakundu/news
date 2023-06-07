@@ -5229,6 +5229,16 @@
                     </li>
                 @endif
             @endforeach
+            <li class="menu-list">
+                <a href="{{ route('stories') }}">
+                    वेब स्टोरीज
+                </a>
+            </li>
+            <li class="menu-list">
+                <a href="{{ route('reels') }}">
+                    रील्ज़
+                </a>
+            </li>
         </ul>
     </nav>
     {{-- end nav bar --}}
