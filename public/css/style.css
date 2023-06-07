@@ -582,3 +582,6 @@ marquee {
   background-color: #222222;
   opacity: 0.8;
 }
+.skiptranslate {
+  display: none !important;
+}
