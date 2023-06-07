@@ -63,7 +63,7 @@
 </body>
 </html>
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery.cookie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="js/google-translate.js"></script>
 <script src="js/owl.carousel.js"></script>
 <script src="js/owl.animate.js"></script>
