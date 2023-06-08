@@ -179,3 +179,32 @@
         </div>
     </div>
 </div>
+{{-- Edit Modal --}}
+<div class="modal fade" id="editModal{{$id}}" tabindex="-1" aria-labelledby="editModal{{$id}}Label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center p-5">
+            <form action="{{route('edit-template')}}" method="POST">
+                @csrf
+                <input type="hidden" value="{{$id}}" name="id">
+                <label for="">Left Section Category</label>
+                <select name="template_7_left_category" class="form-control my-3">
+                    <option value="">-- Select Preference --</option>
+                    @foreach($categories as $category)
+                        <option {{($template_7_left_category_id == $category->id) ? 'selected' : ''}} value="{{$category->id}}">{{$category->title}}</option>
+                    @endforeach
+                </select>
+                <label for="">Right Section Category</label>
+                <select name="template_7_right_category" class="form-control my-3">
+                    <option value="">-- Select Preference --</option>
+                    @foreach($categories as $category)
+                        <option {{($template_7_right_category_id == $category->id) ? 'selected' : ''}} value="{{$category->id}}">{{$category->title}}</option>
+                    @endforeach
+                </select>
+                <button type="submit" name="template-7-edit-btn" class="custom-button button-red">Save</button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+{{-- End Edit Modal --}}

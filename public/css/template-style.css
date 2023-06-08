@@ -14,14 +14,3 @@
     display: block;
     transition: 0.5s;
 }
-.red-bullet {
-    width: 15px;
-    height: 15px;
-    background-color: crimson;
-    border-radius: 50%;
-    display: inline-block;
-}
-.red-bullet span {
-    display: inline;
-    margin-left: 10px;
-}

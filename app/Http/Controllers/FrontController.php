@@ -24,7 +24,7 @@ class FrontController extends Controller
         $page = Page::get();
         $templates = Template::get();
         $homeTemplates = Page::where('page_name','home')
-        ->orderBy('section_order','ASC')
+        ->orderByRaw('CONVERT(section_order, SIGNED) asc')
         ->get();
         $breakingNewsList = News::where('breaking_news','!=',NULL)->get();
         if(session()->has('user_id')) {

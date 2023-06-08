@@ -19,7 +19,7 @@
         body {
         color: white;
         background-color: black;
-        height: 100vh;
+        height: 100%;
         display: grid;
         place-items: center;
         }
@@ -46,7 +46,7 @@
 
         .video {
         position: relative;
-        height: 100vh;
+        height: 100%;
         width: 100%;
         background-color: white;
         scroll-snap-align: start;
@@ -55,7 +55,7 @@
         .video__player {
         object-fit: cover;
         max-width: 700px;
-        height: 100vh;
+        height: 100%;
         }
 
         @media (max-width: 425px) {
