@@ -27,6 +27,8 @@ Route::get('news-details',[FrontController::class,'news_details'])->name('news-d
 
 Route::get('news-categories',[FrontController::class,'news_categories'])->name('news-categories');
 
+Route::get('/page-details',[FrontController::class,'pageDetails'])->name('page-details');
+
 
 
 

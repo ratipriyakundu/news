@@ -1,6 +1,6 @@
 <footer id="footer-1">
 	<div class="container-fluid mt-5">
-		<div class="row">
+		<div class="row d-none">
 			@foreach($menucategory as $mcat)
 				<div class="col-md-3" style=" padding-left: 80px;">
 					<h5>{{$mcat->title}}</h5>
@@ -33,7 +33,11 @@
 						<?php $i=1;?>
 						@foreach($pages as $p1)<?php if($i==1){ $class="";}else{ $class="";}?>
 							<div class="col-md-2 {{$class}}">
-								<p>{{$p1->title}}</p>
+								<p>
+									<a href="{{route('page-details')}}?page_id={{$p1->id}}" class="text-white">
+										{{$p1->title}}
+									</a>
+								</p>
 							</div>
 							<?php $i++;?>
 						@endforeach
@@ -46,7 +50,7 @@
 								$social_links = DB::table('socials')->orderBy('id','ASC')->get();
 							?>
 							   @foreach($social_links as $links)
-							   <li><a href="{{$links->url}}" target="_blank"><i class="fa-brands fa-{{$links->social_name}}"></i></a></li>
+							   <li><a href="{{$links->url}}" target="_blank"><i class="bi bi-{{$links->social_name}} h4"></i></a></li>
 							@endforeach
 						</ul>
 					</div>

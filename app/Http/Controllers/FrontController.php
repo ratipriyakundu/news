@@ -12,6 +12,7 @@ use App\Models\Page;
 use App\Models\Admin;
 use App\Models\Subcategory;
 use App\Models\Template;
+use Illuminate\Support\Facades\DB;
 date_default_timezone_set("Asia/Kolkata");
 
 class FrontController extends Controller
@@ -102,6 +103,32 @@ class FrontController extends Controller
     return view('news_details')
     ->with(compact(['news','category','category_info','menucategory','hasPermission']));
    
+  }
+
+  public function pageDetails(Request $request) {
+    $category=Category::get();
+    $menucategory=Menu::get();
+      //var_dump($Menucategory);
+        $news=News::get();
+        $page = Page::get();
+        $templates = Template::get();
+        $homeTemplates = Page::where('page_name','home')
+        ->orderByRaw('CONVERT(section_order, SIGNED) asc')
+        ->get();
+        $breakingNewsList = News::where('breaking_news','!=',NULL)->get();
+        if(session()->has('user_id')) {
+          $admin = Admin::where('id',session('user_id'))->first();
+          if(in_array('Manage Home Page',explode(',',$admin->permission))) {
+            $hasPermission= true;
+          }else {
+            $hasPermission= false;
+          }
+        }else {
+          $hasPermission= false;
+        }
+        $page_details = DB::table('pages')->where('id',$request->page_id)->first();
+    return view('page-details')
+    ->with(compact(['category','news','menucategory','page','hasPermission','breakingNewsList','templates','homeTemplates','page_details']));
   }
 
     

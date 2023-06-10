@@ -5149,14 +5149,14 @@
                             </div>
                             {{-- --}}
                         </div>
-                        <div class="jsx-2167635379 nhlivetv"><a href="/" class="jsx-2167635379"><span
+                        <div class="jsx-2167635379 nhlivetv"><a href="https://www.youtube.com/channel/UCKi2uSNLgijzlWaVwVfZBPw" class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhlivetv-icon hsocial-sprite"></span><strong
                                     class="jsx-2167635379">WATCH LIVE TV</strong></a></div>
                         <div class="jsx-2167635379 lnlapp">
                             <a href="https://play.google.com/store/apps/details?id=com.news.jangannews" target="_blank" rel="nofollow"
                                 class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhapp-icon hsocial-sprite"></span><strong
-                                    class="jsx-2167635379">DOWNLOAD News18 APP</strong>
+                                    class="jsx-2167635379">DOWNLOAD Jangan News APP</strong>
                             </a>
                         </div>
                         <div class="jsx-2167635379 nhsocial"><strong class="jsx-2167635379">Follow Us On</strong>
@@ -5172,15 +5172,15 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="jsx-2167635379 trandingTopics"><span class="jsx-2167635379">Trending Topics
-                            :</span><a
-                            href="entertainment/bollywood/kisi-ka-bhai-kisi-ki-jaan-salman-khan-samantha-kangana-karan-johar-srk-entertainment-bollywood-live-updates-livenews-7507795.html"
-                            target="_self" class="jsx-2167635379">Entertainment News</a><a
-                            href="cricketnext/rcb-vs-lsg-probable-xi-ipl-2023-head-to-head-record-royal-challengers-bangalore-vs-lucknow-super-giants-7500763.html"
-                            target="_self" class="jsx-2167635379">RCB vs LSG</a><a href="cricketnext/ipl-2023.html"
-                            target="_self" class="jsx-2167635379">IPL Live Score</a><a
-                            href="cricketnext/from-nearly-becoming-a-sweeper-to-ipl-glory-the-extraordinary-rise-of-rinku-singh-7506133.html"
-                            target="_self" class="jsx-2167635379">Rinku Singh</a></div>
+                    <div class="jsx-2167635379 trandingTopics">
+                        <span class="jsx-2167635379">Trending Topics:</span>
+                        @php
+                            $subcategories = DB::table('menu_categories')->where('menu_id',1)->get();
+                        @endphp
+                        @foreach($subcategories as $subcat)
+                            <a href="{{route('news-categories')}}?category_id={{$subcat->category_id}}" target="_self" class="jsx-2167635379">{{$subcat->title}}</a>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
@@ -5382,9 +5382,12 @@
                 <div class="col-2 navbar-brand d-flex justify-content-center align-items-center">
                     <img src="img/mob-logo.png" width="auto" height="60" />
                 </div>
-                <div class="col-7 float-end ">
+                <a href="https://play.google.com/store/apps/details?id=com.news.jangannews" class="col-5 float-end">
+                    <img class=" float-end " src="img/play-store-icon.png" width="auto" height="55" />
+                </a>
+                <a href="https://www.youtube.com/channel/UCKi2uSNLgijzlWaVwVfZBPw" class="col-2">
                     <img class=" float-end " src="img/tv.png" width="auto" height="55" />
-                </div>
+                </a>
                 <div class="col-1 d-flex justify-content-center align-items-center">
                     <i onclick="search()" class="fa-solid fa-magnifying-glass"></i>
                 </div>
