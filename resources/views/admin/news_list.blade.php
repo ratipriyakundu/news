@@ -10,7 +10,6 @@
         <thead>
             <tr>
                 <th>News Title</th>
-                
                 <th>Description</th>
                 <th>Category</th>
                 <th>Sub-Category</th>
@@ -19,19 +18,23 @@
                 <th>Popular</th>
                 <th>Added By</th>
                 <th>Action</th>
-               
-                
             </tr>
         </thead>
         <tbody>
           @foreach($news as $nws)
-         
-         
-
             <tr>
                 <td>{{Str::limit($nws->title,100,'...')}}</td>
                
-                <td>{!! html_entity_decode(Str::limit($nws->description,100,'...')) !!}</td>
+                <td>
+                  @php
+                      if($nws->description == '') {
+                        $nws->description = '';
+                      }else {
+                        $nws->description = $nws->description;
+                      }
+                  @endphp
+                  {!! html_entity_decode(Str::limit($nws->description,100,'...')) !!}
+                </td>
                 <td>
                 @php
           $categories=$nws->category;
@@ -40,26 +43,21 @@
           foreach($category as $ct){
                echo $ct->title.'<br>';
           }
-          
-
          @endphp
-
-
-
 
                 </td>
                 <td>
                 @php
           $subcategories=$nws->subcategory;
-          $subcats=explode(',',$subcategories);
-         $subcategory=\App\Models\Subcategory::whereIn('id',$subcats)->get();
-         if($subcategory == '') {
+          if($subcategories != '') {
+            $subcats=explode(',',$subcategories);
+            $subcategory=\App\Models\Subcategory::whereIn('id',$subcats)->get();
+            foreach($subcategory as $sct){
+              echo $sct->title.'<br>';
+            }
+          }else {
             echo '---';
-         }else {
-          foreach($subcategory as $sct){
-               echo $sct->title.'<br>';
           }
-         }
          @endphp
 
 
