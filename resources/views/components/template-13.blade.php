@@ -25,7 +25,7 @@
     }else {
         $template_13_category_id = 0;
         $template_13_category_name = 'वेब स्टोरिज़';
-        $template_13_category_query = \App\Models\Story::->where('status',1)
+        $template_13_category_query = \App\Models\Story::where('status',1)
         ->orderBy('id','DESC')
         ->take(10)->get();
     }
