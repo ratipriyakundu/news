@@ -19,12 +19,14 @@
         $template_13_category_data = \App\Models\Category::where('id',$template_13_category_id)->first();
         $template_13_category_name = 'वेब स्टोरिज़ ('.$template_13_category_data->title.')';
         $template_13_category_query = \App\Models\Story::where('category',$template_13_category_id)
+        ->where('status',1)
         ->orderBy('id','DESC')
         ->take(10)->get();
     }else {
         $template_13_category_id = 0;
         $template_13_category_name = 'वेब स्टोरिज़';
-        $template_13_category_query = \App\Models\Story::orderBy('id','DESC')
+        $template_13_category_query = \App\Models\Story::->where('status',1)
+        ->orderBy('id','DESC')
         ->take(10)->get();
     }
 @endphp
