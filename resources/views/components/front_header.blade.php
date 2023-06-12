@@ -5071,6 +5071,9 @@
     @endif
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2541972081020024"
+     crossorigin="anonymous">
+    </script>
 </head>
 
 <body onload="ShowBanners()">
