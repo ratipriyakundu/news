@@ -29,6 +29,9 @@ Route::get('news-categories',[FrontController::class,'news_categories'])->name('
 
 Route::get('/page-details',[FrontController::class,'pageDetails'])->name('page-details');
 
+Route::get('/about-us',[FrontController::class,'about_us'])->name('about-us');
+Route::get('/contact-us',[FrontController::class,'contact_us'])->name('contact-us');
+
 
 
 
@@ -76,7 +79,15 @@ Route::get('menu-category',[AdminController::class,'menu_category'])->name('menu
 Route::post('delete-menucategory',[AdminController::class,'delete_menu_category'])->name('delete-menucategory');
 Route::post('add-menucategory',[AdminController::class,'menu_category_add'])->name('add-menucategory');
 Route::get('manage-pages',[AdminController::class,'manage_pages'])->name('manage-pages');
+Route::get('edit-page',[AdminController::class,'edit_page'])->name('edit-page');
 Route::get('delete-page',[AdminController::class,'delete_page'])->name('delete-page');
+
+Route::get('manage-about-us',[AdminController::class,'manage_about_us'])->name('manage-about-us');
+Route::post('add-about',[AdminController::class,'add_about'])->name('add-about');
+Route::post('delete-about',[AdminController::class,'delete_about'])->name('delete-about');
+
+Route::get('manage-contact-us',[AdminController::class,'manage_contact_us'])->name('manage-contact-us');
+Route::post('update-contact',[AdminController::class,'update_contact'])->name('update-contact');
 
 Route::post('add-page',[AdminController::class,'add_page'])->name('add-page');
 Route::post('update-page',[AdminController::class,'update_page'])->name('update-page');

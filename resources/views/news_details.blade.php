@@ -12,6 +12,12 @@
 	}
 </style>
 <div class="px-5 container-fluid">
+	<?php
+
+$query =  DB::table('admins');
+$query->where('id', $news->added_by);
+$rows = $query->first();
+?>
 	<section>
 		<div class="mt-5 row">
 			<div class="col-md-8">
@@ -22,8 +28,14 @@
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><a href="http://127.0.0.1:8000/">Home</a></li>
 				    <li class="breadcrumb-item active"><a href="#">{{$category_info->title}}</a></li>
+					
+					<li class="breadcrumb-item active"><a href="#">			
+					{{ \Carbon\Carbon::parse($news->added_at)->format('d F, Y')}}
+					
+					</a></li>
 				  </ol>
 				</nav>
+				
 				</div>
 				</div>
 				<!-- breadcrumb end -->
@@ -101,7 +113,16 @@
 						</a>
 					@endif
 				@endforeach
-                <div id="newsSection">{!! html_entity_decode($news->description) !!}</div>
+                <div id="newsSection">{!! html_entity_decode($news->description) !!}
+				{{-- <p style="text-align:right;">Posted by {{$rows->name}}  <img style="height: 30px; width: 30px;" src="uploads/share.png"></p>
+				<li class="whatAppicon"> 
+					<a data-activity="whatsapp_share" class="whatsappshare" href="https://web.whatsapp.com:/send?text=%E0%A4%AE%E0%A5%8B%E0%A4%A6%E0%A5%80+%E0%A4%B8%E0%A4%B0%E0%A4%A8%E0%A5%87%E0%A4%AE+%E0%A4%AE%E0%A4%BE%E0%A4%AE%E0%A4%B2%E0%A5%87+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%B0%E0%A4%BE%E0%A4%B9%E0%A5%81%E0%A4%B2+%E0%A4%97%E0%A4%BE%E0%A4%82%E0%A4%A7%E0%A5%80+%E0%A4%95%E0%A5%8B+%E0%A4%86%E0%A4%96%E0%A4%BF%E0%A4%B0%E0%A5%80+%E0%A4%B8%E0%A4%AE%E0%A4%A8%2C+4+%E0%A4%9C%E0%A5%81%E0%A4%B2%E0%A4%BE%E0%A4%88+%E0%A4%95%E0%A5%8B+%E0%A4%B0%E0%A4%BE%E0%A4%82%E0%A4%9A%E0%A5%80+%E0%A4%95%E0%A5%8B%E0%A4%B0%E0%A5%8D%E0%A4%9F+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%AA%E0%A5%87%E0%A4%B6+%E0%A4%B9%E0%A5%8B%E0%A4%A8%E0%A5%87+%E0%A4%95%E0%A5%87+%E0%A4%86%E0%A4%A6%E0%A5%87%E0%A4%B6 via @aajtak https://intdy.in/nssp43%0D%0A%0D%0ADownload the Aaj Tak app now to read our latest stories%0D%0Ahttps://aajtak.link/X9zu" onclick="ga('send', 'event', { eventCategory: 'Social Sharing Data', eventAction: 'Whatsapp click', eventLabel: 'Article Page'});" data-action="share/whatsapp/share" target="_blank" aria-label="#"> 
+						<svg version="1.1" width="23" height="23" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 65.665 60.404" style="enable-background:new 0 0 65.665 60.404;" xml:space="preserve"> <g> <g transform="translate(-1.000000, 0.000000)"> <path d="M35.16,4.636c-13.556,0-24.583,11.027-24.583,24.583c0,4.288,1.122,8.502,3.247,12.208L9.786,53.54c-0.097,0.29-0.026,0.61,0.183,0.833c0.159,0.171,0.381,0.263,0.607,0.263c0.071,0,0.142-0.009,0.212-0.028l13.223-3.479c3.434,1.75,7.282,2.673,11.148,2.673c13.556,0,24.583-11.027,24.583-24.583S48.716,4.636,35.16,4.636L35.16,4.636z M50.5,40.381l-1.465,1.466c-1.85,1.851-3.914,2.789-6.133,2.789c-0.001,0,0,0-0.001,0c-2.992,0-6.217-1.708-9.586-5.077l-8.494-8.494c-2.657-2.657-4.29-5.237-4.852-7.672c-0.683-2.956,0.179-5.663,2.564-8.047l1.465-1.466c0.942-0.942,2.467-1.174,3.648-0.549c2.218,1.174,4.517,5.021,4.772,5.455c0.46,0.806,0.601,1.639,0.402,2.354c-0.152,0.546-0.493,0.991-0.991,1.292c-0.673,0.563-1.462,1.265-1.601,1.444c-0.847,1.249-0.75,2.208,0.341,3.3l6.635,6.635c1.1,1.101,2.042,1.191,3.311,0.332c0.167-0.131,0.869-0.92,1.432-1.593c0.421-0.696,1.11-1.077,1.948-1.077c0.549,0,1.133,0.167,1.689,0.483c0.443,0.261,4.291,2.56,5.464,4.777C51.691,37.946,51.471,39.411,50.5,40.381L50.5,40.381z"></path> </g> </g> </svg> 
+					</a> 
+				</li> --}}
+		
+				</div>
+				
 				@php
 					$specific_ad_exists = DB::table('advertisements')
 					->where(

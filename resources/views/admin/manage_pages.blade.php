@@ -13,19 +13,19 @@
             
             
             <div class="card-body">
-    <button onclick="DoAdd()" style="float: right;" class="btn btn-primary">Add New</button>
+    <button onclick="DoAdd()" style="float: right;    margin-right: 17%;" class="btn btn-primary">Add New</button>
 	
       <div class="panel-body widget-shadow">
 	 
 
       	<div class="table-responsive">
         <p></p>
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <table id="example" class="table table-striped table-bordered" style="width:70%;margin-left: 13%;">
           <thead>
             <tr>
               <th>#</th>
               <th>Page Name</th>
-              <th>Content</th>
+              
 			         <th>Action</th>
               
             </tr>
@@ -38,12 +38,21 @@
             <tr>
               <th scope="row">{{$i}}</th>
               <td>{{$list->title}}</td>
-              <td>{{$list->content}}</td>
+              
 			  <td>
-        <i onclick="DoEdit('{{$list->id}}','{{$list->title}}','<?php echo base64_encode($list->content);?>')" class="fa fa-edit"></i>
+          <?php
+          if($list->id==11){?>
+          <a href="{{route('manage-about-us')}}"><button class="btn btn-primary btn-sm">Manage</button></a>
+       <?php }else  if($list->id==4){?>
+        <a href="{{route('manage-contact-us')}}"><button class="btn btn-primary btn-sm">Manage</button></a>
+    <?php }else{?>
+
+
+        <a href="{{route('edit-page')}}?id={{$list->id}}"><i  class="fa fa-edit"></i></a>
                         
        <a class="" onclick="return confirm('Are you sure?')" href="{{route('delete-page')}}?id={{$list->id}}"><i class="fa fa-trash"></i></a>
-</td>
+<?php }?>
+      </td>
 </tr>
 <?php $i++;?>
         @endforeach
@@ -58,7 +67,7 @@
 </div>     
 <div class="modal" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <form method="post" method="post" action="{{route('update-page')}}" >
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Edit Page</h5>
@@ -76,7 +85,7 @@
             <div class="form-group col-md-12">
             <label for="recipient-name" class="form-control-label">Page Content:</label>
               
-             <textarea class="form-control" name="content" id="content_e" required></textarea>
+             <textarea class="form-control" name="content" id="myeditorinstance_e" required></textarea>
             </div>
          
         </div>
@@ -93,7 +102,7 @@
 <div class="modal" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <form method="post" action="{{route('add-page')}}">
 	@csrf
-      <div class="modal-dialog modal-md" role="document">
+      <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Create New Page</h5>
@@ -113,7 +122,7 @@
             <div class="form-group col-md-12">
             <label for="recipient-name" class="form-control-label">Page Content:</label>
               
-             <textarea class="form-control" name="content" id="description" required></textarea>
+             <textarea class="form-control" name="content" id="myeditorinstance" required></textarea>
             </div>
 
            

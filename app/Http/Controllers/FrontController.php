@@ -9,6 +9,7 @@ use App\Models\Menu;
 use App\Models\MenuCategories;
 use App\Models\Pages;
 use App\Models\Page;
+use App\Models\About;
 use App\Models\Admin;
 use App\Models\Subcategory;
 use App\Models\Template;
@@ -133,10 +134,57 @@ class FrontController extends Controller
 
     
 
-   
 
+  public function about_us(Request $request) {
+    $category=Category::get();
+    $menucategory=Menu::get();
+      //var_dump($Menucategory);
+       
         
+      if(session()->has('user_id')) {
+        $admin = Admin::where('id',session('user_id'))->first();
+        if(in_array('Manage Home Page',explode(',',$admin->permission))) {
+          $hasPermission= true;
+        }else {
+          $hasPermission= false;
+        }
+      }else {
+        $hasPermission= false;
+      }
 
+
+
+
+
+        $about = DB::table('about_us')->get();
+    return view('about_us')->with(compact(['category','menucategory','hasPermission','about']));
+  }  
+  
+  
+  public function contact_us(Request $request) {
+    $category=Category::get();
+    $menucategory=Menu::get();
+      //var_dump($Menucategory);
+       
+        
+      if(session()->has('user_id')) {
+        $admin = Admin::where('id',session('user_id'))->first();
+        if(in_array('Manage Home Page',explode(',',$admin->permission))) {
+          $hasPermission= true;
+        }else {
+          $hasPermission= false;
+        }
+      }else {
+        $hasPermission= false;
+      }
+
+
+
+
+
+        $contact = DB::table('contact_us')->first();
+    return view('contact_us')->with(compact(['category','menucategory','hasPermission','contact']));
+  }  
    
    
 }

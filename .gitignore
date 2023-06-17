@@ -2,6 +2,9 @@
 /public/hot
 /public/storage
 /storage/*.key
+/public/img
+/public/reel
+/public/slide
 .env.backup
 .phpunit.result.cache
 docker-compose.override.yml

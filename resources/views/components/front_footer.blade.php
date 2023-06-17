@@ -34,9 +34,14 @@
 						@foreach($pages as $p1)<?php if($i==1){ $class="";}else{ $class="";}?>
 							<div class="col-md-2 {{$class}}">
 								<p>
-									<a href="{{route('page-details')}}?page_id={{$p1->id}}" class="text-white">
-										{{$p1->title}}
-									</a>
+									<?php
+									if($p1->id==11){?>
+									<a href="{{route('about-us')}}" class="text-white">{{$p1->title}}</a>
+									<?php }else if($p1->id==4){?>
+										<a href="{{route('contact-us')}}" class="text-white">{{$p1->title}}</a>
+										<?php }else{?>
+									<a href="{{route('page-details')}}?page_id={{$p1->id}}" class="text-white">	{{$p1->title}}</a>
+									<?php }?>
 								</p>
 							</div>
 							<?php $i++;?>

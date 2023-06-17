@@ -10,11 +10,13 @@ use App\Models\Admin;
 use App\Models\Menu;
 use App\Models\MenuCategories;
 use App\Models\Pages;
+use App\Models\About;
 use App\Models\Social;
 use App\Models\Home;
 use App\Models\Logo;
 use App\Models\Banner;
 use App\Models\Ads;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 
@@ -814,6 +816,86 @@ public function homePageBuilder(){
     }
 }
 
+
+public function edit_page(Request $data){
+    $admin=Admin::get();
+    if(session()->has('user_id')){
+        $id=$data->id;
+
+        $page = Pages::where('id', $id)->first();
+       
+        return view('admin.edit_page')->with(compact('page'));
+    
+    }else{
+        return redirect()->route('login')->with('error','Login first.'); 
     }
+ }
+
+
+
+ public function manage_about_us(Request $value){
+
+    $id=$value->id;
+    $menu_id=array($value->id);
+    $menu_title=array($value->title);
+   
+   $about_list=About::get();
+    
+    return view('admin.manage_about_us')->with(compact(['about_list']));
+  }
+
+  public function add_about(Request $data){
+    $title=$data->title;
+    $content=$data->content;
+ 
+    $chk=About::where('title',$title)->exists();
+    if($chk){
+        return redirect()->route('manage-about-us')->with('error','Title already exist.');
+    }else{
+
+        if(is_uploaded_file($_FILES['image']['tmp_name'])){
+            $image=rand(0,9999).$_FILES['image']['name'];
+            @move_uploaded_file($_FILES['image']['tmp_name'],'uploads/about/'.$image);
+        }else{
+            $image="";
+        }
+
+        $about=About::insert(
+            [
+                'title'=>$title,
+                'image'=>$image,
+                'content'=>$content
+            ]
+        );
+        return redirect()->route('manage-about-us')->with('success','About Us added successfully.');
+    }
+}
+
+public function delete_about(Request $data){
+
+    $id=$data->id;
+    $del=About::where('id',$id)->delete();
+    
+}
+
+public function manage_contact_us(Request $value){
+
+    return view('admin.contact_us');
+  }
+
+  public function update_contact(Request $data){
+     
+    $id=1;
+    $contact_1=$data->contact_1;
+    $contact_2=$data->contact_2;
+    $address=$data->address;
+ 
+
+ $contact=Contact::where('id',$id)->update(['contact_1'=>$contact_1,'contact_2'=>$contact_2,'address'=>$address]);
+   return redirect()->route('manage-contact-us')->with('success',' updated successfully.');
+    
+}
+
+}
 
 
