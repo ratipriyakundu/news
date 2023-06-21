@@ -1,4 +1,19 @@
 <x-front_header :category="$category" :hasPermission="$hasPermission"/>
+@php
+	$news_desc = str_replace('&nbsp;', ' ', $news->description);
+    $news_desc = html_entity_decode($news_desc, ENT_QUOTES | ENT_COMPAT , 'UTF-8');
+    $news_desc = html_entity_decode($news_desc, ENT_HTML5, 'UTF-8');
+    $news_desc = html_entity_decode($news_desc);
+    $news_desc = htmlspecialchars_decode($news_desc);
+    $news_desc = strip_tags($news_desc);
+@endphp
+<title>{{Str::limit($news->title,60)}}</title>
+<meta name="description" content="{{Str::limit($news_desc,100)}}" /> 
+<meta property="og:title" content="{{Str::limit($news->title,30)}}" />
+<meta property="og:url" content="{{url()->full()}}" /> 
+<meta property="og:description" content="{{Str::limit($news_desc,60)}}" /> 
+<meta property="og:image" content="{{env('APP_URL')}}public/uploads/news/{{$news->image}}" />
+<link rel="shortcut icon" href="{{env('APP_URL')}}public/uploads/logo/3289IMG-2023.png" type="image/x-icon" />
 <style> 
 	* {
 		font-family: 'Times New Roman', Times, serif;
@@ -9,6 +24,14 @@
 	}
 	p {
 		line-height: 1.5;
+	}
+	@media only screen and (max-width:668px) {
+		.social-share-btn-group {
+			flex: 36% !important;
+		}
+		.mobile-auth-bio-btn-group {
+			flex: 41% !important;
+		}
 	}
 </style>
 <div class="px-5 container-fluid">
@@ -28,11 +51,6 @@ $rows = $query->first();
 				  <ol class="breadcrumb">
 				    <li class="breadcrumb-item"><a href="http://127.0.0.1:8000/">Home</a></li>
 				    <li class="breadcrumb-item active"><a href="#">{{$category_info->title}}</a></li>
-					
-					<li class="breadcrumb-item active"><a href="#">			
-					{{ \Carbon\Carbon::parse($news->added_at)->format('d F, Y')}}
-					
-					</a></li>
 				  </ol>
 				</nav>
 				
@@ -77,6 +95,37 @@ $rows = $query->first();
 					@endif
 				@endforeach
                 <img src="uploads/news/{{$news->image}}" class="img-fluid my-3" alt="..." style="width:100%; height:400px; object-fit:cover; border-radius:12px;">
+				<hr style="margin: 3px 0px !important;">
+				<div class="row">
+					<div class="col" style="flex:0 0 0% !important;">
+						<img src="uploads/logo/3289IMG-2023.png" style="width:40px;">
+					</div>
+					@php
+						\Carbon\Carbon::setLocale('hi');
+						$writter = DB::table('admins')
+						->where('id',$news->added_by)
+						->select('name')
+						->first();
+						$writter = $writter->name;
+					@endphp
+					<div class="col mobile-auth-bio-btn-group">
+						<h4 class="h6 p-0 m-0 fw-bold">{{$writter}}</h4>
+						<p class="text-secondary">{{\Carbon\Carbon::parse($news->added_at)->translatedFormat('d F Y, a h:i')}}</p>
+					</div>
+					<div class="col"></div>
+					<div class="col pt-2 social-share-btn-group">
+						<a href="https://web.whatsapp.com/send?text={{$news->title}} {{url()->full()}}" target="_blank">
+							<img src="uploads/logo/whatsapp.png" style="width:35px;">
+						</a>
+						<a href="https://www.facebook.com/sharer/sharer.php?u={{url()->full()}}" target="_blank" rel="noopener">
+							<img src="uploads/logo/facebook.png" style="width:35px;">
+						</a>
+						<a href="https://twitter.com/intent/tweet?url={{url()->full()}}&text={{$news->title}}" target="_blank" rel="noopener">
+							<img src="uploads/logo/twitter.png" style="width:35px;">
+						</a>
+					</div>
+				</div>
+				<hr style="margin: 3px 0px !important;">
 				@php
 					$specific_ad_exists = DB::table('advertisements')
 					->where(
