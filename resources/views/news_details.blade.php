@@ -114,9 +114,16 @@ $rows = $query->first();
 					</div>
 					<div class="col"></div>
 					<div class="col pt-2 social-share-btn-group">
-						<a href="https://web.whatsapp.com/send?text={{$news->title}} {{url()->full()}}" target="_blank">
-							<img src="uploads/logo/whatsapp.png" style="width:35px;">
-						</a>
+						@if((new \Jenssegers\Agent\Agent())->isDesktop())
+							<a href="https://web.whatsapp.com/send?text={{$news->title}} {{url()->full()}}" target="_blank">
+								<img src="uploads/logo/whatsapp.png" style="width:35px;">
+							</a>
+						@endif
+						@if((new \Jenssegers\Agent\Agent())->isMobile())
+							<a href="whatsapp://send?text={{$news->title}} {{url()->full()}}" target="_blank">
+								<img src="uploads/logo/whatsapp.png" style="width:35px;">
+							</a>
+						@endif
 						<a href="https://www.facebook.com/sharer/sharer.php?u={{url()->full()}}" target="_blank" rel="noopener">
 							<img src="uploads/logo/facebook.png" style="width:35px;">
 						</a>

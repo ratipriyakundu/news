@@ -134,6 +134,11 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         array (
             'KKomelin\\TranslatableStringExporter\\' => 36,
         ),
+        'J' => 
+        array (
+            'Jenssegers\\Agent\\' => 17,
+            'Jaybizzle\\CrawlerDetect\\' => 24,
+        ),
         'I' => 
         array (
             'Illuminate\\Support\\' => 19,
@@ -418,6 +423,14 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         array (
             0 => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src',
         ),
+        'Jenssegers\\Agent\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jenssegers/agent/src',
+        ),
+        'Jaybizzle\\CrawlerDetect\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
@@ -533,6 +546,16 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'D' => 
+        array (
+            'Detection' => 
+            array (
+                0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'App\\Console\\Commands\\BreakingNews' => __DIR__ . '/../..' . '/app/Console/Commands/BreakingNews.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
@@ -556,11 +579,13 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\About' => __DIR__ . '/../..' . '/app/Models/About.php',
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Ads' => __DIR__ . '/../..' . '/app/Models/Ads.php',
         'App\\Models\\Attribute' => __DIR__ . '/../..' . '/app/Models/Attribute.php',
         'App\\Models\\Banner' => __DIR__ . '/../..' . '/app/Models/Banner.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
+        'App\\Models\\Contact' => __DIR__ . '/../..' . '/app/Models/Contact.php',
         'App\\Models\\Home' => __DIR__ . '/../..' . '/app/Models/Home.php',
         'App\\Models\\Logo' => __DIR__ . '/../..' . '/app/Models/Logo.php',
         'App\\Models\\Menu' => __DIR__ . '/../..' . '/app/Models/Menu.php',
@@ -588,6 +613,8 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'App\\View\\Components\\template-10' => __DIR__ . '/../..' . '/app/View/Components/template-10.php',
         'App\\View\\Components\\template-11' => __DIR__ . '/../..' . '/app/View/Components/template-11.php',
         'App\\View\\Components\\template-12' => __DIR__ . '/../..' . '/app/View/Components/template-12.php',
+        'App\\View\\Components\\template-13' => __DIR__ . '/../..' . '/app/View/Components/template-13.php',
+        'App\\View\\Components\\template-14' => __DIR__ . '/../..' . '/app/View/Components/template-14.php',
         'App\\View\\Components\\template-2' => __DIR__ . '/../..' . '/app/View/Components/template-2.php',
         'App\\View\\Components\\template-3' => __DIR__ . '/../..' . '/app/View/Components/template-3.php',
         'App\\View\\Components\\template-4' => __DIR__ . '/../..' . '/app/View/Components/template-4.php',
@@ -736,6 +763,7 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
         'Devaslanphp\\AutoTranslate\\AutoTranslateProvider' => __DIR__ . '/..' . '/devaslanphp/auto-translate/src/AutoTranslateProvider.php',
         'Devaslanphp\\AutoTranslate\\Commands\\AutoTranslate' => __DIR__ . '/..' . '/devaslanphp/auto-translate/src/Commands/AutoTranslate.php',
         'Devaslanphp\\AutoTranslate\\Commands\\TranslateMissing' => __DIR__ . '/..' . '/devaslanphp/auto-translate/src/Commands/TranslateMissing.php',
@@ -2855,6 +2883,14 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Jaybizzle\\CrawlerDetect\\CrawlerDetect' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/CrawlerDetect.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\AbstractProvider' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/AbstractProvider.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\Crawlers' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/Crawlers.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\Exclusions' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/Exclusions.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\Headers' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/Headers.php',
+        'Jenssegers\\Agent\\Agent' => __DIR__ . '/..' . '/jenssegers/agent/src/Agent.php',
+        'Jenssegers\\Agent\\AgentServiceProvider' => __DIR__ . '/..' . '/jenssegers/agent/src/AgentServiceProvider.php',
+        'Jenssegers\\Agent\\Facades\\Agent' => __DIR__ . '/..' . '/jenssegers/agent/src/Facades/Agent.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'KKomelin\\TranslatableStringExporter\\Console\\ExportCommand' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Console/ExportCommand.php',
         'KKomelin\\TranslatableStringExporter\\Console\\InspectTranslationsCommand' => __DIR__ . '/..' . '/kkomelin/laravel-translatable-string-exporter/src/Console/InspectTranslationsCommand.php',
@@ -3268,6 +3304,7 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'League\\MimeTypeDetection\\GeneratedExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/GeneratedExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\MimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/MimeTypeDetector.php',
         'League\\MimeTypeDetection\\OverridingExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/OverridingExtensionToMimeTypeMap.php',
+        'Mobile_Detect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/Mobile_Detect.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',
         'Mockery\\Adapter\\Phpunit\\MockeryTestCase' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php',
@@ -5690,6 +5727,7 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitea9b9957566df1022aca84ad47ea449a::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitea9b9957566df1022aca84ad47ea449a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitea9b9957566df1022aca84ad47ea449a::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitea9b9957566df1022aca84ad47ea449a::$classMap;
 
         }, null, ClassLoader::class);
