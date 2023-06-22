@@ -45,10 +45,12 @@ class PageController extends Controller
     public function moveUpTemplate(Request $request) {
         $id = $request->template_id;
         $template = Page::where('id',$id)->first();
-        $template_order = $template->section_order;
+        $template_order = (int)$template->section_order;
         $prevTemplateExists = Page::where('section_order','<',$template_order)->exists();
         if($prevTemplateExists) {
-            $prevTemplate = Page::where('section_order','<',$template_order)->orderBy('id','DESC')->first();
+            $prevTemplate = Page::where('section_order','<',$template_order)
+            ->orderByRaw('CONVERT(section_order, SIGNED) desc')
+            ->first();
             $prev_template_id = $prevTemplate->id;
             $updated_template_order = $prevTemplate->section_order;
             Page::where('id',$id)->update(
@@ -69,10 +71,12 @@ class PageController extends Controller
     public function moveDownTemplate(Request $request) {
         $id = $request->template_id;
         $template = Page::where('id',$id)->first();
-        $template_order = $template->section_order;
+        $template_order = (int)$template->section_order;
         $nextTemplateExists = Page::where('section_order','>',$template_order)->exists();
         if($nextTemplateExists) {
-            $nextTemplate = Page::where('section_order','>',$template_order)->orderBy('id','ASC')->first();
+            $nextTemplate = Page::where('section_order','>',$template_order)
+            ->orderByRaw('CONVERT(section_order, SIGNED) asc')
+            ->first();
             $next_template_id = $nextTemplate->id;
             $updated_template_order = $nextTemplate->section_order;
             Page::where('id',$id)->update(

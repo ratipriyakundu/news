@@ -344,7 +344,7 @@
                 </div>
               </div>
             </div>
-          </div>
+        </div>
         {{-- Section Modal End --}}
     @endif
 <x-front_footer :menucategory="$menucategory"/>

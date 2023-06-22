@@ -77,9 +77,9 @@
                     {{\Str::limit($latestLargest->title,60)}}
                 </p>
                 <img src="uploads/news/{{$latestLargest->image}}" style="width:100%; height: 270px; object-fit:cover;">
-                <p class="mt-2">
+                {{-- <p class="mt-2">
                     {!! \Str::limit(html_entity_decode($latestLargest->description),236) !!}
-                </p>
+                </p> --}}
             </a>
             @php
                 $latestLarger = $template_3_left_category_query
@@ -94,7 +94,7 @@
                         <img src="uploads/news/{{$latestLarger->image}}" style="width:100%;height:80px; object-fit:cover;">
                     </div>
                     <div class="col-md-8">
-                        {!! \Str::limit(html_entity_decode($latestLargest->description),136) !!}
+                        {{ \Str::limit($latestLarger->title,136) }}
                     </div>
                 </div>
             </a>
@@ -111,7 +111,7 @@
                             <img src="uploads/news/{{$latest->image}}" style="width:100%;height:80px; object-fit:cover;">
                         </div>
                         <div class="col-md-8 fw-bold" style="font-size: 18px;">
-                            {!! \Str::limit(html_entity_decode($latestLargest->description),81) !!}
+                            {{ \Str::limit($latest->title,81) }}
                         </div>
                     </div>
                 </a>
@@ -128,7 +128,7 @@
                     <a class="text-decoration-none" href="news-details?news_id={{$popularItem->id}}">
                         <div class="item" style="background-image: url('uploads/news/{{$popularItem->image}}');background-position:center center; background-repeat:no-repeat;bacground-size:auto;background-color:rgba(0, 0, 0, 0.5);">
                             <div class="fw-bold slider-heading text-light" style="font-size: 18px;">
-                                {!! \Str::limit(html_entity_decode($popularItem->description),48) !!}
+                                {{ \Str::limit($popularItem->title,48) }}
                             </div>
                         </div>
                     </a>

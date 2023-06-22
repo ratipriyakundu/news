@@ -7,15 +7,6 @@
 					<div class="col-md-6">
 						<h3>{{$category_name->title}}</h3>
 					</div>
-					<div class="col-md-6">
-						<div id="category-icon">
-							<ul>
-								<li><a href=""></a><i class="fa-brands fa-facebook"></i></li>
-								<li><a href=""></a><i class="fa-brands fa-twitter"></i></li>
-								<li><a href=""></a><i class="fa-brands fa-whatsapp"></i></li>
-							</ul>
-						</div>
-					</div>
 					<hr>
 				</div>
 				<!-- 1 -->
