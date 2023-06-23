@@ -1,3 +1,19 @@
+@php
+    if( \App\Models\Style::where('property','footer_background_color')->exists()) {
+        $footer_background_color = \App\Models\Style::where('property','footer_background_color')
+        ->first();
+        $footer_background_color = $footer_background_color->value;
+    }else {
+        $footer_background_color = '#000000';
+    }
+    if( \App\Models\Style::where('property','footer_text_color')->exists()) {
+        $footer_text_color = \App\Models\Style::where('property','footer_text_color')
+        ->first();
+        $footer_text_color = $footer_text_color->value;
+    }else {
+        $footer_text_color = '#ffffff';
+    }
+@endphp
 <footer id="footer-1">
 	<div class="container-fluid mt-5">
 		<div class="row d-none">
@@ -10,14 +26,14 @@
 							$subcategories = DB::table('menu_categories')->where('menu_id', $mcat->id)->get();
 						?>
 						@foreach($subcategories as $subcat)
-							<li><a href="{{route('news-categories')}}?category_id={{$subcat->category_id}}">{{$subcat->title}}</a> </li>
+							<li><a href="{{route('news-categories')}}?category_id={{$subcat->category_id}}" style="color:{{$footer_text_color}};">{{$subcat->title}}</a> </li>
 						@endforeach
 					</ul>
 				</div>
 			@endforeach
 		</div>
 		<div id="footer-2">
-			<div class="py-1 row" style=" background: black;padding-right: 30px;">
+			<div class="py-1 row" style=" background: {{$footer_background_color}};padding-right: 30px;">
 				<div class="mt-3 col-md-2">
 					<?php
 						$header_banner= DB::table('header_banner')->where('id',1)->first();
@@ -36,11 +52,11 @@
 								<p>
 									<?php
 									if($p1->id==11){?>
-									<a href="{{route('about-us')}}" class="text-white">{{$p1->title}}</a>
+									<a href="{{route('about-us')}}" style="color:{{$footer_text_color}};">{{$p1->title}}</a>
 									<?php }else if($p1->id==4){?>
-										<a href="{{route('contact-us')}}" class="text-white">{{$p1->title}}</a>
+										<a href="{{route('contact-us')}}" style="color:{{$footer_text_color}};">{{$p1->title}}</a>
 										<?php }else{?>
-									<a href="{{route('page-details')}}?page_id={{$p1->id}}" class="text-white">	{{$p1->title}}</a>
+									<a href="{{route('page-details')}}?page_id={{$p1->id}}" style="color:{{$footer_text_color}};">	{{$p1->title}}</a>
 									<?php }?>
 								</p>
 							</div>
@@ -55,13 +71,13 @@
 								$social_links = DB::table('socials')->orderBy('id','ASC')->get();
 							?>
 							   @foreach($social_links as $links)
-							   <li><a href="{{$links->url}}" target="_blank"><i class="bi bi-{{$links->social_name}} h4"></i></a></li>
+							   <li><a href="{{$links->url}}" target="_blank" style="color:{{$footer_text_color}};"><i class="bi bi-{{$links->social_name}} h4"></i></a></li>
 							@endforeach
 						</ul>
 					</div>
 				</div>
-				<div class="py-4 row text-center" style=" background: black; border-top: 1px solid #ddd;">
-					<p class="" style="line-height: 20px;"> © Copyright JanGanNews {{\Carbon\Carbon::now()->format('Y')}}. All rights reserved.</p>
+				<div class="py-4 row text-center" style=" background: {{$footer_background_color}}; border-top: 1px solid #ddd;">
+					<p class="" style="line-height: 20px; color:{{$footer_text_color}};"> © Copyright JanGanNews {{\Carbon\Carbon::now()->format('Y')}}. All rights reserved.</p>
 				</div>
 			</div>
 		</div>

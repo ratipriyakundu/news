@@ -23,6 +23,9 @@
                 <button data-bs-toggle="modal" data-bs-target="#editModal{{$homeTemplate->id}}" class="custom-button button-red button-rounded" title="Edit">
                   <i class="bi bi-pen"></i>
                 </button>
+                <button data-bs-toggle="modal" data-bs-target="#customizeModal{{$homeTemplate->id}}" class="custom-button button-red button-rounded" title="Customize">
+                  <i class="bi bi-gear"></i>
+                </button>
                 <button data-bs-toggle="modal" data-bs-target="#deleteModal{{$homeTemplate->id}}" class="custom-button button-red button-rounded" title="Delete">
                   <i class="bi bi-trash"></i>
                 </button>

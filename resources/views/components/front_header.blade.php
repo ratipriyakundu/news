@@ -22,7 +22,28 @@
           ->first();
           $header_text_color = $header_text_color->value;
         }else {
-          $header_text_color = '#001d42';
+          $header_text_color = '#666';
+        }
+        if( \App\Models\Style::where('property','menu_background_color')->exists()) {
+            $menu_background_color = \App\Models\Style::where('property','menu_background_color')
+            ->first();
+            $menu_background_color = $menu_background_color->value;
+        }else {
+            $menu_background_color = '#1b67e9';
+        }
+        if( \App\Models\Style::where('property','menu_text_color')->exists()) {
+            $menu_text_color = \App\Models\Style::where('property','menu_text_color')
+            ->first();
+            $menu_text_color = $menu_text_color->value;
+        }else {
+            $menu_text_color = '#FFFFFF';
+        }
+        if( \App\Models\Style::where('property','menu_item_hover_color')->exists()) {
+            $menu_item_hover_color = \App\Models\Style::where('property','menu_item_hover_color')
+            ->first();
+            $menu_item_hover_color = $menu_item_hover_color->value;
+        }else {
+            $menu_item_hover_color = '#f70404';
         }
     @endphp
     <meta charset="utf-8">
@@ -94,7 +115,6 @@
         }
 
         .topLinksWrap.jsx-2167635379 .languagebox.jsx-2167635379 .linner.jsx-2167635379 a.jsx-2167635379 {
-            color: #6c6c6c;
             display: block;
         }
 
@@ -138,8 +158,6 @@
 
         .topLinksWrap.jsx-2167635379 .nhlivetv.jsx-2167635379 strong.jsx-2167635379 {
             font-size: 12px;
-            color: #fff;
-            background: "<?= $header_primary_color ?>";
             border-bottom: 1px solid;
             font-weight: bold;
         }
@@ -191,7 +209,6 @@
         .topLinksWrap.jsx-2167635379 .nhsocial.jsx-2167635379 strong.jsx-2167635379 {
             font-size: 11px;
             font-weight: normal;
-            color: #666;
             text-transform: uppercase;
             padding-right: 25px;
             position: relative;
@@ -285,7 +302,6 @@
             padding: 8px 20px;
             background: #fff;
             font-size: 13px;
-            color: #e1261d;
             margin: 23px 0;
             display: inline-block;
             font-weight: bold;
@@ -295,7 +311,6 @@
 
         .trandingTopics.jsx-2167635379 a.jsx-2167635379 {
             min-height: 16px;
-            color: #646464;
             padding-left: 20px;
             font-weight: normal;
         }
@@ -5119,7 +5134,7 @@
     @endphp
     <header style="text-align:center" class="jsx-2167635379 mainHeader defaultHeader" id="computermn">
         <div class="jsx-2167635379 headerInner defaultHeader"
-            style="background-image: url(uploads/header/<?php echo $header_banner->image; ?>);border-top:2px solid #e1261d;">
+            style="background-image: url(uploads/header/<?php echo $header_banner->image; ?>);border-top:2px solid {{$header_primary_color}};">
             <div style="width:1244px;position:relative;margin:0 auto;display:flex;justify-content:space-between"
                 class="jsx-2167635379 headerContainer">
                 <div style="display:flex;align-self:center;height:58px;max-width:200px"
@@ -5129,61 +5144,61 @@
                             class="jsx-2167635379" /></a></div>
                 <div class="jsx-2167635379 topRighSection">
                     <div style="display:flex;justify-content:space-between" class="jsx-2167635379 topLinksWrap">
-                        <div style="background:{{$header_primary_color}};display:flex;justify-content:space-between;color:#fff;align-items:center;padding-right:0;padding-bottom:0;padding-top:1px;height:26px"
+                        <div style="background:{{$header_primary_color}};display:flex;justify-content:space-between;color:{{$header_primary_text_color}};align-items:center;padding-right:0;padding-bottom:0;padding-top:1px;height:26px"
                             class="jsx-2167635379 languagebox"><span class="jsx-2167635379">CHANGE LANGUAGE</span>
                             {{-- --}}
                             <div style="background:#fff;padding-left:10px;min-width:130px;color:#6c6c6c;font-size:12px;position:relative;border-radius:0 0 7px 7px;display:flex;align-items:center;height:100%"
                                 class="jsx-2167635379 linner">
-                                <a href="#" data-google-lang="hi" class="jsx-2167635379">
+                                <a href="#" data-google-lang="hi" class="jsx-2167635379" style="color:{{$header_text_color}};">
                                     हिन्दी
                                     <span class="jsx-2167635379 nhlanguate-arrow hsocial-sprite"></span>
                                 </a>
                                 <div class="jsx-2167635379 lddnav">
-                                    <a href="#" class="jsx-2167635379" data-google-lang="en">
+                                    <a href="#" class="jsx-2167635379" data-google-lang="en" style="color:{{$header_text_color}};">
                                         English
                                     </a>
-                                    <a href="#" data-google-lang="te" class="jsx-2167635379">
+                                    <a href="#" data-google-lang="te" class="jsx-2167635379" style="color:{{$header_text_color}};">
                                         Telugu
                                     </a>
-                                    <a href="#" data-google-lang="gu" class="jsx-2167635379">
+                                    <a href="#" data-google-lang="gu" class="jsx-2167635379" style="color:{{$header_text_color}};">
                                         Gujarati 
                                     </a>
-                                    <a href="#" data-google-lang="ta" class="jsx-2167635379">
+                                    <a href="#" data-google-lang="ta" class="jsx-2167635379" style="color:{{$header_text_color}};">
                                         Tamil
                                     </a>
-                                    <a href="#" data-google-lang="mr" class="jsx-2167635379">
+                                    <a href="#" data-google-lang="mr" class="jsx-2167635379" style="color:{{$header_text_color}};">
                                         Marathi
                                     </a>
-                                    <a href="#" data-google-lang="kn" class="jsx-2167635379">
+                                    <a href="#" data-google-lang="kn" class="jsx-2167635379" style="color:{{$header_text_color}};">
                                         Kannada
                                     </a>
-                                    <a href="#" data-google-lang="bn" class="jsx-2167635379">
+                                    <a href="#" data-google-lang="bn" class="jsx-2167635379" style="color:{{$header_text_color}};">
                                         Bengali
                                     </a>
-                                    <a href="#" data-google-lang="ur" class="jsx-2167635379">
+                                    <a href="#" data-google-lang="ur" class="jsx-2167635379" style="color:{{$header_text_color}};">
                                         Urdu
                                     </a>
-                                    <a href="#" data-google-lang="ml" class="jsx-2167635379">
+                                    <a href="#" data-google-lang="ml" class="jsx-2167635379" style="color:{{$header_text_color}};">
                                         Malayalam
                                     </a>
-                                    <a href="#" data-google-lang="ar" class="jsx-2167635379">
+                                    <a href="#" data-google-lang="ar" class="jsx-2167635379" style="color:{{$header_text_color}};">
                                         Arabic
                                     </a>
                                 </div>
                             </div>
                             {{-- --}}
                         </div>
-                        <div class="jsx-2167635379 nhlivetv" style="background-color: {{$header_primary_color}}"><a href="https://www.youtube.com/channel/UCKi2uSNLgijzlWaVwVfZBPw" class="jsx-2167635379"><span
+                        <div class="jsx-2167635379 nhlivetv" style="background-color: {{$header_primary_color}};"><a href="https://www.youtube.com/channel/UCKi2uSNLgijzlWaVwVfZBPw" class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhlivetv-icon hsocial-sprite"></span><strong
-                                    class="jsx-2167635379">WATCH LIVE TV</strong></a></div>
+                                    class="jsx-2167635379" style="color:{{$header_primary_text_color}};">WATCH LIVE TV</strong></a></div>
                         <div class="jsx-2167635379 lnlapp">
                             <a href="https://play.google.com/store/apps/details?id=com.news.jangannews" target="_blank" rel="nofollow"
                                 class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhapp-icon hsocial-sprite"></span><strong
-                                    class="jsx-2167635379">DOWNLOAD Jangan News APP</strong>
+                                    class="jsx-2167635379" style="color:{{$header_text_color}};">DOWNLOAD Jangan News APP</strong>
                             </a>
                         </div>
-                        <div class="jsx-2167635379 nhsocial"><strong class="jsx-2167635379">Follow Us On</strong>
+                        <div class="jsx-2167635379 nhsocial" style="color:{{$header_text_color}};"><strong class="jsx-2167635379">Follow Us On</strong>
                             <?php
                             $social_headers = DB::table('socials')
                                 ->orderBy('id', 'ASC')
@@ -5196,13 +5211,13 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="jsx-2167635379 trandingTopics">
+                    <div class="jsx-2167635379 trandingTopics" style="color:{{$header_primary_color}};">
                         <span class="jsx-2167635379">Trending Topics:</span>
                         @php
                             $subcategories = DB::table('menu_categories')->where('menu_id',1)->get();
                         @endphp
                         @foreach($subcategories as $subcat)
-                            <a href="{{route('news-categories')}}?category_id={{$subcat->category_id}}" target="_self" class="jsx-2167635379">{{$subcat->title}}</a>
+                            <a style="color:{{$header_text_color}};" onmouseover="this.style.color='{{$header_primary_color}}'" onmouseout="this.style.color='{{$header_text_color}}'" href="{{route('news-categories')}}?category_id={{$subcat->category_id}}" target="_self" class="jsx-2167635379">{{$subcat->title}}</a>
                         @endforeach
                     </div>
                 </div>
@@ -5256,10 +5271,10 @@
     </nav>
 
     {{-- nav bar --}}
-    <nav class="menu-wrapper desktop-menu">
+    <nav class="menu-wrapper desktop-menu" style="background-color: {{$menu_background_color}};">
         <ul>
-            <li class="menu-list">
-                <a href="/">होम</a>
+            <li class="menu-list" onmouseover="this.style.background='{{$menu_item_hover_color}}'" onmouseout="this.style.background='{{$menu_background_color}}'">
+                <a href="/" style="color:{{$menu_text_color}};">होम</a>
             </li>
             @foreach ($category as $cat)
                 @php
@@ -5267,16 +5282,16 @@
                 @endphp
                 @if ($sub_categories->count() > 0)
                     <div class="menu-dropdown">
-                        <li class="menu-list">
-                            <a href="{{ route('news-categories') }}?category_id={{ $cat->id }}">
+                        <li class="menu-list" onmouseover="this.style.background='{{$menu_item_hover_color}}'" onmouseout="this.style.background='{{$menu_background_color}}'">
+                            <a style="color:{{$menu_text_color}};" href="{{ route('news-categories') }}?category_id={{ $cat->id }}">
                                 {{ $cat->title }}
                             </a>
                         </li>
                         <div class="sub-menu">
-                            <ul>
+                            <ul style="background: {{$menu_item_hover_color}};">
                                 @foreach ($sub_categories as $sub_category)
-                                    <li>
-                                        <a
+                                    <li onmouseover="this.style.background='{{$menu_item_hover_color}}0.5'" onmouseout="this.style.background='{{$menu_item_hover_color}}'">
+                                        <a style="color:{{$menu_text_color}};"
                                             href="{{ route('news-categories') }}?category_id={{ $cat->id }}&subcategory_id={{ $sub_category->id }}">
                                             {{ $sub_category->title }}
                                         </a>
@@ -5286,8 +5301,8 @@
                         </div>
                     </div>
                 @else
-                    <li class="menu-list">
-                        <a href="{{ route('news-categories') }}?category_id={{ $cat->id }}">
+                    <li class="menu-list" onmouseover="this.style.background='{{$menu_item_hover_color}}'" onmouseout="this.style.background='{{$menu_background_color}}'">
+                        <a href="{{ route('news-categories') }}?category_id={{ $cat->id }}" style="color:{{$menu_text_color}};">
                             {{ $cat->title }}
                         </a>
                     </li>

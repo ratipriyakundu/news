@@ -1,4 +1,74 @@
 @php
+    $template_3_background_color_exists = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_3_background_color'
+        ]
+    )->exists();
+    if($template_3_background_color_exists) {
+        $template_3_background_color = \App\Models\Attribute::where(
+            [
+                'template_id' => $id,
+                'name' => 'template_3_background_color'
+            ]
+        )->first();
+        $template_3_background_color = $template_3_background_color->value;
+    }else {
+        $template_3_background_color = '#FFFFFF';
+    }
+    $template_3_heading_color_exists = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_3_heading_color'
+        ]
+    )->exists();
+    if($template_3_heading_color_exists) {
+        $template_3_heading_color = \App\Models\Attribute::where(
+            [
+                'template_id' => $id,
+                'name' => 'template_3_heading_color'
+            ]
+        )->first();
+        $template_3_heading_color = $template_3_heading_color->value;
+    }else {
+        $template_3_heading_color = '#000000';
+    }
+    $template_3_title_color_exists = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_3_title_color'
+        ]
+    )->exists();
+    if($template_3_title_color_exists) {
+        $template_3_title_color = \App\Models\Attribute::where(
+            [
+                'template_id' => $id,
+                'name' => 'template_3_title_color'
+            ]
+        )->first();
+        $template_3_title_color = $template_3_title_color->value;
+    }else {
+        $template_3_title_color = '#000000';
+    }
+    $template_3_text_color_exists = \App\Models\Attribute::where(
+        [
+            'template_id' => $id,
+            'name' => 'template_3_text_color'
+        ]
+    )->exists();
+    if($template_3_text_color_exists) {
+        $template_3_text_color = \App\Models\Attribute::where(
+            [
+                'template_id' => $id,
+                'name' => 'template_3_text_color'
+            ]
+        )->first();
+        $template_3_text_color = $template_3_text_color->value;
+    }else {
+        $template_3_text_color = '#ffffff';
+    }
+@endphp
+@php
     $categories = \App\Models\Category::get();
 @endphp
 @php
@@ -64,7 +134,7 @@
         display: none;
     }
 </style>
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-3" style="background-color:{{$template_3_background_color}};">
     <div class="row">
         <div class="col-md-4 p-2">
             @php
@@ -73,7 +143,7 @@
                 ->first();
             @endphp
             <a class="text-decoration-none" href="news-details?news_id={{$latestLargest->id}}">
-                <p class="h3 fw-bold">
+                <p class="h3 fw-bold" style="color:{{$template_3_title_color}};">
                     {{\Str::limit($latestLargest->title,60)}}
                 </p>
                 <img src="uploads/news/{{$latestLargest->image}}" style="width:100%; height: 270px; object-fit:cover;">
@@ -86,14 +156,14 @@
                 ->orderBy('id','DESC')->skip(1)->first();
             @endphp
             <a class="text-decoration-none" href="news-details?news_id={{$latestLarger->id}}">
-                <p class="h4 fw-bold mt-4">
+                <p class="h4 fw-bold mt-4" style="color:{{$template_3_title_color}};">
                     {{\Str::limit($latestLarger->title,68)}}
                 </p>
                 <div class="row">
                     <div class="col-md-4">
                         <img src="uploads/news/{{$latestLarger->image}}" style="width:100%;height:80px; object-fit:cover;">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8" style="color:{{$template_3_title_color}};">
                         {{ \Str::limit($latestLarger->title,136) }}
                     </div>
                 </div>
@@ -110,7 +180,7 @@
                         <div class="col-md-4">
                             <img src="uploads/news/{{$latest->image}}" style="width:100%;height:80px; object-fit:cover;">
                         </div>
-                        <div class="col-md-8 fw-bold" style="font-size: 18px;">
+                        <div class="col-md-8 fw-bold" style="font-size: 18px; color:{{$template_3_title_color}};">
                             {{ \Str::limit($latest->title,81) }}
                         </div>
                     </div>
@@ -118,7 +188,7 @@
             @endforeach
         </div>
         <div class="col-md-4 py-4">
-            <p class="fw-bold h4">लोकप्रिय</p>
+            <p class="fw-bold h4" style="color:{{$template_3_heading_color}};">लोकप्रिय</p>
             @php
                 $popularSlide = $template_3_right_category_query
                 ->orderBy('id','DESC')->take(6)->get();
@@ -127,7 +197,7 @@
                 @foreach($popularSlide as $popularItem)
                     <a class="text-decoration-none" href="news-details?news_id={{$popularItem->id}}">
                         <div class="item" style="background-image: url('uploads/news/{{$popularItem->image}}');background-position:center center; background-repeat:no-repeat;bacground-size:auto;background-color:rgba(0, 0, 0, 0.5);">
-                            <div class="fw-bold slider-heading text-light" style="font-size: 18px;">
+                            <div class="fw-bold slider-heading" style="font-size: 18px; color:{{$template_3_text_color}};">
                                 {{ \Str::limit($popularItem->title,48) }}
                             </div>
                         </div>
@@ -145,7 +215,7 @@
                             <div class="col-md-4">
                                 <img src="uploads/news/{{$popular->image}}" style="width:100%;height:80px; object-fit:cover;">
                             </div>
-                            <div class="col-md-8 fw-bold" style="font-size: 18px;">
+                            <div class="col-md-8 fw-bold" style="font-size: 18px; color:{{$template_3_title_color}};">
                                 {{\Str::limit($latestLarger->title,81)}}
                             </div>
                     </div>
@@ -185,3 +255,37 @@
     </div>
 </div>
 {{-- End Edit Modal --}}
+{{-- Customize Modal --}}
+<div class="modal fade" id="customizeModal{{$id}}" tabindex="-1" aria-labelledby="customizeModal{{$id}}Label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center p-5">
+            <form action="{{route('edit-template')}}" method="POST">
+                @csrf
+                <input type="hidden" value="{{$id}}" name="id">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="">Background Color</label>
+                        <input type="color" class="form-control mb-3 mt-2" name="template_3_background_color" value="{{$template_3_background_color}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Heading Color</label>
+                        <input type="color" class="form-control mb-3 mt-2" name="template_3_heading_color" value="{{$template_3_heading_color}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Title Color</label>
+                        <input type="color" class="form-control mb-3 mt-2" name="template_3_title_color" value="{{$template_3_title_color}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Text Color</label>
+                        <input type="color" class="form-control mb-3 mt-2" name="template_3_text_color" value="{{$template_3_text_color}}">
+                    </div>
+                </div>
+                <button type="submit" name="template-3-style-save" class="custom-button button-red">Save</button>
+                <button type="submit" name="template-3-style-reset" class="custom-button">Reset</button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+{{-- End Customize Modal --}}

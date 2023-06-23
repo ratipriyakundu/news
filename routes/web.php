@@ -140,3 +140,5 @@ Route::get('/delete-reel',[ReelController::class,'deleteReel'])->name('delete-re
 //Style Route
 Route::get('/styles',[StyleController::class,'styles'])->name('styles');
 Route::post('/add-header-style',[StyleController::class,'addHeaderStyle'])->name('add-header-style');
+Route::post('/add-nav-menu-style',[StyleController::class,'addNavMenuStyle'])->name('add-nav-menu-style');
+Route::post('/add-footer-style',[StyleController::class,'addFooterStyle'])->name('add-footer-style');

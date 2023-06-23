@@ -563,6 +563,82 @@ class AttributeController extends Controller
                 }
             }
         }
+        if($request->has('template-3-style-save')) {
+            $template_3_background_color = $request->template_3_background_color;
+            $template_3_heading_color = $request->template_3_heading_color;
+            $template_3_title_color = $request->template_3_title_color;
+            $template_3_text_color = $request->template_3_text_color;
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_background_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_background_color',
+                    'value' => $template_3_background_color
+                ]
+            );
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_heading_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_heading_color',
+                    'value' => $template_3_heading_color
+                ]
+            );
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_title_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_title_color',
+                    'value' => $template_3_title_color
+                ]
+            );
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_text_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_text_color',
+                    'value' => $template_3_text_color
+                ]
+            );
+        }
+        if($request->has('template-3-style-reset')) {
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_background_color'
+                ]
+            )->delete();
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_heading_color'
+                ]
+            )->delete();
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_title_color'
+                ]
+            )->delete();
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_3_text_color'
+                ]
+            )->delete();
+        }
         return redirect()->route('home')
         ->with('success','Template Updated');
     }
