@@ -2,7 +2,29 @@
 <html>
 
 <head>
-
+    @php
+        if( \App\Models\Style::where('property','header_primary_color')->exists()) {
+          $header_primary_color = \App\Models\Style::where('property','header_primary_color')
+          ->first();
+          $header_primary_color = $header_primary_color->value;
+        }else {
+          $header_primary_color = '#e1261d';
+        }
+        if( \App\Models\Style::where('property','header_primary_text_color')->exists()) {
+          $header_primary_text_color = \App\Models\Style::where('property','header_primary_text_color')
+          ->first();
+          $header_primary_text_color = $header_primary_text_color->value;
+        }else {
+          $header_primary_text_color = '#FFFFFF';
+        }
+        if( \App\Models\Style::where('property','header_text_color')->exists()) {
+          $header_text_color = \App\Models\Style::where('property','header_text_color')
+          ->first();
+          $header_text_color = $header_text_color->value;
+        }else {
+          $header_text_color = '#001d42';
+        }
+    @endphp
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -109,7 +131,6 @@
         .topLinksWrap.jsx-2167635379 .nhlivetv.jsx-2167635379 {
             height: 26px;
             padding-left: 38px;
-            background: #e1261d;
             color: #fff;
             box-shadow: 2px 2px 4px rgba(00, 00, 00, 0.2);
             position: relative;
@@ -118,6 +139,7 @@
         .topLinksWrap.jsx-2167635379 .nhlivetv.jsx-2167635379 strong.jsx-2167635379 {
             font-size: 12px;
             color: #fff;
+            background: "<?= $header_primary_color ?>";
             border-bottom: 1px solid;
             font-weight: bold;
         }
@@ -5107,7 +5129,7 @@
                             class="jsx-2167635379" /></a></div>
                 <div class="jsx-2167635379 topRighSection">
                     <div style="display:flex;justify-content:space-between" class="jsx-2167635379 topLinksWrap">
-                        <div style="background:#e1261d;display:flex;justify-content:space-between;color:#fff;align-items:center;padding-right:0;padding-bottom:0;padding-top:1px;height:26px"
+                        <div style="background:{{$header_primary_color}};display:flex;justify-content:space-between;color:#fff;align-items:center;padding-right:0;padding-bottom:0;padding-top:1px;height:26px"
                             class="jsx-2167635379 languagebox"><span class="jsx-2167635379">CHANGE LANGUAGE</span>
                             {{-- --}}
                             <div style="background:#fff;padding-left:10px;min-width:130px;color:#6c6c6c;font-size:12px;position:relative;border-radius:0 0 7px 7px;display:flex;align-items:center;height:100%"
@@ -5151,7 +5173,7 @@
                             </div>
                             {{-- --}}
                         </div>
-                        <div class="jsx-2167635379 nhlivetv"><a href="https://www.youtube.com/channel/UCKi2uSNLgijzlWaVwVfZBPw" class="jsx-2167635379"><span
+                        <div class="jsx-2167635379 nhlivetv" style="background-color: {{$header_primary_color}}"><a href="https://www.youtube.com/channel/UCKi2uSNLgijzlWaVwVfZBPw" class="jsx-2167635379"><span
                                     class="jsx-2167635379 nhlivetv-icon hsocial-sprite"></span><strong
                                     class="jsx-2167635379">WATCH LIVE TV</strong></a></div>
                         <div class="jsx-2167635379 lnlapp">

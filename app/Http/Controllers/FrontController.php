@@ -39,8 +39,29 @@ class FrontController extends Controller
         }else {
           $hasPermission= false;
         }
+        if( \App\Models\Style::where('property','header_primary_color')->exists()) {
+          $header_primary_color = \App\Models\Style::where('property','header_primary_color')
+          ->first();
+          $header_primary_color = $header_primary_color->value;
+        }else {
+          $header_primary_color = '#e1261d';
+        }
+        if( \App\Models\Style::where('property','header_primary_text_color')->exists()) {
+          $header_primary_text_color = \App\Models\Style::where('property','header_primary_text_color')
+          ->first();
+          $header_primary_text_color = $header_primary_text_color->value;
+        }else {
+          $header_primary_text_color = '#FFFFFF';
+        }
+        if( \App\Models\Style::where('property','header_text_color')->exists()) {
+          $header_text_color = \App\Models\Style::where('property','header_text_color')
+          ->first();
+          $header_text_color = $header_text_color->value;
+        }else {
+          $header_text_color = '#001d42';
+        }
         return view('home')
-        ->with(compact(['category','news','menucategory','page','hasPermission','breakingNewsList','templates','homeTemplates']));
+        ->with(compact(['category','news','menucategory','page','hasPermission','breakingNewsList','templates','homeTemplates','header_primary_color','header_primary_text_color','header_text_color']));
     }
 
 

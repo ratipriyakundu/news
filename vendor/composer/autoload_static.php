@@ -597,6 +597,7 @@ class ComposerStaticInitea9b9957566df1022aca84ad47ea449a
         'App\\Models\\Slide' => __DIR__ . '/../..' . '/app/Models/Slide.php',
         'App\\Models\\Social' => __DIR__ . '/../..' . '/app/Models/Social.php',
         'App\\Models\\Story' => __DIR__ . '/../..' . '/app/Models/Story.php',
+        'App\\Models\\Style' => __DIR__ . '/../..' . '/app/Models/Style.php',
         'App\\Models\\Subcategory' => __DIR__ . '/../..' . '/app/Models/Subcategory.php',
         'App\\Models\\Template' => __DIR__ . '/../..' . '/app/Models/Template.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

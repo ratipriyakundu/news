@@ -1,4 +1,4 @@
-<x-front_header :category="$category" :hasPermission="$hasPermission" :breakingNewsList="$breakingNewsList"/>
+<x-front_header :category="$category" :hasPermission="$hasPermission" :breakingNewsList="$breakingNewsList" :header_primary_color="$header_primary_color" :header_primary_text_color="$header_primary_text_color" :header_text_color="$header_text_color"/>
     <div class="container-fluid my-4">
         @foreach($homeTemplates as $homeTemplate)
           <div class="template-wrapper">

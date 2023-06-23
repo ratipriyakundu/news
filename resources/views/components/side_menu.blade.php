@@ -272,6 +272,15 @@ if(in_array('Manage Subadmin',$user_prmission)){?>
               </li>
             </ul>
           </li>
+
+          <li>
+            <a href="{{route('styles')}}" class="nav-link">
+                <i class="nav-icon fas fa-cog me-3"></i>
+                <p>
+                  Styles
+                </p>
+            </a>
+          </li>
           
           <li>
             <a href="{{route('logout')}}" class="nav-link bg-danger">

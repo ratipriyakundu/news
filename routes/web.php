@@ -10,6 +10,7 @@ use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\ReelController;
 use App\Http\Controllers\SlideController;
+use App\Http\Controllers\StyleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -135,3 +136,7 @@ Route::get('/all-reel',[ReelController::class,'allReel'])->name('all-reel');
 Route::get('/add-reel',[ReelController::class,'addReel'])->name('add-reel');
 Route::post('/add-reel-store',[ReelController::class,'addReelStore'])->name('add-reel-store');
 Route::get('/delete-reel',[ReelController::class,'deleteReel'])->name('delete-reel');
+
+//Style Route
+Route::get('/styles',[StyleController::class,'styles'])->name('styles');
+Route::post('/add-header-style',[StyleController::class,'addHeaderStyle'])->name('add-header-style');

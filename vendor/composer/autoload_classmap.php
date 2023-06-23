@@ -46,6 +46,7 @@ return array(
     'App\\Models\\Slide' => $baseDir . '/app/Models/Slide.php',
     'App\\Models\\Social' => $baseDir . '/app/Models/Social.php',
     'App\\Models\\Story' => $baseDir . '/app/Models/Story.php',
+    'App\\Models\\Style' => $baseDir . '/app/Models/Style.php',
     'App\\Models\\Subcategory' => $baseDir . '/app/Models/Subcategory.php',
     'App\\Models\\Template' => $baseDir . '/app/Models/Template.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
