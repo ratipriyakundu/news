@@ -14,13 +14,23 @@
                 @csrf
                     <input type="hidden" name="user_id" value="{{request()->get('id')}}">
                  <div class="card-body">
-                 
-                    <div class="row">
-                    <div class="form-group col-md-6">
+                  @php
+                    if($user->display_name != NULL) {
+                      $display_name = $user->display_name;
+                    }else {
+                      $display_name = '';
+                    }
+                  @endphp
+                <div class="row">
+                  <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="<?php echo $user->name;?>" required="">
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1">Display Name</label>
+                    <input type="text" class="form-control" name="display_name" placeholder="Name" value="<?php echo $display_name;?>" required="">
+                  </div>
+                  <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $user->email;?>" required="">
                   </div>

@@ -15,11 +15,15 @@
                  <div class="card-body">
                  
                     <div class="row">
-                    <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Name" required="">
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputEmail1">Display Name</label>
+                    <input type="text" class="form-control" id="display_name" name="display_name" placeholder="Display Name" required="">
+                  </div>
+                  <div class="form-group col-md-4">
                     <label for="exampleInputEmail1">Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email" required="">
                   </div>
@@ -81,6 +85,7 @@
             <tr>
               <th>#</th>
               <th>Name</th>
+              <th>Display Name</th>
               <th>Email</th>
               <th>Mobile</th>
               <th>Permission</th>
@@ -92,9 +97,17 @@
           @foreach($admin as $list)
 		   <?php
        if($list->id!=1){?>
+        @php
+            if($list->display_name != NULL) {
+              $display_name = $list->display_name;
+            }else {
+              $display_name = '';
+            }
+        @endphp
             <tr>
               <th scope="row">{{$list->id}}</th>
               <td>{{$list->name}}</td>
+              <td>{{$display_name}}</td>
               <td>{{$list->email}}</td>
               <td>{{$list->mobile}}</td>
               <td>

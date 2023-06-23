@@ -104,9 +104,14 @@ $rows = $query->first();
 						\Carbon\Carbon::setLocale('hi');
 						$writter = DB::table('admins')
 						->where('id',$news->added_by)
-						->select('name')
+						->select('display_name')
 						->first();
-						$writter = $writter->name;
+						if($writter->display_name != NULL) {
+							$writter = $writter->display_name;
+						}else {
+							$writter = '';
+						}
+						
 					@endphp
 					<div class="col mobile-auth-bio-btn-group">
 						<h4 class="h6 p-0 m-0 fw-bold">{{$writter}}</h4>

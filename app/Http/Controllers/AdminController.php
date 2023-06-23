@@ -648,10 +648,11 @@ public function manage_logo(){
            } 
 
 
-     public function add_subadmin(Request $data){
+           public function add_subadmin(Request $data){
             $menu_id=$data->menu_id;
               $email=$data->email;
               $name=$data->name;
+              $display_name = $data->display_name;
               $mobile=$data->mobile;
               $pass=$data->password;
               $permission=implode(',',$data->permission);
@@ -664,6 +665,7 @@ public function manage_logo(){
               $subadmin=Admin::insert(
                   [
                       'name'=>$name,
+                      'display_name' => $display_name,
                       'email'=>$email,
                       'mobile'=>$mobile,
                       'permission'=>$permission,
@@ -678,6 +680,7 @@ public function manage_logo(){
                
             $id=$data->user_id;
              $name=$data->name;
+             $display_name = $data->display_name;
              $email=$data->email;
              $mobile=$data->mobile;
              $permission=implode(',',$data->permission);
@@ -697,6 +700,7 @@ public function manage_logo(){
                         [
                             
                             'name'=>$name,
+                            'display_name' => $display_name,
                             'email'=>$email,
                             'mobile'=>$mobile,
                             'permission'=>$permission,
