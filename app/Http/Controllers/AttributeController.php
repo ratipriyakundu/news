@@ -639,6 +639,194 @@ class AttributeController extends Controller
                 ]
             )->delete();
         }
+        if($request->has('template-4-style-save')) {
+            $template_4_background_color = $request->template_4_background_color;
+            $template_4_heading_color = $request->template_4_heading_color;
+            $template_4_title_color = $request->template_4_title_color;
+            $template_4_text_color = $request->template_4_text_color;
+            $template_4_bullet_color = $request->template_4_bullet_color;
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_background_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_background_color',
+                    'value' => $template_4_background_color
+                ]
+            );
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_heading_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_heading_color',
+                    'value' => $template_4_heading_color
+                ]
+            );
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_title_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_title_color',
+                    'value' => $template_4_title_color
+                ]
+            );
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_text_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_text_color',
+                    'value' => $template_4_text_color
+                ]
+            );
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_bullet_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_bullet_color',
+                    'value' => $template_4_bullet_color
+                ]
+            );
+        }
+        if($request->has('template-4-style-reset')) {
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_background_color'
+                ]
+            )->delete();
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_heading_color'
+                ]
+            )->delete();
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_title_color'
+                ]
+            )->delete();
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_text_color'
+                ]
+            )->delete();
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_4_bullet_color'
+                ]
+            )->delete();
+        }
+        if($request->has('template-5-style-save')) {
+            $template_5_background_color = $request->template_5_background_color;
+            $template_5_heading_color = $request->template_5_heading_color;
+            $template_5_title_color = $request->template_5_title_color;
+            $template_5_text_color = $request->template_5_text_color;
+            $template_5_bullet_color = $request->template_5_bullet_color;
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_background_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_background_color',
+                    'value' => $template_5_background_color
+                ]
+            );
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_heading_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_heading_color',
+                    'value' => $template_5_heading_color
+                ]
+            );
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_title_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_title_color',
+                    'value' => $template_5_title_color
+                ]
+            );
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_text_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_border_color',
+                    'value' => $template_5_text_color
+                ]
+            );
+            Attribute::updateOrCreate(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_bullet_color'
+                ],
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_bullet_color',
+                    'value' => $template_5_bullet_color
+                ]
+            );
+        }
+        if($request->has('template-5-style-reset')) {
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_background_color'
+                ]
+            )->delete();
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_heading_color'
+                ]
+            )->delete();
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_title_color'
+                ]
+            )->delete();
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_border_color'
+                ]
+            )->delete();
+            Attribute::where(
+                [
+                    'template_id' => $template_id,
+                    'name' => 'template_5_bullet_color'
+                ]
+            )->delete();
+        }
         return redirect()->route('home')
         ->with('success','Template Updated');
     }
