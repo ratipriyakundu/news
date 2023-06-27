@@ -362,5 +362,59 @@ $rows = $query->first();
 		</div>
 	</div>
 </div>
+<div class="row p-3">
+	<h5 class="h5 fw-bold">ताजा खबर</h5>
+	<div class="col-md-12">
+		<div class="card br-0" style="width: 100%;">
+			<div class="card-body">
+				<div class="owl-carousel-6 owl-carousel owl-theme">
+					@php
+					  $related_news_lists = \App\Models\News::orderBy('id','DESC')->take(10)->get();
+					@endphp
+					@foreach($related_news_lists as $related_news_list)
+					  <div class="item">
+						  <a class="card br-0 text-decoration-none" href="news-details?news_id={{$related_news_list->id}}" style="width: 100%;">
+							<img src="uploads/news/{{$related_news_list->image}}" class="card-img-top" style="height:200px;object-fit:cover:width:100%;">
+							<div class="card-body">
+							  <h5 class="card-title h6 fw-bold" style="height: 40px;">
+								{{\Str::limit($related_news_list->title,50)}}
+							  </h5>
+							</div>
+						  </a>
+					  </div>
+					@endforeach
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row p-3">
+	<h5 class="h5 fw-bold">ब्रेकिंग न्यूज़</h5>
+	<div class="col-md-12">
+		<div class="card br-0" style="width: 100%;">
+			<div class="card-body">
+				<div class="owl-carousel-6 owl-carousel owl-theme">
+					@php
+					  $related_news_lists = \App\Models\News::where('breaking_news','!=',NULL)
+					  ->orderBy('id','DESC')
+					  ->take(10)->get();
+					@endphp
+					@foreach($related_news_lists as $related_news_list)
+					  <div class="item">
+						  <a class="card br-0 text-decoration-none" href="news-details?news_id={{$related_news_list->id}}" style="width: 100%;">
+							<img src="uploads/news/{{$related_news_list->image}}" class="card-img-top" style="height:200px;object-fit:cover:width:100%;">
+							<div class="card-body">
+							  <h5 class="card-title h6 fw-bold" style="height: 40px;">
+								{{\Str::limit($related_news_list->title,50)}}
+							  </h5>
+							</div>
+						  </a>
+					  </div>
+					@endforeach
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <x-front_footer :menucategory="$menucategory"/>
     
