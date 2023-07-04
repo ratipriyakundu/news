@@ -226,11 +226,8 @@ public function GetSubcategoryByCategory(Request $data){
                 
             ];
         }
-        return $subcategorydata;
-
-        //return view('checkbox',compact('subcategorydata'))->render();
-        
     }
+    return view('checkbox',compact('subcategorydata'))->render();
 }
 
 
