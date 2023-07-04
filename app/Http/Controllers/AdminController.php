@@ -220,24 +220,16 @@ public function GetSubcategoryByCategory(Request $data){
         array_push($category_list,$category_ids[$i]);
     }
     $subcategory=SubCategory::whereIn("category_id",$category_list)->get();
-    return $subcategory;
-    exit();
-    foreach($category_ids as $ct){
-        
-        $subcategorydata=array();
-        foreach($subcategory as $sub){
+    $subcategorydata=array();
+    foreach($subcategory as $sub){
             
-            $subcategorydata[]=[
-                'id'=>$sub['id'],
-                'title'=>$sub['title']
-                
-            ];
-        }
-        return $subcategorydata;
-
-        //return view('checkbox',compact('subcategorydata'))->render();
-        
+        $subcategorydata[]=[
+            'id'=>$sub['id'],
+            'title'=>$sub['title']
+            
+        ];
     }
+    return view('checkbox',compact('subcategorydata'))->render();
 }
 
 
