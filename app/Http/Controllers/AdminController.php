@@ -215,8 +215,15 @@ public function post_news(){
 public function GetSubcategoryByCategory(Request $data){
    
     $category_ids=$data->category_ids;
+    $category_list = [];
+    for ($i=0; $i < count($category_ids); $i++) { 
+        array_push($category_list,$category_ids[$i]);
+    }
+    $subcategory=SubCategory::whereIn("category_id",$category_list)->get();
+    return $subcategory;
+    exit();
     foreach($category_ids as $ct){
-        $subcategory=SubCategory::where("category_id",$ct)->get();
+        
         $subcategorydata=array();
         foreach($subcategory as $sub){
             
@@ -226,8 +233,11 @@ public function GetSubcategoryByCategory(Request $data){
                 
             ];
         }
+        return $subcategorydata;
+
+        //return view('checkbox',compact('subcategorydata'))->render();
+        
     }
-    return view('checkbox',compact('subcategorydata'))->render();
 }
 
 
