@@ -15,3 +15,6 @@
     background-color: #222222;
     opacity: 0.8;
 }
+.tox .tox-notification--warn, .tox .tox-notification--warning {
+    display: none !important;
+}
