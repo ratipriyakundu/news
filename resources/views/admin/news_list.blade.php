@@ -10,7 +10,6 @@
         <thead>
             <tr>
                 <th>News Title</th>
-                <th>Description</th>
                 <th>Category</th>
                 <th>Sub-Category</th>
                 <th>News Date</th>
@@ -25,16 +24,6 @@
             <tr>
                 <td>{{Str::limit($nws->title,100,'...')}}</td>
                
-                <td>
-                  @php
-                      if($nws->description == '') {
-                        $nws->description = '';
-                      }else {
-                        $nws->description = $nws->description;
-                      }
-                  @endphp
-                  {!! html_entity_decode(Str::limit($nws->description,100,'...')) !!}
-                </td>
                 <td>
                 @php
           $categories=$nws->category;
