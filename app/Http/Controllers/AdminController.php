@@ -19,6 +19,7 @@ use App\Models\Ads;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
+use Mail;
 
 class AdminController extends Controller
 {
@@ -899,6 +900,85 @@ public function manage_contact_us(Request $value){
    return redirect()->route('manage-contact-us')->with('success',' updated successfully.');
     
 }
+    public function forgotPassword() {
+        if(session()->has('user_id')) {
+            return redirect()->route('dashboard')
+            ->with('success','You Are Already Logged In');
+        }else {
+            return view('forgot-password');
+        }
+    }
+
+    public function sendEmailCode(Request $request) {
+        $email = $request->email;
+        $emailRegistered = Admin::where('email',$email)->exists();
+        if($emailRegistered) {
+            $code = rand(100000,999999);
+            $admin = Admin::where('email',$email)->first();
+            session()->put('admin_id',$admin->id);
+            Admin::where('id',$admin->id)->update(
+                [
+                    'code' => $code
+                ]
+            );
+            Mail::send('forgot-password-template',['code' => $code],function($message) use ($email) {
+                $message->to($email)->subject('Forgot Password');
+            });
+            return redirect()->route('email-verification');
+        }else {
+            return redirect()->route('forgot-password')
+            ->with('error','Email Not Registered');
+        }
+    }
+
+    public function emailVerification() {
+        if(session()->has('user_id')) {
+            return redirect()->route('dashboard')
+            ->with('success','You Are Already Logged In');
+        }else {
+            return view('email-verification');
+        }
+    }
+
+    public function verifyEmail(Request $request) {
+        $code = $request->code;
+        $admin_id = session('admin_id');
+        $admin = Admin::where('id',$admin_id)->first();
+        if($code == $admin->code) {
+            return redirect()->route('reset-password');
+        }else {
+            return redirect()->route('email-verification')
+            ->with('error','Verification Code Wrong');
+        }
+    }
+
+    public function resetPassword() {
+        if(session()->has('user_id')) {
+            return redirect()->route('dashboard')
+            ->with('success','You Are Already Logged In');
+        }else {
+            return view('reset-password');
+        }
+    }
+
+    public function saveNewPassword(Request $request) {
+        $admin_id = session('admin_id');
+        $password = $request->password;
+        $repeat_password = $request->repeat_password;
+        if($password == $repeat_password) {
+            Admin::where('id',$admin_id)->update(
+                [
+                    'password' => Hash::make($password),
+                    'code' => NULL
+                ]
+            );
+            return redirect()->route('login')
+            ->with('success','Password Reset Successfully');
+        }else {
+            return redirect()->route('reset-password')
+            ->with('error','Password and Repeat Password Not Match');
+        }
+    }
 
 }
 

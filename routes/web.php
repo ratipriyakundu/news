@@ -107,6 +107,12 @@ Route::get('/delete-ad',[AdminController::class,'deleteAd'])->name('delete-ad');
 Route::get('manage-header-banner',[AdminController::class,'manage_header_banner'])->name('manage-header-banner');
 Route::post('update-header-banner',[AdminController::class,'update_header_banner'])->name('update-header-banner');
 Route::get('/home-page-builder',[AdminController::class,'homePageBuilder'])->name('home-page-builder');
+Route::get('/forgot-password',[AdminController::class,'forgotPassword'])->name('forgot-password');
+Route::post('/send-email-code',[AdminController::class,'sendEmailCode'])->name('send-email-code');
+Route::get('/email-verification',[AdminController::class,'emailVerification'])->name('email-verification');
+Route::post('/verify-email',[AdminController::class,'verifyEmail'])->name('verify-email');
+Route::get('/reset-password',[AdminController::class,'resetPassword'])->name('reset-password');
+Route::post('/save-new-password',[AdminController::class,'saveNewPassword'])->name('save-new-password');
 
 //Template Routes
 Route::get('/templates',[TemplateController::class,'templates'])->name('templates');
