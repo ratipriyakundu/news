@@ -30,7 +30,7 @@
                                         {{$story['slide']}}
                                     </td>
                                     <td>
-                                        <i class="fa fa-edit"></i>
+                                        <a href="{{route('edit-story')}}?id={{Crypt::encrypt($story['id'])}}" class="text-decoration-none text-warning"><i class="fa fa-edit"></i></a>
                                         <a href="{{route('delete-story')}}?id={{Crypt::encrypt($story['id'])}}" class="text-decoration-none text-danger"><i class="fa fa-trash"></i></a>
                                         <a href="{{route('add-slide')}}?id={{Crypt::encrypt($story['id'])}}" class="text-decoration-none text-primary"><i class="fa fa-plus"></i></a>
                                     </td>

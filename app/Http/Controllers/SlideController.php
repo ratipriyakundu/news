@@ -32,4 +32,33 @@ class SlideController extends Controller
         );
         return back()->with('success','Slide Added');
     }
+
+    public function editStoreSlide(Request $request) {
+        $id = $request->id;
+        $title = $request->title;
+        Slide::where('id',$id)->update(
+            [
+                'title' => $title
+            ]
+        );
+        if($request->has('slide')) {
+            $imageFile = $request->file('slide');
+            $fileName = time().$imageFile->getClientOriginalName();
+            $image = $imageFile->move('slide',$fileName);
+            Slide::where('id',$id)->update(
+                [
+                    'image' => $image
+                ]
+            );
+        }
+        return redirect()->back()
+        ->with('success','Slide Updated');
+    }
+
+    public function deleteSlide(Request $request) {
+        $id = $request->id;
+        Slide::where('id',$id)->delete();
+        return redirect()->back()
+        ->with('success','Slide Deleted');
+    }
 }

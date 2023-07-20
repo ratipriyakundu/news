@@ -99,6 +99,38 @@ class StoryController extends Controller
         ->with('success','Story added');
     }
 
+    public function editStory(Request $request){
+        if(session()->has('user_id')) {
+            $id = \Crypt::decrypt($request->id);
+            $story = Story::where('id',$id)->first();
+            $slides = Slide::where('story_id',$id)->get();
+            $categories = Category::get();
+            return view('admin.edit-story',compact(['categories','story','slides']));
+        }else {
+            return redirect()->route('admin')
+            ->with('error','Login First');
+        }
+    }
+
+    public function editStoryStore(Request $request){
+        if(session()->has('user_id')) {
+            $id = $request->story_id;
+            $title = $request->title;
+            $category_id = $request->category_id;
+            Story::where('id',$id)->update(
+                [
+                    'title' => $title,
+                    'category' => $category_id
+                ]
+            );
+            return redirect()->back()
+            ->with('success','Story Updated');
+        }else {
+            return redirect()->route('admin')
+            ->with('error','Login First');
+        }
+    }
+
     public function deleteStory(Request $request){
         $id = \Crypt::decrypt($request->id);
         Story::where('id',$id)->delete();

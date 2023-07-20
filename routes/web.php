@@ -129,12 +129,16 @@ Route::get('/story',[StoryController::class,'story'])->name('story');
 Route::get('/all-story',[StoryController::class,'allStory'])->name('all-story');
 Route::get('/add-story',[StoryController::class,'addStory'])->name('add-story');
 Route::post('/add-story-store',[StoryController::class,'addStoryStore'])->name('add-story-store');
+Route::get('/edit-story',[StoryController::class,'editStory'])->name('edit-story');
+Route::post('/edit-story-store',[StoryController::class,'editStoryStore'])->name('edit-story-store');
 Route::get('/delete-story',[StoryController::class,'deleteStory'])->name('delete-story');
 Route::post('/publish-story',[StoryController::class,'publishStory'])->name('publish-story');
 
 //Slides Route
 Route::get('/add-slide',[SlideController::class,'addSlide'])->name('add-slide');
 Route::post('/add-slide-store',[SlideController::class,'addSlideStore'])->name('add-slide-store');
+Route::post('/edit-store-slide',[SlideController::class,'editStoreSlide'])->name('edit-store-slide');
+Route::post('/delete-slide',[SlideController::class,'deleteSlide'])->name('delete-slide');
 
 //Reels Route
 Route::get('/reels',[ReelController::class,'reels'])->name('reels');
