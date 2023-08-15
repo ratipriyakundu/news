@@ -73,7 +73,7 @@ Route::post('add-news',[AdminController::class,'add_news'])->name('add-news');
 Route::get('edit-news',[AdminController::class,'edit_news'])->name('edit-news');
 Route::post('update-news',[AdminController::class,'update_news'])->name('update-news');
 Route::post('delete-news',[AdminController::class,'delete_news'])->name('delete-news');
-Route::get('বাংলাদেশের-বুকে-ঘটে-চলেছে-এক-অদ্ভুত-ঘটনা',[FrontController::class,'test_news_details'])->name('বাংলাদেশের-বুকে-ঘটে-চলেছে-এক-অদ্ভুত-ঘটনা');
+Route::get('breaking-news',[FrontController::class,'test_news_details'])->name('breaking-news');
 
 Route::post('ChangeLatestStatus',[AdminController::class,'ChangeLatestStatus'])->name('ChangeLatestStatus');
 Route::post('ChangePopular',[AdminController::class,'ChangePopular'])->name('ChangePopular');

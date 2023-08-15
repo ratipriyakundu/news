@@ -15,6 +15,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Lattitude</th>
                 <th scope="col">Longitude</th>
+                <th>Map</th>
                 <th scope="col">Time</th>
                 <th scope="col">Last Update</th>
               </tr>
@@ -31,6 +32,11 @@
                         <td>{{$i}}</td>
                         <td>{{$location->lat}}</td>
                         <td>{{$location->long}}</td>
+                        <td>
+                            <a href="http://www.google.com/maps/place/{{$lat}},{{$long}}" target="_blank">
+                                View Location
+                            </a>
+                        </td>
                         <td>{{\Carbon\Carbon::parse($location->created_at)->format('d M Y, h:i a')}}</td>
                         <td>{{\Carbon\Carbon::parse($location->updated_at)->format('d M Y, h:i a')}}</td>
                     </tr>
