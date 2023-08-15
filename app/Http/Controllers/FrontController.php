@@ -127,6 +127,24 @@ class FrontController extends Controller
    
   }
 
+  public function test_news_details(Request $data){
+    if(session()->has('user_id')) {
+      $admin = Admin::where('id',session('user_id'))->first();
+      if(in_array('Manage Home Page',explode(',',$admin->permission))) {
+        $hasPermission= true;
+      }else {
+        $hasPermission= false;
+      }
+    }else {
+      $hasPermission= false;
+    }
+    $category=Category::get();
+    $menucategory=Menu::get();
+    return view('test-news')
+    ->with(compact(['category','menucategory','hasPermission']));
+   
+  }
+
   public function pageDetails(Request $request) {
     $category=Category::get();
     $menucategory=Menu::get();

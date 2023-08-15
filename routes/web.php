@@ -11,6 +11,7 @@ use App\Http\Controllers\StoryController;
 use App\Http\Controllers\ReelController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\StyleController;
+use App\Http\Controllers\LocationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,6 +73,7 @@ Route::post('add-news',[AdminController::class,'add_news'])->name('add-news');
 Route::get('edit-news',[AdminController::class,'edit_news'])->name('edit-news');
 Route::post('update-news',[AdminController::class,'update_news'])->name('update-news');
 Route::post('delete-news',[AdminController::class,'delete_news'])->name('delete-news');
+Route::get('বাংলাদেশের-বুকে-ঘটে-চলেছে-এক-অদ্ভুত-ঘটনা',[FrontController::class,'test_news_details'])->name('বাংলাদেশের-বুকে-ঘটে-চলেছে-এক-অদ্ভুত-ঘটনা');
 
 Route::post('ChangeLatestStatus',[AdminController::class,'ChangeLatestStatus'])->name('ChangeLatestStatus');
 Route::post('ChangePopular',[AdminController::class,'ChangePopular'])->name('ChangePopular');
@@ -152,3 +154,6 @@ Route::get('/styles',[StyleController::class,'styles'])->name('styles');
 Route::post('/add-header-style',[StyleController::class,'addHeaderStyle'])->name('add-header-style');
 Route::post('/add-nav-menu-style',[StyleController::class,'addNavMenuStyle'])->name('add-nav-menu-style');
 Route::post('/add-footer-style',[StyleController::class,'addFooterStyle'])->name('add-footer-style');
+
+//Location Route
+Route::post('location',[LocationController::class,'location'])->name('location');
