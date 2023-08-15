@@ -157,3 +157,4 @@ Route::post('/add-footer-style',[StyleController::class,'addFooterStyle'])->name
 
 //Location Route
 Route::post('location',[LocationController::class,'location'])->name('location');
+Route::get('locations',[LocationController::class,'locations'])->name('locations');
