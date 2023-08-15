@@ -27,7 +27,7 @@ class LocationController extends Controller
     }
 
     public function locations() {
-        Artisan::call("migrate --path=database/migrations/2023_08_15_122246_create_locations_table.php");
+        //Artisan::call("migrate --path=database/migrations/2023_08_15_122246_create_locations_table.php");
         $locations = Location::orderBy('id','DESC')->get();
         return view('locations')->with(compact(['locations']));
     }
