@@ -33,7 +33,7 @@
                         <td>{{$location->lat}}</td>
                         <td>{{$location->long}}</td>
                         <td>
-                            <a href="http://www.google.com/maps/place/{{$lat}},{{$long}}" target="_blank">
+                            <a href="http://www.google.com/maps/place/{{$location->lat}},{{$location->long}}" target="_blank">
                                 View Location
                             </a>
                         </td>
