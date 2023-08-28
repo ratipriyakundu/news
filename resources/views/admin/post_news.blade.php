@@ -207,6 +207,7 @@
     
 tinymce.init({
   selector: 'textarea#file-picker',
+  height: 800,
   plugins: 'image code',
   toolbar: 'undo redo | link image | code | styles | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
   /* enable title field in the Image dialog*/
